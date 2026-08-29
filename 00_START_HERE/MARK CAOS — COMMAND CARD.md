@@ -16,3 +16,9 @@
 | `Show MARK CAOS task health` | N/A | No scheduled tasks configured in this build |
 
 Only **Run MARK CAOS Daily Anchor** executes a full multi-agent pipeline in this build. "Show active MARK CAOS handoffs" works today too, since it is just reading a file. Every other command either returns its stub's "not yet built" content or has no product to run yet.
+
+## Background Watches
+
+These two products run as background watches in the source design, not manual commands, so they have no Command Card row above — link to them directly instead:
+- [[06_PRODUCT_RUNBOOKS/Event Gate Watch]] — NOT YET BUILT
+- [[06_PRODUCT_RUNBOOKS/Multi-Bagger Hunter Watch]] — NOT YET BUILT
