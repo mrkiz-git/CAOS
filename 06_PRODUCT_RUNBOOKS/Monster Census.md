@@ -71,6 +71,29 @@ See [[06_PRODUCT_RUNBOOKS/Monster Census Design.md]] for the full architecture s
 - [ ] Master Ledger event produced (LOG REQUIRED) or NO LOG REQUIRED stated
 - [ ] All files linked in "Inputs Consulted" and "Full Run Map"
 
+## Integration with CAOS System
+
+### Daily Anchor Handoff Consumption
+Monster Census's Orchestrator reads the most recent Daily Anchor run's active handoffs. Every handoff is acknowledged with: `HANDOFF ACK CHECK: [HANDOFF_ID] | RECEIVED=YES | APPLIED=YES/NO | RESULTING_STATE | STILL_ACTIVE=YES/NO | RESOLVES_HANDOFF_ID`
+
+Any Hunter signals or Challenger references from Daily Anchor are cross-checked against new discoveries. If a candidate from Monster Census matches a Hunter signal, it is escalated for serious review.
+
+### Master Ledger Candidate Registry Integration
+Orchestrator reads the current Master Ledger candidate registry before underwriting. Any candidate already in the registry is flagged; new evidence is required before re-review.
+
+New Seed promotions and Challenger escalations are logged in a Master Ledger event block (human-confirmed paste required).
+
+### Active Handoff Snapshot Updates
+Material state changes (new High-Priority Challengers, new Seeds, evidence gates) are emitted as handoff blocks and added to the Active Handoff Snapshot. Only the Orchestrator writes to Active Handoff Snapshot (no agent direct writes).
+
+### Weekly Ranking Feed
+Monster Census completes Saturday morning. Weekly Ranking runs Sunday morning and consumes all Monster Census handoffs via Active Handoff Snapshot and updated Master Ledger candidate registry.
+
+New Challengers and Seeds from Monster Census are ranked against current holdings and other candidates in Weekly Ranking.
+
+### Independence from Other Products
+Monster Census is independent of Post-Open Delta Check, Emergency Thesis Rerun, DCA Execution Card, Deep Audit, and Learning Review. It has no blocking dependencies on those products and does not block their execution.
+
 ## Why this isn't built yet
 This build covers only the Daily Anchor pipeline end-to-end. This product reuses the same 9-agent roster, but its own run sequence, checklist, and output format haven't been written yet.
 
