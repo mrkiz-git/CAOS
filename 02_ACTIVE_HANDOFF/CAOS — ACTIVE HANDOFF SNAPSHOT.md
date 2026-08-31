@@ -1,9 +1,9 @@
-# MARK CAOS — Active Handoff Snapshot
+# CAOS — Active Handoff Snapshot
 
 This is the live, unresolved cross-module queue — not the holdings ledger. It contains only active, unresolved items. Never erase an unresolved item created by another module; resolve or supersede it explicitly.
 
 ## Operating Rules
-- Handoff format: see [[00_START_HERE/MARK CAOS — OPERATOR MANUAL#9. Standardized Handoff Protocol]]
+- Handoff format: see [[CAOS — OPERATOR MANUAL#9. Standardized Handoff Protocol]]
 - Every consumer must output an ACK check when it reads a handoff here.
 - Only the Orchestrator updates this file, and only when authorized and verified.
 

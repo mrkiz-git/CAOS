@@ -1,6 +1,6 @@
-# MARK CAOS — DCA Execution Card
+# CAOS — DCA Execution Card
 
-**Command:** `Prepare MARK CAOS DCA Execution Card`
+**Command:** `Prepare CAOS DCA Execution Card`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** shortly after Mark's confirmed monthly contribution date, once task capacity permits; otherwise manual whenever new cash is available
 

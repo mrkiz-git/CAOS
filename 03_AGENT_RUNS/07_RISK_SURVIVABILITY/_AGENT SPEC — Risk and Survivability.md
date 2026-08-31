@@ -11,7 +11,7 @@ Find every realistic permanent-loss path in the candidates the Underwriter has u
 
 ## Required inputs
 - Underwriter's latest dated output in `03_AGENT_RUNS/05_UNDERWRITER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (position sizes, for concentration-risk math)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (position sizes, for concentration-risk math)
 
 ## Output contract
 - File: `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_RUNID.md`
@@ -29,4 +29,4 @@ Find every realistic permanent-loss path in the candidates the Underwriter has u
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Risk and Survivability agent (Agent 7). Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run and the Master Ledger. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Risk and Survivability agent (Agent 7). Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run and the Master Ledger. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."

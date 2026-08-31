@@ -11,7 +11,7 @@ Extract and weigh a company's own forward-looking statements before any valuatio
 
 ## Required inputs
 - Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (funded-holdings list, so forward guidance is reviewed for every current holding, not only new candidates)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (funded-holdings list, so forward guidance is reviewed for every current holding, not only new candidates)
 
 ## Output contract
 - File: `03_AGENT_RUNS/03_FORWARD/FORWARD_YYYY-MM-DD_RUNID.md`
@@ -28,4 +28,4 @@ Extract and weigh a company's own forward-looking statements before any valuatio
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Forward Expectations agent (Agent 3). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Forward Expectations agent (Agent 3). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_<date>_<runid>.md` per the output contract. Do not do any other agent's job."

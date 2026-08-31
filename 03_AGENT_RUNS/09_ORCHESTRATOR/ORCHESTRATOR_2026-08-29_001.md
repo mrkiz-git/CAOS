@@ -177,7 +177,7 @@ Per Operator Manual §14 (Acceptance Tests for This Build):
 |------|--------|---------|
 | Every file described in the manual exists and is readable | ✅ PASS | All 9 agent spec files, Master Ledger, Operator Manual, Command Card, Daily Anchor runbook verified |
 | CLAUDE.md correctly directs sessions to the Operator Manual | ✅ PASS | CLAUDE.md wikilinks to Operator Manual; Operator Manual read first per design |
-| Typing `Run MARK CAOS Daily Anchor` produces auditable output | ✅ PASS | This LIMITED ANCHOR output names what ran (8 specialists complete), what didn't (no candidates, no sizing), and exactly why (holdings unknown) |
+| Typing `Run CAOS Daily Anchor` produces auditable output | ✅ PASS | This LIMITED ANCHOR output names what ran (8 specialists complete), what didn't (no candidates, no sizing), and exactly why (holdings unknown) |
 | Command Card commands return NOT YET BUILT stubs rather than improvised runs | ⏳ NOT YET TESTED | Only Daily Anchor fully built; 9 other products remain as stubs in archive |
 
 **Acceptance Test Verdict:** BUILD PASSES PHASE 1 VALIDATION. Daily Anchor runnable end-to-end in degraded mode; all 8 specialists execute correctly; governance and linkage verified. Portfolio initialization is next gate.

@@ -12,8 +12,8 @@ Search for candidates outside current holdings and watchlists, without duplicati
 
 ## Required inputs
 - Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (current holdings, so already-owned names are not "discovered" as new)
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]] (existing candidates already tracked)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (current holdings, so already-owned names are not "discovered" as new)
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] (existing candidates already tracked)
 
 ## Output contract
 - File: `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_YYYY-MM-DD_RUNID.md`
@@ -30,4 +30,4 @@ Search for candidates outside current holdings and watchlists, without duplicati
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Discovery agent (Agent 2). Read your full role spec at `03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Discovery agent (Agent 2). Read your full role spec at `03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."

@@ -1,4 +1,4 @@
-# MARK CAOS — Obsidian Multi-Agent System Design
+# CAOS — Obsidian Multi-Agent System Design
 
 Status: draft, pending user review
 Source doc: `docs/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0 (2).md`
@@ -21,16 +21,16 @@ The vault is this project's root directory (it already contains
 `.obsidian/`). Final structure:
 
 ```
-MARK CAOS — Canonical System/
+CAOS — Canonical System/
 ├── CLAUDE.md
 ├── 00_START_HERE/
-│   ├── MARK CAOS — START HERE.md
-│   ├── MARK CAOS — OPERATOR MANUAL.md
-│   └── MARK CAOS — COMMAND CARD.md
+│   ├── CAOS — START HERE.md
+│   ├── CAOS — OPERATOR MANUAL.md
+│   └── CAOS — COMMAND CARD.md
 ├── 01_MASTER_LEDGER/
-│   └── MARK CAOS Master Ledger — CANONICAL.md
+│   └── CAOS Master Ledger — CANONICAL.md
 ├── 02_ACTIVE_HANDOFF/
-│   └── MARK CAOS — ACTIVE HANDOFF SNAPSHOT.md
+│   └── CAOS — ACTIVE HANDOFF SNAPSHOT.md
 ├── 03_AGENT_RUNS/
 │   ├── 01_VERIFIER/
 │   │   └── _AGENT SPEC — Verifier.md
@@ -84,7 +84,7 @@ naming exactly which upstream files it read, as wikilinks:
 ```markdown
 ## Inputs Consulted
 - [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-08-28_RUN01]]
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 ```
 
 Obsidian computes backlinks automatically from these, so opening any
@@ -103,11 +103,11 @@ referencing a specific handoff link to
 ## 4. CLAUDE.md
 
 ```markdown
-# MARK CAOS
+# CAOS
 
-This is the MARK CAOS canonical vault and operating system.
+This is the CAOS canonical vault and operating system.
 
-Before doing anything else in this project, read `00_START_HERE/MARK CAOS
+Before doing anything else in this project, read `00_START_HERE/CAOS
 — OPERATOR MANUAL.md` in full and follow it exactly. It is the single
 source of truth for every law, agent role, product, and operating rule in
 this system. Do not rely on assumptions, prior conversations, or general
@@ -209,8 +209,8 @@ before any downstream agent reasons about them.
 - Produce a Source Readiness table and a data-quality verdict.
 
 ## Required inputs
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/01_VERIFIER/VERIFIER_YYYY-MM-DD_RUNID.md`
@@ -230,7 +230,7 @@ Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED
 | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Verifier agent (Agent 1). Read your full role spec
+"You are the CAOS Verifier agent (Agent 1). Read your full role spec
 at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md` in this vault and
 follow it exactly. Read the Master Ledger and Active Handoff Snapshot at
 the paths it lists. Write today's output to
@@ -270,7 +270,7 @@ roles.
 
 `06_PRODUCT_RUNBOOKS/Daily Anchor.md` contains:
 
-- **Trigger:** `Run MARK CAOS Daily Anchor`
+- **Trigger:** `Run CAOS Daily Anchor`
 - **Schedule note:** "Manual only — no automation configured. Run this by
   typing the command above."
 - **Precondition check:** read the Master Ledger; if portfolio state is
@@ -314,7 +314,7 @@ roles.
 ## 8. Product stub template (9 files)
 
 ```markdown
-# MARK CAOS — <Product Name>
+# CAOS — <Product Name>
 
 **Command:** `<exact Command Card command>`
 **Status:** NOT YET BUILT
@@ -338,7 +338,7 @@ Gate Watch, Multi-Bagger Hunter Watch.
 
 ## 9. Execution model (worked example)
 
-When Mark types `Run MARK CAOS Daily Anchor` in a Claude Code session
+When Mark types `Run CAOS Daily Anchor` in a Claude Code session
 opened in this vault:
 
 1. `CLAUDE.md` has already directed Claude to read the Operator Manual at
@@ -381,7 +381,7 @@ directly.
 
 - Every file in §2's tree exists and is readable.
 - `CLAUDE.md` correctly directs a fresh session to the Operator Manual.
-- Typing `Run MARK CAOS Daily Anchor` in a vault-rooted session produces,
+- Typing `Run CAOS Daily Anchor` in a vault-rooted session produces,
   at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating
   exactly what ran and what didn't (never a silent failure), and — if all
   8 specialist calls succeed — a full Anchor verdict with all 8

@@ -1,6 +1,6 @@
-# MARK CAOS — Post-Open Delta Check
+# CAOS — Post-Open Delta Check
 
-**Command:** `Run MARK CAOS Post-Open Delta Check`
+**Command:** `Run CAOS Post-Open Delta Check`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** ad hoc, intraday after market open
 

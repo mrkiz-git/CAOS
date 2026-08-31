@@ -1,6 +1,6 @@
-# MARK CAOS — Deep Audit
+# CAOS — Deep Audit
 
-**Command:** `Run MARK CAOS Deep Audit`
+**Command:** `Run CAOS Deep Audit`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** manual only
 

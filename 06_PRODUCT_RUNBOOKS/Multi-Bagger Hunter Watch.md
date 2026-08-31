@@ -1,6 +1,6 @@
-# MARK CAOS — Multi-Bagger Hunter Watch
+# CAOS — Multi-Bagger Hunter Watch
 
-**Command:** `MARK CAOS Multi-Bagger Hunter Watch` (background watch, no manual trigger phrase in the source doc)
+**Command:** `CAOS Multi-Bagger Hunter Watch` (background watch, no manual trigger phrase in the source doc)
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** daily condition watch, at most hourly
 

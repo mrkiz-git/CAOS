@@ -1,6 +1,6 @@
-# MARK CAOS — Learning Review
+# CAOS — Learning Review
 
-**Command:** `Run MARK CAOS Learning Review`
+**Command:** `Run CAOS Learning Review`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** monthly, after a completed Deep Audit and Flight Recorder — third day of the month at 10:00, Mark's confirmed timezone, if task capacity permits
 

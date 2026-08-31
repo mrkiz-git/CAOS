@@ -1,11 +1,11 @@
-# MARK CAOS — Daily Anchor
+# CAOS — Daily Anchor
 
-**Command:** `Run MARK CAOS Daily Anchor`
+**Command:** `Run CAOS Daily Anchor`
 **Status:** ACTIVE
 **Default schedule (inactive):** Monday–Friday 18:15, Mark's confirmed timezone — not configured; run this by typing the command above.
 
 ## Precondition check
-Before calling any agent, read [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]. If its status is `UNINITIALIZED` or stale, this run operates in **RESEARCH-ONLY / DEGRADED mode**: state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` up front, and every checklist item below that depends on real holdings/cash reports that status instead of a fabricated result. Discovery and underwriting work still proceeds in full.
+Before calling any agent, read [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]. If its status is `UNINITIALIZED` or stale, this run operates in **RESEARCH-ONLY / DEGRADED mode**: state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` up front, and every checklist item below that depends on real holdings/cash reports that status instead of a fabricated result. Discovery and underwriting work still proceeds in full.
 
 ## The 19 mandatory work items and who produces them
 1. First-line verdict — produced by the Orchestrator, last step.

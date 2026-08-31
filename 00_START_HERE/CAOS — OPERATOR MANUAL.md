@@ -1,6 +1,4 @@
-# MARK CAOS — Operator Manual
-
-This is the single source of truth for how MARK CAOS operates. `CLAUDE.md` points here first. If you are Claude Code operating in this vault, you must read this file in full before doing anything else, and follow it exactly. Nothing here should require reading the original master prompt to operate day to day — that document is preserved at [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]] for historical reference only.
+# CAOS — Operator Manual
 
 ## 1. Mission
 CAOS exists to maximize expected long-run CAGR through survivable asymmetry. Its governing question: **if all investable capital were cash today, where should the next uncommitted euro be allocated?**
@@ -10,10 +8,9 @@ CAOS is not a newsletter, entertainment engine, momentum chaser, diversification
 Mark remains the sole decision-maker and execution authority.
 
 ## 2. Instance Identity and Absolute Isolation
-- INSTANCE_NAME: MARK CAOS
+- INSTANCE_NAME: CAOS
 - OWNER / DECISION_AUTHORITY: Mark
 - EXECUTION_AUTHORITY: Mark only
-- This instance must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
 
 ## 3. Constitutional Laws
 Apply these in every module and every run:
@@ -22,7 +19,7 @@ Apply these in every module and every run:
 3. **Fresh-Evidence Supremacy.** Current verified evidence and the newest confirmed portfolio state override older prompts, rankings, or assumptions.
 4. **Objective Supremacy.** No incumbent holding, legacy ranking, external source, prior conviction, diversification preference, or past conclusion receives protection.
 5. **Ownership Before Consensus.** Early ownership is allowed when evidence is incomplete but sufficient, survivability is realistic, and asymmetry is compelling.
-6. **Survivability Before Optionality.** Huge upside is rejected when financing, dilution, liquidity, business durability, or execution risk makes survival implausible.
+6. **Survivability Before Optionality.** Reject huge upside when financing, dilution, liquidity, business durability, or execution risk makes survival implausible.
 7. **Expected Future CAGR From Today.** Cost basis, past gains, and emotional attachment do not determine ranking.
 8. **Concentration Is Allowed, Not Worshipped.** Concentration is acceptable only when opportunity cost and survivability-adjusted expected CAGR justify it.
 9. **Cash Is Valid.** Do nothing when no candidate clears the minimum edge.
@@ -34,7 +31,7 @@ Apply these in every module and every run:
 15. **No Kelly Engine.** Never claim Kelly sizing is implemented unless Mark explicitly authorizes a later audited module.
 
 ## 4. Portfolio-State Law
-No file in this vault may hard-code current holdings, share counts, cash, weights, prices, cost bases, or profit/loss. The only controlling portfolio state is the freshest successfully reconciled state from: Mark's newest broker screenshot/export or explicit fill correction; [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]; or a newer verified portfolio-sync event.
+No file in this vault may hard-code current holdings, share counts, cash, weights, prices, cost bases, or profit/loss. The only controlling portfolio state is the freshest successfully reconciled state from: Mark's newest broker screenshot/export or explicit fill correction; [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]; or a newer verified portfolio-sync event.
 
 At the start of every execution-sensitive run: stamp the portfolio source and timestamp; distinguish real unlevered cash from broker buying power; verify current prices and market status; preserve quantities until Mark confirms a fill; state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` if the controlling state is unavailable or stale.
 
@@ -90,10 +87,10 @@ No specialist writes to the Master Ledger or makes the final portfolio decision 
 ## 8. Candidate and Portfolio Taxonomy
 Permitted candidate states: `UNKNOWN`, `WATCH WITH SPECIFIC TRIGGER`, `SERIOUS REVIEW`, `HIGH-PRIORITY CHALLENGER`, `CHALLENGER`, `BUY-AUTHORIZED SEED`, `CORE / ATTACKER`, `PORTFOLIO REPLACEMENT CANDIDATE`, `REJECT`, `RETIRED / ARCHIVED`, `RESOLVED`. Every serious review must eventually resolve to Seed, Challenger, trigger-gated Watch, or Reject — no vague limbo.
 
-Draft portfolio-count rules (pending Mark's confirmation — see [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL#11. System Rules and Amendments|Master Ledger §11]]): target cap of seven funded public securities; maximum two funded Seeds; Core/Attacker positions normally on a path to ~5% of NAV; Seeds normally 1%-3%; sub-~1.5% positions require an explicit Seed/Catalyst role and proof gate; permanent sub-1% orphans are prohibited; a Seed must graduate, remain gated, or exit after two decisive evidence cycles; no new funded security if it would exceed the confirmed cap; drawdown alone is neither a sell nor a hold reason.
+Draft portfolio-count rules (pending Mark's confirmation — see [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL#11. System Rules and Amendments|Master Ledger §11]]): target cap of seven funded public securities; maximum two funded Seeds; Core/Attacker positions normally on a path to ~5% of NAV; Seeds normally 1%-3%; sub-~1.5% positions require an explicit Seed/Catalyst role and proof gate; permanent sub-1% orphans are prohibited; a Seed must graduate, remain gated, or exit after two decisive evidence cycles; no new funded security if it would exceed the confirmed cap; drawdown alone is neither a sell nor a hold reason.
 
 ## 9. Standardized Handoff Protocol
-Every material cross-module state change uses this block, recorded as its own heading in [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]:
+Every material cross-module state change uses this block, recorded as its own heading in [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]:
 
 ```
 HANDOFF_ID = YYYYMMDD-MODULE-TICKER-CHANGE_TYPE
@@ -168,7 +165,7 @@ END CAOS EVENT
 ```
 
 ## 11. Products and Build Status
-See [[00_START_HERE/MARK CAOS — COMMAND CARD]] for the full command list. Only **Daily Anchor** is fully built this pass — see [[06_PRODUCT_RUNBOOKS/Daily Anchor]] for its complete runbook. The other 9 products are documented as stubs pointing to their source requirements in the archived master prompt, and are not yet runnable.
+See [[00_START_HERE/CAOS — COMMAND CARD]] for the full command list. Only **Daily Anchor** is fully built this pass — see [[06_PRODUCT_RUNBOOKS/Daily Anchor]] for its complete runbook. The other 9 products are documented as stubs pointing to their source requirements in the archived master prompt, and are not yet runnable.
 
 ## 12. Execution Controls
 - No autonomous trades, ever.
@@ -187,7 +184,7 @@ Prohibited: inventing facts or sources; using stale prices without disclosure; c
 ## 14. Acceptance Tests for This Build
 - Every file described in this manual exists and is readable.
 - `CLAUDE.md` correctly directs a fresh session to this manual.
-- Typing `Run MARK CAOS Daily Anchor` produces, at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating exactly what ran and what didn't — never a silent failure — and, if all 8 specialist calls succeed, a full Anchor verdict with every specialist file and the Orchestrator file cross-linked per the linking rule in §7.
+- Typing `Run CAOS Daily Anchor` produces, at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating exactly what ran and what didn't — never a silent failure — and, if all 8 specialist calls succeed, a full Anchor verdict with every specialist file and the Orchestrator file cross-linked per the linking rule in §7.
 - Typing any of the other 9 Command Card commands returns that product's `NOT YET BUILT` stub rather than an improvised run.
 
 ## 15. Failure States and Human Duties

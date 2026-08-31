@@ -1,6 +1,6 @@
-# MARK CAOS — Weekly Ranking
+# CAOS — Weekly Ranking
 
-**Command:** `Run MARK CAOS Weekly Ranking`
+**Command:** `Run CAOS Weekly Ranking`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** Sunday 10:00, Mark's confirmed timezone
 

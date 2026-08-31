@@ -30,7 +30,7 @@ The human owner remains the sole decision-maker and execution authority.
 
 Create a new namespace:
 
-- `INSTANCE_NAME = MARK CAOS`
+- `INSTANCE_NAME = CAOS`
 - `OWNER = Mark`
 - `DECISION_AUTHORITY = Mark`
 - `EXECUTION_AUTHORITY = Mark only`
@@ -63,7 +63,7 @@ No governing prompt or manual may hard-code current holdings, share counts, cash
 The only controlling portfolio state is the freshest successfully reconciled state from:
 
 1. Mark's newest broker screenshot/export or explicit fill correction;
-2. the exact current file `MARK CAOS Master Ledger — CANONICAL`;
+2. the exact current file `CAOS Master Ledger — CANONICAL`;
 3. a newer verified portfolio-sync event.
 
 At the start of every execution-sensitive run:
@@ -139,15 +139,15 @@ here is a suggestion for a structure
 
 
 ```text
-MARK CAOS — Canonical System/
+CAOS — Canonical System/
 ├── 00_START_HERE/
-│   └── MARK CAOS — START HERE
-│   └── MARK CAOS — OPERATOR MANUAL
-│   └── MARK CAOS — COMMAND CARD
+│   └── CAOS — START HERE
+│   └── CAOS — OPERATOR MANUAL
+│   └── CAOS — COMMAND CARD
 ├── 01_MASTER_LEDGER/
-│   └── MARK CAOS Master Ledger — CANONICAL
+│   └── CAOS Master Ledger — CANONICAL
 ├── 02_ACTIVE_HANDOFF/
-│   └── MARK CAOS — ACTIVE HANDOFF SNAPSHOT
+│   └── CAOS — ACTIVE HANDOFF SNAPSHOT
 ├── 03_AGENT_RUNS/
 │   ├── 00_INBOX/
 │   ├── 01_VERIFIER/
@@ -187,18 +187,18 @@ The Operator Manual must explain the complete machine in plain language: doctrin
 
 The one-page Command Card must show at minimum:
 
-- `Run MARK CAOS Daily Anchor`
-- `Run MARK CAOS Post-Open Delta Check`
-- `Run MARK CAOS Emergency Thesis Rerun: <ticker/event>`
-- `Prepare MARK CAOS DCA Execution Card`
-- `Run MARK CAOS Monster Census`
-- `Run MARK CAOS Weekly Ranking`
-- `Run MARK CAOS Deep Audit`
-- `Run MARK CAOS Learning Review`
-- `Audit MARK CAOS Master Ledger`
-- `Reconcile MARK CAOS portfolio from this screenshot`
-- `Show active MARK CAOS handoffs`
-- `Show MARK CAOS task health`
+- `Run CAOS Daily Anchor`
+- `Run CAOS Post-Open Delta Check`
+- `Run CAOS Emergency Thesis Rerun: <ticker/event>`
+- `Prepare CAOS DCA Execution Card`
+- `Run CAOS Monster Census`
+- `Run CAOS Weekly Ranking`
+- `Run CAOS Deep Audit`
+- `Run CAOS Learning Review`
+- `Audit CAOS Master Ledger`
+- `Reconcile CAOS portfolio from this screenshot`
+- `Show active CAOS handoffs`
+- `Show CAOS task health`
 
 ### Master Ledger
 
@@ -467,7 +467,7 @@ Parallelize only independent lanes. Dependent agents must wait for their source 
 
 Create a scheduled task titled:
 
-`MARK CAOS Daily Anchor`
+`CAOS Daily Anchor`
 
 Default schedule: Monday–Friday at **18:15 in Mark's confirmed timezone**.
 
@@ -512,7 +512,7 @@ Execution rules:
 
 Create a scheduled task titled:
 
-`MARK CAOS Multi-Bagger Hunter Watch`
+`CAOS Multi-Bagger Hunter Watch`
 
 Default schedule: daily condition watch, at most the platform-supported frequency and no more frequently than hourly.
 
@@ -536,7 +536,7 @@ No material change means no artificial escalation and no duplicate event.
 
 Create a scheduled task titled:
 
-`MARK CAOS Monster Census`
+`CAOS Monster Census`
 
 Default schedule: Saturday at **09:00 in Mark's confirmed timezone**.
 
@@ -570,7 +570,7 @@ Discovery lanes include, without being limited to:
 
 Create a scheduled task titled:
 
-`MARK CAOS Weekly Ranking`
+`CAOS Weekly Ranking`
 
 Default schedule: Sunday at **10:00 in Mark's confirmed timezone**.
 
@@ -589,14 +589,14 @@ Mandatory Weekly work:
 On the first Weekly run of each calendar month, also perform:
 
 1. **Architecture Maintenance:** portfolio baseline, candidate registry, stale gates, task health, notification health, prompt contradictions, handoff linkage, duplicate/superseded logic, ledger-worthy changes and unresolved lessons.
-2. **Manual Deep Audit Reminder:** tell Mark to type `Run MARK CAOS Deep Audit`.
+2. **Manual Deep Audit Reminder:** tell Mark to type `Run CAOS Deep Audit`.
 3. **Family-Wealth Architecture Check:** determine only whether portfolio/family scale, legal/tax changes, or expected benefits justify a dedicated professional review. Do not autonomously recommend or implement trusts, companies, tax structures or legal action. If not justified, state `FAMILY WEALTH ARCHITECTURE: NO ACTION` and the next trigger.
 
 ## 16. Event Gate Watch
 
 Create a scheduled task titled:
 
-`MARK CAOS Event Gate Watch`
+`CAOS Event Gate Watch`
 
 Default schedule: daily at **02:00 in Mark's confirmed timezone**.
 
@@ -627,22 +627,22 @@ First determine Mark's active-task limit.
 
 If the plan allows at least eight active tasks, keep these separate:
 
-1. MARK CAOS Daily Anchor
-2. MARK CAOS Multi-Bagger Hunter Watch
-3. MARK CAOS Monster Census
-4. MARK CAOS Weekly Ranking
-5. MARK CAOS Event Gate Watch
-6. MARK CAOS DCA Execution Card
-7. MARK CAOS Deep Audit Reminder
-8. MARK CAOS Learning Review
+1. CAOS Daily Anchor
+2. CAOS Multi-Bagger Hunter Watch
+3. CAOS Monster Census
+4. CAOS Weekly Ranking
+5. CAOS Event Gate Watch
+6. CAOS DCA Execution Card
+7. CAOS Deep Audit Reminder
+8. CAOS Learning Review
 
 If the plan allows only five active tasks, preserve every module without pretending all eight are separate automations:
 
-1. `MARK CAOS Daily Anchor`
-2. `MARK CAOS Hunter + Event Gate Watch` — combines external Hunter deduplication and official post-event evidence gates.
-3. `MARK CAOS Monster Census`
-4. `MARK CAOS Weekly Ranking`
-5. `MARK CAOS Monthly Operations` — runs the DCA checkpoint on Mark's confirmed contribution date, issues the manual Deep Audit reminder, and runs the Learning Review only after a completed Deep Audit/Flight Recorder is available.
+1. `CAOS Daily Anchor`
+2. `CAOS Hunter + Event Gate Watch` — combines external Hunter deduplication and official post-event evidence gates.
+3. `CAOS Monster Census`
+4. `CAOS Weekly Ranking`
+5. `CAOS Monthly Operations` — runs the DCA checkpoint on Mark's confirmed contribution date, issues the manual Deep Audit reminder, and runs the Learning Review only after a completed Deep Audit/Flight Recorder is available.
 
 In the five-task configuration, DCA Execution Card, Deep Audit and Learning Review remain distinct named products with separate outputs and rules even when one scheduled container coordinates them. Never silently drop a module because of the task limit.
 
@@ -652,7 +652,7 @@ Do not create duplicate reminders. Piggyback architecture maintenance and the fa
 
 Manual command:
 
-`Prepare MARK CAOS DCA Execution Card`
+`Prepare CAOS DCA Execution Card`
 
 If Mark confirms a stable monthly contribution date and task capacity permits, schedule it shortly after the deposit is expected. Otherwise keep it manual and invoke it whenever Mark says new cash is available.
 
@@ -681,7 +681,7 @@ Workflow:
 Required output:
 
 ```text
-MARK CAOS DCA CARD: BUY | PARTIAL DEPLOY | HOLD CASH | REVIEW
+CAOS DCA CARD: BUY | PARTIAL DEPLOY | HOLD CASH | REVIEW
 1. TICKER — ACTION — exact shares only when execution-ready
 2. Optional second ticker
 Ammo to use/keep =
@@ -699,7 +699,7 @@ The DCA card is not automatic equal feeding. It must never deploy simply because
 
 Manual command:
 
-`Run MARK CAOS Deep Audit`
+`Run CAOS Deep Audit`
 
 The Deep Audit must:
 
@@ -726,7 +726,7 @@ Deep Audit must also audit the Master Ledger itself:
 
 Manual command:
 
-`Run MARK CAOS Learning Review`
+`Run CAOS Learning Review`
 
 Default cadence: monthly, after the Deep Audit and Flight Recorder. If task capacity permits, schedule it on the third day of each month at 10:00 in Mark's timezone; otherwise coordinate it through Monthly Operations or the first Weekly run after the Deep Audit.
 
@@ -866,7 +866,7 @@ Certification statuses must remain separate:
 - `SOURCE READINESS = PASS / DEGRADED`
 - `EXECUTION READINESS = PASS / BLOCKED`
 
-Do not declare `MARK CAOS PRODUCTION CERTIFIED` unless architecture, canonical linkage, task schedules and one observed notification/delivery test pass. Portfolio execution readiness also requires a fresh reconciled portfolio and cash state.
+Do not declare `CAOS PRODUCTION CERTIFIED` unless architecture, canonical linkage, task schedules and one observed notification/delivery test pass. Portfolio execution readiness also requires a fresh reconciled portfolio and cash state.
 
 ## 23. Required final installer report
 
@@ -891,4 +891,4 @@ Never imply that a prompt alone completed connections, file writes, task creatio
 
 ## Expected first response from Mark's ChatGPT
 
-The destination assistant should acknowledge that it is creating an **independent MARK CAOS**, verify available capabilities, and ask Mark for the one-time intake in a single grouped request. It should not immediately recommend stocks or copy Bill's portfolio.
+The destination assistant should acknowledge that it is creating an **independent CAOS**, verify available capabilities, and ask Mark for the one-time intake in a single grouped request. It should not immediately recommend stocks or copy Bill's portfolio.

@@ -1,19 +1,19 @@
-# MARK CAOS — START HERE
+# CAOS — START HERE
 
 ## Instance Identity
-- INSTANCE_NAME: MARK CAOS
+- INSTANCE_NAME: CAOS
 - OWNER: Mark
 - DECISION_AUTHORITY: Mark
 - EXECUTION_AUTHORITY: Mark only
 
 ## Absolute Isolation Rule
-This is an independent MARK CAOS instance. It must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
+This is an independent CAOS instance. It must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
 
 ## Canonical Links
-- Operator Manual: [[00_START_HERE/MARK CAOS — OPERATOR MANUAL]]
-- Command Card: [[00_START_HERE/MARK CAOS — COMMAND CARD]]
-- Master Ledger: [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]
-- Active Handoff Snapshot: [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- Operator Manual: [[CAOS — OPERATOR MANUAL]]
+- Command Card: [[00_START_HERE/CAOS — COMMAND CARD]]
+- Master Ledger: [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]
+- Active Handoff Snapshot: [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 - Archived original master prompt: [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]]
 
 ## Installed Capabilities and Provider Status
@@ -27,7 +27,7 @@ This is an independent MARK CAOS instance. It must never connect to, copy, or mo
 None scheduled. All products are invoked manually via the Command Card commands.
 
 ## Manual Commands
-See [[00_START_HERE/MARK CAOS — COMMAND CARD]] for the full list and build status.
+See [[00_START_HERE/CAOS — COMMAND CARD]] for the full list and build status.
 
 ## Notification Certification State
 N/A — no automation configured in this build.

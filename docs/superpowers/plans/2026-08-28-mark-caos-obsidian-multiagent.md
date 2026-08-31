@@ -1,8 +1,8 @@
-# MARK CAOS Obsidian Multi-Agent System Implementation Plan
+# CAOS Obsidian Multi-Agent System Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build the MARK CAOS vault: full canonical folder structure, all 9 specialist agent specs, a fully working Daily Anchor product, 9 stubbed products, and a `CLAUDE.md` that points to a single Operator Manual — all as plain markdown, no code.
+**Goal:** Build the CAOS vault: full canonical folder structure, all 9 specialist agent specs, a fully working Daily Anchor product, 9 stubbed products, and a `CLAUDE.md` that points to a single Operator Manual — all as plain markdown, no code.
 
 **Architecture:** This project's root directory is the Obsidian vault. Every agent role, product runbook, and cross-file link is a markdown file. Orchestration at run time is Claude reading a runbook and calling the Agent tool directly (parallel steps = multiple Agent tool calls in one turn); no Workflow script or custom subagent registration is used.
 
@@ -59,11 +59,11 @@ Expected: all 17 directories listed (the 8 top-level `0X_*` folders plus the 9 `
 Use the Write tool to create `CLAUDE.md` with exactly this content:
 
 ```markdown
-# MARK CAOS
+# CAOS
 
-This is the MARK CAOS canonical vault and operating system.
+This is the CAOS canonical vault and operating system.
 
-Before doing anything else in this project, read `00_START_HERE/MARK CAOS — OPERATOR MANUAL.md` in full and follow it exactly. It is the single source of truth for every law, agent role, product, and operating rule in this system. Do not rely on assumptions, prior conversations, or general knowledge about CAOS — only this vault's current content governs.
+Before doing anything else in this project, read `00_START_HERE/CAOS — OPERATOR MANUAL.md` in full and follow it exactly. It is the single source of truth for every law, agent role, product, and operating rule in this system. Do not rely on assumptions, prior conversations, or general knowledge about CAOS — only this vault's current content governs.
 
 If the Operator Manual is missing or unreadable, stop and tell the user before doing anything else.
 ```
@@ -125,23 +125,23 @@ Expected output includes these exact lines (among others):
 ## Task 3: Master Ledger and Active Handoff Snapshot templates
 
 **Files:**
-- Create: `01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL.md`
-- Create: `02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT.md`
+- Create: `01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL.md`
+- Create: `02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT.md`
 
 **Interfaces:**
 - Consumes: nothing.
-- Produces: two files every later task (agent specs, Daily Anchor runbook, Operator Manual) wikilinks to as `[[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]` and `[[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]`. Heading `## 11. System Rules and Amendments` in the Ledger is a link target used by Task 16.
+- Produces: two files every later task (agent specs, Daily Anchor runbook, Operator Manual) wikilinks to as `[[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]` and `[[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]`. Heading `## 11. System Rules and Amendments` in the Ledger is a link target used by Task 16.
 
 - [ ] **Step 1: Write the Master Ledger template**
 
-Use the Write tool to create `01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL.md`:
+Use the Write tool to create `01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL.md`:
 
 ```markdown
-# MARK CAOS Master Ledger — CANONICAL
+# CAOS Master Ledger — CANONICAL
 
-STATUS: UNINITIALIZED — pending Mark's one-time intake (see [[00_START_HERE/MARK CAOS — OPERATOR MANUAL#5. One-Time Installation Intake]])
+STATUS: UNINITIALIZED — pending Mark's one-time intake (see [[00_START_HERE/CAOS — OPERATOR MANUAL#5. One-Time Installation Intake]])
 
-This is the sole controlling long-term portfolio and decision record for MARK CAOS. It is append-only. Corrections must state what was corrected, why, and what prior entry is superseded — history is never silently rewritten.
+This is the sole controlling long-term portfolio and decision record for CAOS. It is append-only. Corrections must state what was corrected, why, and what prior entry is superseded — history is never silently rewritten.
 
 ## 1. Current Mandate
 UNINITIALIZED — pending Mark's one-time intake.
@@ -167,7 +167,7 @@ STATUS: EMPTY
 
 ## 7. Standardized Handoff Index
 STATUS: EMPTY
-See [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]] for the live unresolved queue.
+See [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] for the live unresolved queue.
 
 ## 8. Material CAOS EVENT History
 STATUS: EMPTY
@@ -199,15 +199,15 @@ STATUS: EMPTY
 
 - [ ] **Step 2: Write the Active Handoff Snapshot template**
 
-Use the Write tool to create `02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT.md`:
+Use the Write tool to create `02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT.md`:
 
 ```markdown
-# MARK CAOS — Active Handoff Snapshot
+# CAOS — Active Handoff Snapshot
 
 This is the live, unresolved cross-module queue — not the holdings ledger. It contains only active, unresolved items. Never erase an unresolved item created by another module; resolve or supersede it explicitly.
 
 ## Operating Rules
-- Handoff format: see [[00_START_HERE/MARK CAOS — OPERATOR MANUAL#9. Standardized Handoff Protocol]]
+- Handoff format: see [[00_START_HERE/CAOS — OPERATOR MANUAL#9. Standardized Handoff Protocol]]
 - Every consumer must output an ACK check when it reads a handoff here.
 - Only the Orchestrator updates this file, and only when authorized and verified.
 
@@ -248,8 +248,8 @@ None — file not yet updated by any run.
 
 Run:
 ```bash
-grep -c '^## ' "01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL.md"
-grep -c '^## ' "02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT.md"
+grep -c '^## ' "01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL.md"
+grep -c '^## ' "02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT.md"
 ```
 Expected: `12` for the Ledger (sections 1–12), `10` for the Snapshot (Operating Rules, Active Hunter Signals, Challengers, Seeds, Trigger Watches, Event Gates, Tribunals, Source Status, Acknowledgements, Last Writer).
 
@@ -261,7 +261,7 @@ Expected: `12` for the Ledger (sections 1–12), `10` for the Snapshot (Operatin
 - Create: `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md`
 
 **Interfaces:**
-- Consumes: `[[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]`, `[[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]` (both from Task 3).
+- Consumes: `[[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]`, `[[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]` (both from Task 3).
 - Produces: this spec file, referenced by Task 13 (Daily Anchor runbook) and Task 16 (Operator Manual roster list) as `[[03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier]]`. Establishes the closing-status-line convention (`DATA QUALITY = PASS / DEGRADED / BLOCKED`) that Tasks 5–11 each define their own version of.
 
 - [ ] **Step 1: Write the spec file**
@@ -282,8 +282,8 @@ Verify the current portfolio source, prices, and evidence hierarchy before any d
 - Produce a Source Readiness table and a data-quality verdict.
 
 ## Required inputs
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/01_VERIFIER/VERIFIER_YYYY-MM-DD_RUNID.md`
@@ -300,7 +300,7 @@ Verify the current portfolio source, prices, and evidence hierarchy before any d
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Verifier agent (Agent 1). Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md` in this vault and follow it exactly. Read the Master Ledger and Active Handoff Snapshot at the paths it lists. Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Verifier agent (Agent 1). Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md` in this vault and follow it exactly. Read the Master Ledger and Active Handoff Snapshot at the paths it lists. Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -338,8 +338,8 @@ Search for candidates outside current holdings and watchlists, without duplicati
 
 ## Required inputs
 - Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (current holdings, so already-owned names are not "discovered" as new)
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]] (existing candidates already tracked)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (current holdings, so already-owned names are not "discovered" as new)
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] (existing candidates already tracked)
 
 ## Output contract
 - File: `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_YYYY-MM-DD_RUNID.md`
@@ -356,7 +356,7 @@ Search for candidates outside current holdings and watchlists, without duplicati
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Discovery agent (Agent 2). Read your full role spec at `03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Discovery agent (Agent 2). Read your full role spec at `03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -397,7 +397,7 @@ Extract and weigh a company's own forward-looking statements before any valuatio
 
 ## Required inputs
 - Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (funded-holdings list, so forward guidance is reviewed for every current holding, not only new candidates)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (funded-holdings list, so forward guidance is reviewed for every current holding, not only new candidates)
 
 ## Output contract
 - File: `03_AGENT_RUNS/03_FORWARD/FORWARD_YYYY-MM-DD_RUNID.md`
@@ -414,7 +414,7 @@ Extract and weigh a company's own forward-looking statements before any valuatio
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Forward Expectations agent (Agent 3). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Forward Expectations agent (Agent 3). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -451,11 +451,11 @@ Map industry-level developments to their cross-portfolio implications, so no bot
 - Map industry and cross-portfolio implications.
 - Cover AI compute/neocloud, data centers, power/grid/nuclear, cooling, networking/optics, semiconductors/memory, robotics/physical AI, defense/autonomy/space, quantum, batteries, biotech automation, and other credible lanes.
 - Identify bottlenecks, second-order beneficiaries, substitution risk, and financing constraints.
-- Run the permanent NVIDIA evidence read-through whenever new NVIDIA earnings, CFO commentary, 10-Q, call material, or materially updated guidance appears: Data Center/Hyperscale demand; Blackwell and Vera Rubin demand, supply and ramp; networking, optics and memory; land, power, shell and financing constraints; China assumptions; gross margin; forward guidance; read-through to economically connected MARK CAOS holdings and challengers.
+- Run the permanent NVIDIA evidence read-through whenever new NVIDIA earnings, CFO commentary, 10-Q, call material, or materially updated guidance appears: Data Center/Hyperscale demand; Blackwell and Vera Rubin demand, supply and ramp; networking, optics and memory; land, power, shell and financing constraints; China assumptions; gross margin; forward guidance; read-through to economically connected CAOS holdings and challengers.
 
 ## Required inputs
 - Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (holdings, so read-through is mapped against what is actually owned)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (holdings, so read-through is mapped against what is actually owned)
 
 ## Output contract
 - File: `03_AGENT_RUNS/04_INDUSTRY/INDUSTRY_YYYY-MM-DD_RUNID.md`
@@ -472,7 +472,7 @@ Map industry-level developments to their cross-portfolio implications, so no bot
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Industry Read-through agent (Agent 4). Read your full role spec at `03_AGENT_RUNS/04_INDUSTRY/_AGENT SPEC — Industry Read-through.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/04_INDUSTRY/INDUSTRY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Industry Read-through agent (Agent 4). Read your full role spec at `03_AGENT_RUNS/04_INDUSTRY/_AGENT SPEC — Industry Read-through.md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` and the Master Ledger. Write today's output to `03_AGENT_RUNS/04_INDUSTRY/INDUSTRY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -533,7 +533,7 @@ Turn discovery and forward-expectations evidence into rigorously tested Monster 
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Underwriter agent (Agent 5). Read your full role spec at `03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter.md` in this vault and follow it exactly. Read Discovery's, Forward Expectations', and Industry Read-through's latest dated outputs from this run. Write today's output to `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Underwriter agent (Agent 5). Read your full role spec at `03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter.md` in this vault and follow it exactly. Read Discovery's, Forward Expectations', and Industry Read-through's latest dated outputs from this run. Write today's output to `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -577,8 +577,8 @@ Rank where the next uncommitted euro should go, tested against every real altern
 
 ## Required inputs
 - Underwriter's latest dated output in `03_AGENT_RUNS/05_UNDERWRITER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (current holdings, cash, portfolio-count rules)
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (current holdings, cash, portfolio-count rules)
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_YYYY-MM-DD_RUNID.md`
@@ -597,7 +597,7 @@ Rank where the next uncommitted euro should go, tested against every real altern
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Portfolio Court agent (Agent 6). Read your full role spec at `03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Portfolio Court agent (Agent 6). Read your full role spec at `03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run, the Master Ledger, and the Active Handoff Snapshot. Write today's output to `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -638,7 +638,7 @@ Find every realistic permanent-loss path in the candidates the Underwriter has u
 
 ## Required inputs
 - Underwriter's latest dated output in `03_AGENT_RUNS/05_UNDERWRITER/`
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]] (position sizes, for concentration-risk math)
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (position sizes, for concentration-risk math)
 
 ## Output contract
 - File: `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_RUNID.md`
@@ -656,7 +656,7 @@ Find every realistic permanent-loss path in the candidates the Underwriter has u
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Risk and Survivability agent (Agent 7). Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run and the Master Ledger. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Risk and Survivability agent (Agent 7). Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability.md` in this vault and follow it exactly. Read the Underwriter's latest dated output from this run and the Master Ledger. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -716,7 +716,7 @@ Attack the leading conclusion as hard as a genuine skeptic would, before it reac
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Red Team agent (Agent 8). Read your full role spec at `03_AGENT_RUNS/08_RED_TEAM/_AGENT SPEC — Red Team.md` in this vault and follow it exactly. Read the Underwriter's, Portfolio Court's, and Risk and Survivability's latest dated outputs from this run. Write today's output to `03_AGENT_RUNS/08_RED_TEAM/RED_TEAM_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Red Team agent (Agent 8). Read your full role spec at `03_AGENT_RUNS/08_RED_TEAM/_AGENT SPEC — Red Team.md` in this vault and follow it exactly. Read the Underwriter's, Portfolio Court's, and Risk and Survivability's latest dated outputs from this run. Write today's output to `03_AGENT_RUNS/08_RED_TEAM/RED_TEAM_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
 ```
 
 - [ ] **Step 2: Verify**
@@ -768,7 +768,7 @@ Read every specialist's output for the run, reconcile conflicts visibly, and pro
 - Portfolio Court's latest dated output — `03_AGENT_RUNS/06_PORTFOLIO_COURT/`
 - Risk and Survivability's latest dated output — `03_AGENT_RUNS/07_RISK_SURVIVABILITY/`
 - Red Team's latest dated output — `03_AGENT_RUNS/08_RED_TEAM/`
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_RUNID.md`
@@ -813,14 +813,14 @@ Expected: `7` headings (Mission, Responsibilities, Required inputs, Output contr
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Daily Anchor.md`:
 
 ```markdown
-# MARK CAOS — Daily Anchor
+# CAOS — Daily Anchor
 
-**Command:** `Run MARK CAOS Daily Anchor`
+**Command:** `Run CAOS Daily Anchor`
 **Status:** ACTIVE
 **Default schedule (inactive):** Monday–Friday 18:15, Mark's confirmed timezone — not configured; run this by typing the command above.
 
 ## Precondition check
-Before calling any agent, read [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]. If its status is `UNINITIALIZED` or stale, this run operates in **RESEARCH-ONLY / DEGRADED mode**: state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` up front, and every checklist item below that depends on real holdings/cash reports that status instead of a fabricated result. Discovery and underwriting work still proceeds in full.
+Before calling any agent, read [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]. If its status is `UNINITIALIZED` or stale, this run operates in **RESEARCH-ONLY / DEGRADED mode**: state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` up front, and every checklist item below that depends on real holdings/cash reports that status instead of a fabricated result. Discovery and underwriting work still proceeds in full.
 
 ## The 19 mandatory work items and who produces them
 1. First-line verdict — produced by the Orchestrator, last step.
@@ -904,9 +904,9 @@ Expected: `7` top-level headings (Precondition check, The 19 mandatory work item
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Post-Open Delta Check.md`:
 
 ```markdown
-# MARK CAOS — Post-Open Delta Check
+# CAOS — Post-Open Delta Check
 
-**Command:** `Run MARK CAOS Post-Open Delta Check`
+**Command:** `Run CAOS Post-Open Delta Check`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** ad hoc, intraday after market open
 
@@ -924,9 +924,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Emergency Thesis Rerun.md`:
 
 ```markdown
-# MARK CAOS — Emergency Thesis Rerun
+# CAOS — Emergency Thesis Rerun
 
-**Command:** `Run MARK CAOS Emergency Thesis Rerun: <ticker/event>`
+**Command:** `Run CAOS Emergency Thesis Rerun: <ticker/event>`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** ad hoc, triggered by Mark after material news
 
@@ -944,9 +944,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/DCA Execution Card.md`:
 
 ```markdown
-# MARK CAOS — DCA Execution Card
+# CAOS — DCA Execution Card
 
-**Command:** `Prepare MARK CAOS DCA Execution Card`
+**Command:** `Prepare CAOS DCA Execution Card`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** shortly after Mark's confirmed monthly contribution date, once task capacity permits; otherwise manual whenever new cash is available
 
@@ -964,9 +964,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Monster Census.md`:
 
 ```markdown
-# MARK CAOS — Monster Census
+# CAOS — Monster Census
 
-**Command:** `Run MARK CAOS Monster Census`
+**Command:** `Run CAOS Monster Census`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** Saturday 09:00, Mark's confirmed timezone
 
@@ -995,9 +995,9 @@ Expected: `1` for each of the four files.
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Weekly Ranking.md`:
 
 ```markdown
-# MARK CAOS — Weekly Ranking
+# CAOS — Weekly Ranking
 
-**Command:** `Run MARK CAOS Weekly Ranking`
+**Command:** `Run CAOS Weekly Ranking`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** Sunday 10:00, Mark's confirmed timezone
 
@@ -1015,9 +1015,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Deep Audit.md`:
 
 ```markdown
-# MARK CAOS — Deep Audit
+# CAOS — Deep Audit
 
-**Command:** `Run MARK CAOS Deep Audit`
+**Command:** `Run CAOS Deep Audit`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** manual only
 
@@ -1035,9 +1035,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Learning Review.md`:
 
 ```markdown
-# MARK CAOS — Learning Review
+# CAOS — Learning Review
 
-**Command:** `Run MARK CAOS Learning Review`
+**Command:** `Run CAOS Learning Review`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** monthly, after a completed Deep Audit and Flight Recorder — third day of the month at 10:00, Mark's confirmed timezone, if task capacity permits
 
@@ -1055,14 +1055,14 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Event Gate Watch.md`:
 
 ```markdown
-# MARK CAOS — Event Gate Watch
+# CAOS — Event Gate Watch
 
 **Command:** (automated watch — no manual trigger phrase in the source doc)
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** daily 02:00, Mark's confirmed timezone
 
 ## What this product will do
-Reads active event gates from the Active Handoff Snapshot and runs a post-event review only after the actual release, filing, presentation, or call material exists — a pre-release Anchor never satisfies a post-results gate. States `TRANSCRIPT PENDING` if a full transcript is unavailable. Includes the permanent NVIDIA gate: whenever NVIDIA publishes new earnings, CFO commentary, 10-Q, call material, or materially updated guidance, reviews Data Center/Hyperscale demand, Blackwell/Vera Rubin ramp, networking/optics/memory, financing constraints, China assumptions, gross margin, forward guidance, and read-through to connected MARK CAOS holdings.
+Reads active event gates from the Active Handoff Snapshot and runs a post-event review only after the actual release, filing, presentation, or call material exists — a pre-release Anchor never satisfies a post-results gate. States `TRANSCRIPT PENDING` if a full transcript is unavailable. Includes the permanent NVIDIA gate: whenever NVIDIA publishes new earnings, CFO commentary, 10-Q, call material, or materially updated guidance, reviews Data Center/Hyperscale demand, Blackwell/Vera Rubin ramp, networking/optics/memory, financing constraints, China assumptions, gross margin, forward guidance, and read-through to connected CAOS holdings.
 
 Full requirements: see [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0#16. Event Gate Watch]]
 
@@ -1075,9 +1075,9 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `06_PRODUCT_RUNBOOKS/Multi-Bagger Hunter Watch.md`:
 
 ```markdown
-# MARK CAOS — Multi-Bagger Hunter Watch
+# CAOS — Multi-Bagger Hunter Watch
 
-**Command:** `MARK CAOS Multi-Bagger Hunter Watch` (background watch, no manual trigger phrase in the source doc)
+**Command:** `CAOS Multi-Bagger Hunter Watch` (background watch, no manual trigger phrase in the source doc)
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** daily condition watch, at most hourly
 
@@ -1095,7 +1095,7 @@ This build covers only the Daily Anchor pipeline end-to-end. This product reuses
 Use the Write tool to create `04_FLIGHT_RECORDER/README — Flight Recorder.md`:
 
 ```markdown
-# MARK CAOS — Flight Recorder
+# CAOS — Flight Recorder
 
 STATUS: EMPTY — no entries yet.
 
@@ -1121,34 +1121,34 @@ Expected: `1` for each of the five product files; `1` (at least) for the Flight 
 ## Task 15: START HERE and Command Card
 
 **Files:**
-- Create: `00_START_HERE/MARK CAOS — START HERE.md`
-- Create: `00_START_HERE/MARK CAOS — COMMAND CARD.md`
+- Create: `00_START_HERE/CAOS — START HERE.md`
+- Create: `00_START_HERE/CAOS — COMMAND CARD.md`
 
 **Interfaces:**
 - Consumes: every file created in Tasks 1–14 (this task's job is to correctly summarize and link to all of them).
-- Produces: `[[00_START_HERE/MARK CAOS — START HERE]]` and `[[00_START_HERE/MARK CAOS — COMMAND CARD]]`, referenced by Task 16 (Operator Manual) and by `CLAUDE.md`'s trail (CLAUDE.md points to the Operator Manual, which points here).
+- Produces: `[[00_START_HERE/CAOS — START HERE]]` and `[[00_START_HERE/CAOS — COMMAND CARD]]`, referenced by Task 16 (Operator Manual) and by `CLAUDE.md`'s trail (CLAUDE.md points to the Operator Manual, which points here).
 
 - [ ] **Step 1: Write START HERE**
 
-Use the Write tool to create `00_START_HERE/MARK CAOS — START HERE.md`:
+Use the Write tool to create `00_START_HERE/CAOS — START HERE.md`:
 
 ```markdown
-# MARK CAOS — START HERE
+# CAOS — START HERE
 
 ## Instance Identity
-- INSTANCE_NAME: MARK CAOS
+- INSTANCE_NAME: CAOS
 - OWNER: Mark
 - DECISION_AUTHORITY: Mark
 - EXECUTION_AUTHORITY: Mark only
 
 ## Absolute Isolation Rule
-This is an independent MARK CAOS instance. It must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
+This is an independent CAOS instance. It must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
 
 ## Canonical Links
-- Operator Manual: [[00_START_HERE/MARK CAOS — OPERATOR MANUAL]]
-- Command Card: [[00_START_HERE/MARK CAOS — COMMAND CARD]]
-- Master Ledger: [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]
-- Active Handoff Snapshot: [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- Operator Manual: [[00_START_HERE/CAOS — OPERATOR MANUAL]]
+- Command Card: [[00_START_HERE/CAOS — COMMAND CARD]]
+- Master Ledger: [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]
+- Active Handoff Snapshot: [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 - Archived original master prompt: [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]]
 
 ## Installed Capabilities and Provider Status
@@ -1162,7 +1162,7 @@ This is an independent MARK CAOS instance. It must never connect to, copy, or mo
 None scheduled. All products are invoked manually via the Command Card commands.
 
 ## Manual Commands
-See [[00_START_HERE/MARK CAOS — COMMAND CARD]] for the full list and build status.
+See [[00_START_HERE/CAOS — COMMAND CARD]] for the full list and build status.
 
 ## Notification Certification State
 N/A — no automation configured in this build.
@@ -1173,27 +1173,27 @@ v1.0 — flagship build (Daily Anchor fully working; 9 other products documented
 
 - [ ] **Step 2: Write Command Card**
 
-Use the Write tool to create `00_START_HERE/MARK CAOS — COMMAND CARD.md`:
+Use the Write tool to create `00_START_HERE/CAOS — COMMAND CARD.md`:
 
 ```markdown
-# MARK CAOS — Command Card
+# CAOS — Command Card
 
 | Command | Status | Runbook |
 |---|---|---|
-| `Run MARK CAOS Daily Anchor` | ACTIVE | [[06_PRODUCT_RUNBOOKS/Daily Anchor]] |
-| `Run MARK CAOS Post-Open Delta Check` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]] |
-| `Run MARK CAOS Emergency Thesis Rerun: <ticker/event>` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Emergency Thesis Rerun]] |
-| `Prepare MARK CAOS DCA Execution Card` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/DCA Execution Card]] |
-| `Run MARK CAOS Monster Census` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Monster Census]] |
-| `Run MARK CAOS Weekly Ranking` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Weekly Ranking]] |
-| `Run MARK CAOS Deep Audit` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Deep Audit]] |
-| `Run MARK CAOS Learning Review` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Learning Review]] |
-| `Audit MARK CAOS Master Ledger` | NOT YET BUILT | Covered by Deep Audit once built |
-| `Reconcile MARK CAOS portfolio from this screenshot` | NOT YET BUILT | Portfolio intake workflow — not built this pass |
-| `Show active MARK CAOS handoffs` | ACTIVE | Read [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]] directly — no agent pipeline needed |
-| `Show MARK CAOS task health` | N/A | No scheduled tasks configured in this build |
+| `Run CAOS Daily Anchor` | ACTIVE | [[06_PRODUCT_RUNBOOKS/Daily Anchor]] |
+| `Run CAOS Post-Open Delta Check` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]] |
+| `Run CAOS Emergency Thesis Rerun: <ticker/event>` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Emergency Thesis Rerun]] |
+| `Prepare CAOS DCA Execution Card` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/DCA Execution Card]] |
+| `Run CAOS Monster Census` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Monster Census]] |
+| `Run CAOS Weekly Ranking` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Weekly Ranking]] |
+| `Run CAOS Deep Audit` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Deep Audit]] |
+| `Run CAOS Learning Review` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Learning Review]] |
+| `Audit CAOS Master Ledger` | NOT YET BUILT | Covered by Deep Audit once built |
+| `Reconcile CAOS portfolio from this screenshot` | NOT YET BUILT | Portfolio intake workflow — not built this pass |
+| `Show active CAOS handoffs` | ACTIVE | Read [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] directly — no agent pipeline needed |
+| `Show CAOS task health` | N/A | No scheduled tasks configured in this build |
 
-Only **Run MARK CAOS Daily Anchor** executes a full multi-agent pipeline in this build. "Show active MARK CAOS handoffs" works today too, since it is just reading a file. Every other command either returns its stub's "not yet built" content or has no product to run yet.
+Only **Run CAOS Daily Anchor** executes a full multi-agent pipeline in this build. "Show active CAOS handoffs" works today too, since it is just reading a file. Every other command either returns its stub's "not yet built" content or has no product to run yet.
 
 ## Background Watches
 These two products run as background watches in the source design, not manual commands, so they have no Command Card row above — link to them directly instead:
@@ -1205,9 +1205,9 @@ These two products run as background watches in the source design, not manual co
 
 Run:
 ```bash
-grep -c "ACTIVE" "00_START_HERE/MARK CAOS — START HERE.md"
-grep -c "^| \`Run\|^| \`Prepare\|^| \`Audit\|^| \`Reconcile\|^| \`Show" "00_START_HERE/MARK CAOS — COMMAND CARD.md"
-grep -c "Background Watches" "00_START_HERE/MARK CAOS — COMMAND CARD.md"
+grep -c "ACTIVE" "00_START_HERE/CAOS — START HERE.md"
+grep -c "^| \`Run\|^| \`Prepare\|^| \`Audit\|^| \`Reconcile\|^| \`Show" "00_START_HERE/CAOS — COMMAND CARD.md"
+grep -c "Background Watches" "00_START_HERE/CAOS — COMMAND CARD.md"
 ```
 Expected: at least `3` matches for "ACTIVE" in START HERE; exactly `12` command rows in the Command Card table; `1` match for "Background Watches" (confirming Event Gate Watch and Multi-Bagger Hunter Watch are linked somewhere in the vault, even though they have no manual command).
 
@@ -1216,20 +1216,20 @@ Expected: at least `3` matches for "ACTIVE" in START HERE; exactly `12` command 
 ## Task 16: Operator Manual
 
 **Files:**
-- Create: `00_START_HERE/MARK CAOS — OPERATOR MANUAL.md`
+- Create: `00_START_HERE/CAOS — OPERATOR MANUAL.md`
 
 **Interfaces:**
 - Consumes: every file created in Tasks 1–15 (this is the comprehensive synthesis document `CLAUDE.md` points to).
-- Produces: `[[00_START_HERE/MARK CAOS — OPERATOR MANUAL]]`, the single file `CLAUDE.md` (Task 1) directs every session to read first.
+- Produces: `[[00_START_HERE/CAOS — OPERATOR MANUAL]]`, the single file `CLAUDE.md` (Task 1) directs every session to read first.
 
 - [ ] **Step 1: Write the Operator Manual**
 
-Use the Write tool to create `00_START_HERE/MARK CAOS — OPERATOR MANUAL.md`:
+Use the Write tool to create `00_START_HERE/CAOS — OPERATOR MANUAL.md`:
 
 ```markdown
-# MARK CAOS — Operator Manual
+# CAOS — Operator Manual
 
-This is the single source of truth for how MARK CAOS operates. `CLAUDE.md` points here first. If you are Claude Code operating in this vault, you must read this file in full before doing anything else, and follow it exactly. Nothing here should require reading the original master prompt to operate day to day — that document is preserved at [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]] for historical reference only.
+This is the single source of truth for how CAOS operates. `CLAUDE.md` points here first. If you are Claude Code operating in this vault, you must read this file in full before doing anything else, and follow it exactly. Nothing here should require reading the original master prompt to operate day to day — that document is preserved at [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]] for historical reference only.
 
 ## 1. Mission
 CAOS exists to maximize expected long-run CAGR through survivable asymmetry. Its governing question: **if all investable capital were cash today, where should the next uncommitted euro be allocated?**
@@ -1239,7 +1239,7 @@ CAOS is not a newsletter, entertainment engine, momentum chaser, diversification
 Mark remains the sole decision-maker and execution authority.
 
 ## 2. Instance Identity and Absolute Isolation
-- INSTANCE_NAME: MARK CAOS
+- INSTANCE_NAME: CAOS
 - OWNER / DECISION_AUTHORITY: Mark
 - EXECUTION_AUTHORITY: Mark only
 - This instance must never connect to, copy, or modify Bill's personal CAOS, Bill's Master Ledger, Koziris Portfolio, or any other person's portfolio. This rule has no exceptions.
@@ -1263,7 +1263,7 @@ Apply these in every module and every run:
 15. **No Kelly Engine.** Never claim Kelly sizing is implemented unless Mark explicitly authorizes a later audited module.
 
 ## 4. Portfolio-State Law
-No file in this vault may hard-code current holdings, share counts, cash, weights, prices, cost bases, or profit/loss. The only controlling portfolio state is the freshest successfully reconciled state from: Mark's newest broker screenshot/export or explicit fill correction; [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]; or a newer verified portfolio-sync event.
+No file in this vault may hard-code current holdings, share counts, cash, weights, prices, cost bases, or profit/loss. The only controlling portfolio state is the freshest successfully reconciled state from: Mark's newest broker screenshot/export or explicit fill correction; [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]; or a newer verified portfolio-sync event.
 
 At the start of every execution-sensitive run: stamp the portfolio source and timestamp; distinguish real unlevered cash from broker buying power; verify current prices and market status; preserve quantities until Mark confirms a fill; state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` if the controlling state is unavailable or stale.
 
@@ -1319,10 +1319,10 @@ No specialist writes to the Master Ledger or makes the final portfolio decision 
 ## 8. Candidate and Portfolio Taxonomy
 Permitted candidate states: `UNKNOWN`, `WATCH WITH SPECIFIC TRIGGER`, `SERIOUS REVIEW`, `HIGH-PRIORITY CHALLENGER`, `CHALLENGER`, `BUY-AUTHORIZED SEED`, `CORE / ATTACKER`, `PORTFOLIO REPLACEMENT CANDIDATE`, `REJECT`, `RETIRED / ARCHIVED`, `RESOLVED`. Every serious review must eventually resolve to Seed, Challenger, trigger-gated Watch, or Reject — no vague limbo.
 
-Draft portfolio-count rules (pending Mark's confirmation — see [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL#11. System Rules and Amendments|Master Ledger §11]]): target cap of seven funded public securities; maximum two funded Seeds; Core/Attacker positions normally on a path to ~5% of NAV; Seeds normally 1%-3%; sub-~1.5% positions require an explicit Seed/Catalyst role and proof gate; permanent sub-1% orphans are prohibited; a Seed must graduate, remain gated, or exit after two decisive evidence cycles; no new funded security if it would exceed the confirmed cap; drawdown alone is neither a sell nor a hold reason.
+Draft portfolio-count rules (pending Mark's confirmation — see [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL#11. System Rules and Amendments|Master Ledger §11]]): target cap of seven funded public securities; maximum two funded Seeds; Core/Attacker positions normally on a path to ~5% of NAV; Seeds normally 1%-3%; sub-~1.5% positions require an explicit Seed/Catalyst role and proof gate; permanent sub-1% orphans are prohibited; a Seed must graduate, remain gated, or exit after two decisive evidence cycles; no new funded security if it would exceed the confirmed cap; drawdown alone is neither a sell nor a hold reason.
 
 ## 9. Standardized Handoff Protocol
-Every material cross-module state change uses this block, recorded as its own heading in [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]:
+Every material cross-module state change uses this block, recorded as its own heading in [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]:
 
 ```
 HANDOFF_ID = YYYYMMDD-MODULE-TICKER-CHANGE_TYPE
@@ -1397,7 +1397,7 @@ END CAOS EVENT
 ```
 
 ## 11. Products and Build Status
-See [[00_START_HERE/MARK CAOS — COMMAND CARD]] for the full command list. Only **Daily Anchor** is fully built this pass — see [[06_PRODUCT_RUNBOOKS/Daily Anchor]] for its complete runbook. The other 9 products are documented as stubs pointing to their source requirements in the archived master prompt, and are not yet runnable.
+See [[00_START_HERE/CAOS — COMMAND CARD]] for the full command list. Only **Daily Anchor** is fully built this pass — see [[06_PRODUCT_RUNBOOKS/Daily Anchor]] for its complete runbook. The other 9 products are documented as stubs pointing to their source requirements in the archived master prompt, and are not yet runnable.
 
 ## 12. Execution Controls
 - No autonomous trades, ever.
@@ -1416,7 +1416,7 @@ Prohibited: inventing facts or sources; using stale prices without disclosure; c
 ## 14. Acceptance Tests for This Build
 - Every file described in this manual exists and is readable.
 - `CLAUDE.md` correctly directs a fresh session to this manual.
-- Typing `Run MARK CAOS Daily Anchor` produces, at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating exactly what ran and what didn't — never a silent failure — and, if all 8 specialist calls succeed, a full Anchor verdict with every specialist file and the Orchestrator file cross-linked per the linking rule in §7.
+- Typing `Run CAOS Daily Anchor` produces, at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating exactly what ran and what didn't — never a silent failure — and, if all 8 specialist calls succeed, a full Anchor verdict with every specialist file and the Orchestrator file cross-linked per the linking rule in §7.
 - Typing any of the other 9 Command Card commands returns that product's `NOT YET BUILT` stub rather than an improvised run.
 
 ## 15. Failure States and Human Duties
@@ -1429,8 +1429,8 @@ Mark's duties: complete the one-time intake (§5) before expecting real portfoli
 
 Run:
 ```bash
-grep -c '^## ' "00_START_HERE/MARK CAOS — OPERATOR MANUAL.md"
-grep -c '_AGENT SPEC —' "00_START_HERE/MARK CAOS — OPERATOR MANUAL.md"
+grep -c '^## ' "00_START_HERE/CAOS — OPERATOR MANUAL.md"
+grep -c '_AGENT SPEC —' "00_START_HERE/CAOS — OPERATOR MANUAL.md"
 ```
 Expected: `15` top-level sections; `9` matches for `_AGENT SPEC —` (one link per agent role).
 
@@ -1500,7 +1500,7 @@ Expected: `(none)` for every folder — confirms no run has happened yet, so Tas
 
 - [ ] **Step 1: Trigger the run**
 
-In a Claude Code session rooted in this vault (so `CLAUDE.md` has already been read), issue the command: `Run MARK CAOS Daily Anchor`. Follow [[06_PRODUCT_RUNBOOKS/Daily Anchor]] exactly: read the Master Ledger precondition check first (expect `UNINITIALIZED`, so this run is RESEARCH-ONLY / DEGRADED mode), then execute the six-step agent call sequence from the runbook using the Agent tool (Verifier alone; Discovery+Forward+Industry in parallel; Underwriter alone; Portfolio Court+Risk in parallel; Red Team alone; Orchestrator performed directly by the primary session).
+In a Claude Code session rooted in this vault (so `CLAUDE.md` has already been read), issue the command: `Run CAOS Daily Anchor`. Follow [[06_PRODUCT_RUNBOOKS/Daily Anchor]] exactly: read the Master Ledger precondition check first (expect `UNINITIALIZED`, so this run is RESEARCH-ONLY / DEGRADED mode), then execute the six-step agent call sequence from the runbook using the Agent tool (Verifier alone; Discovery+Forward+Industry in parallel; Underwriter alone; Portfolio Court+Risk in parallel; Red Team alone; Orchestrator performed directly by the primary session).
 
 - [ ] **Step 2: Verify all 9 dated files were written**
 

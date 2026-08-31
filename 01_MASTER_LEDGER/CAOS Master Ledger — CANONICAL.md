@@ -1,8 +1,8 @@
-# MARK CAOS Master Ledger — CANONICAL
+# CAOS Master Ledger — CANONICAL
 
-STATUS: UNINITIALIZED — pending Mark's one-time intake (see [[00_START_HERE/MARK CAOS — OPERATOR MANUAL#5. One-Time Installation Intake]])
+STATUS: UNINITIALIZED — pending Mark's one-time intake (see [[CAOS — OPERATOR MANUAL#5. One-Time Installation Intake]])
 
-This is the sole controlling long-term portfolio and decision record for MARK CAOS. It is append-only. Corrections must state what was corrected, why, and what prior entry is superseded — history is never silently rewritten.
+This is the sole controlling long-term portfolio and decision record for CAOS. It is append-only. Corrections must state what was corrected, why, and what prior entry is superseded — history is never silently rewritten.
 
 ## 1. Current Mandate
 UNINITIALIZED — pending Mark's one-time intake.
@@ -28,7 +28,7 @@ STATUS: EMPTY
 
 ## 7. Standardized Handoff Index
 STATUS: EMPTY
-See [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]] for the live unresolved queue.
+See [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] for the live unresolved queue.
 
 ## 8. Material CAOS EVENT History
 STATUS: EMPTY

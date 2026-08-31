@@ -22,7 +22,7 @@ Read every specialist's output for the run, reconcile conflicts visibly, and pro
 - Portfolio Court's latest dated output — `03_AGENT_RUNS/06_PORTFOLIO_COURT/`
 - Risk and Survivability's latest dated output — `03_AGENT_RUNS/07_RISK_SURVIVABILITY/`
 - Red Team's latest dated output — `03_AGENT_RUNS/08_RED_TEAM/`
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_RUNID.md`

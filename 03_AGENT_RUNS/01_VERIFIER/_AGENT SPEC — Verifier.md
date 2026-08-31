@@ -11,8 +11,8 @@ Verify the current portfolio source, prices, and evidence hierarchy before any d
 - Produce a Source Readiness table and a data-quality verdict.
 
 ## Required inputs
-- [[01_MASTER_LEDGER/MARK CAOS Master Ledger — CANONICAL]]
-- [[02_ACTIVE_HANDOFF/MARK CAOS — ACTIVE HANDOFF SNAPSHOT]]
+- [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]]
+- [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 
 ## Output contract
 - File: `03_AGENT_RUNS/01_VERIFIER/VERIFIER_YYYY-MM-DD_RUNID.md`
@@ -29,4 +29,4 @@ Verify the current portfolio source, prices, and evidence hierarchy before any d
 Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
 
 ## Invocation prompt template
-"You are the MARK CAOS Verifier agent (Agent 1). Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md` in this vault and follow it exactly. Read the Master Ledger and Active Handoff Snapshot at the paths it lists. Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."
+"You are the CAOS Verifier agent (Agent 1). Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier.md` in this vault and follow it exactly. Read the Master Ledger and Active Handoff Snapshot at the paths it lists. Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_<date>_<runid>.md` per the output contract. Do not do any other agent's job."

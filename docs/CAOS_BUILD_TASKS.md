@@ -1,4 +1,4 @@
-# MARK CAOS — Build Task Tracker
+# CAOS — Build Task Tracker
 
 Tracks the design and build of the Obsidian + Claude Code multi-agent system
 described in `CAOS_Mark_Independent_Clone_Master_Prompt_v1.0 (2).md`. This
@@ -19,7 +19,7 @@ from a written plan rather than being re-derived.
   and calling the Agent tool directly — parallel steps use multiple Agent
   tool calls in one turn (native Claude Code behavior), not a scripted
   pipeline.
-- **CLAUDE.md is a thin pointer** to `00_START_HERE/MARK CAOS — OPERATOR
+- **CLAUDE.md is a thin pointer** to `00_START_HERE/CAOS — OPERATOR
   MANUAL.md`, which is the single generic file containing everything the
   system needs.
 - **Obsidian holds all agent descriptions, product/skill runbooks, and task

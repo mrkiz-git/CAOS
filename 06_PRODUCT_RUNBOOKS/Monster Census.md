@@ -1,6 +1,6 @@
-# MARK CAOS — Monster Census
+# CAOS — Monster Census
 
-**Command:** `Run MARK CAOS Monster Census`
+**Command:** `Run CAOS Monster Census`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** Saturday 09:00, Mark's confirmed timezone
 

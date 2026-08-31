@@ -1,6 +1,6 @@
-# MARK CAOS — Emergency Thesis Rerun
+# CAOS — Emergency Thesis Rerun
 
-**Command:** `Run MARK CAOS Emergency Thesis Rerun: <ticker/event>`
+**Command:** `Run CAOS Emergency Thesis Rerun: <ticker/event>`
 **Status:** NOT YET BUILT
 **Default schedule (inactive):** ad hoc, triggered by Mark after material news
 
