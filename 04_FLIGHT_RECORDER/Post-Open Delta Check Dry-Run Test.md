@@ -79,32 +79,32 @@ Same as Scenario 1, but artificially limit one agent's resources or use a source
 #### 1. Invoke Verifier Agent — succeeds
 - Expected: Normal execution, price snapshot created
 
-#### 2. Invoke Forward Expectations Agent — times out or returns incomplete results
-- Expected: Agent fails, times out, or produces partial results (simulating data source outage)
-- Expected state: No output file or incomplete file created
+#### 2. Invoke Forward Expectations Agent — succeeds
+- Expected: Normal execution, forward-guidance findings produced
 
 #### 3. Invoke Underwriter Agent — succeeds
-- Expected: Normal execution, thesis checks completed for available data
+- Expected: Normal execution, thesis checks completed with forward-guidance data
 
 #### 4. Invoke Portfolio Court Agent — succeeds
-- Expected: Normal execution, funded holdings re-validated
+- Expected: Normal execution, funded holdings re-validated with underwriting output
 
-#### 5. Invoke Risk & Survivability Agent — succeeds
-- Expected: Normal execution, survival recalculated
+#### 5. Invoke Risk & Survivability Agent — times out or returns error
+- Expected: Agent fails, times out, or produces partial results (simulating resource exhaustion)
+- Expected state: No output file or incomplete file created
 
 #### 6. Invoke Orchestrator with four of five agent files available
-- Expected: Orchestrator detects missing or incomplete Forward Expectations input
-- Expected behavior: Orchestrator adjusts output to reflect degraded state and continues
+- Expected: Orchestrator detects missing Risk & Survivability output file
+- Expected behavior: Orchestrator adjusts output to reflect degraded state and continues with available data
 
 ### Validation
-- [ ] Orchestrator labels run: `DELTA CHECK LIMITED — Forward Expectations incomplete` (or similar)
+- [ ] Orchestrator labels run: `DELTA CHECK LIMITED — Risk & Survivability unavailable; survival recalculation incomplete`
 - [ ] Orchestrator states which agent(s) failed and data gaps
-- [ ] Orchestrator explicitly marks evidence quality: `DATA LIMITED` for missing forward-guidance data
-- [ ] Changed Candidates table still populated with available data
+- [ ] Orchestrator explicitly marks evidence quality: `DATA LIMITED` for missing survivability data
+- [ ] Changed Candidates table still populated with available data from Verifier through Portfolio Court
 - [ ] Orchestrator does NOT emit full handoffs — states `HANDOFF BLOCKED — insufficient data`
 - [ ] Orchestrator states: `MASTER LEDGER LOGGING BLOCKED — insufficient evidence for conviction shift`
-- [ ] Output includes troubleshooting guidance (e.g., "Forward Expectations retry recommended")
-- [ ] No claim of "thesis intact" without visible evidence from available agents
+- [ ] Output includes troubleshooting guidance (e.g., "Risk & Survivability retry recommended or run full Daily Anchor re-check")
+- [ ] No claim of "survival verified" without visible evidence from Risk agent
 - [ ] Degraded state is clearly labeled (not silent failure)
 
 ---
@@ -205,7 +205,7 @@ Track all dry-run test executions in this table. Fill in details after each test
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Happy Path | 1 | TBD | | | | | | | | | |
 | Happy Path | 2 | TBD | | | | | | | | | |
-| Degraded (Forward Exp timeout) | 1 | TBD | | | | | | | | | |
+| Degraded (Risk timeout) | 1 | TBD | | | | | | | | | |
 | No Material Deltas | 1 | TBD | | | | | | | | | |
 
 **No dry-run has been executed yet.** All rows above are placeholders pending an actual test run — do not fill in results without a verified, real execution. Per Operator Manual §13, inventing a test-execution record is prohibited.
