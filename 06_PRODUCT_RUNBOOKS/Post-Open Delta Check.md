@@ -49,7 +49,7 @@ Call the Agent tool once for the Verifier, using the invocation prompt template 
 ### Step 2: Call Forward Expectations, Underwriter, Portfolio Court, Risk & Survivability (parallel)
 
 Call the Agent tool four times **in the same turn** — one call each for:
-- Forward Expectations: [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations]]
+- Forward Expectations: [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check)]]
 - Underwriter (Delta Check): [[03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check)]]
 - Portfolio Court (Delta Check): [[03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check)]]
 - Risk and Survivability (Delta Check): [[03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check)]]
@@ -317,7 +317,7 @@ Post-Open Delta Check is a **lightweight intraday validation** of Daily Anchor, 
 
 - Design Specification: [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check Design]]
 - Verifier (Delta Check) Agent: [[03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier (Delta Check)]]
-- Forward Expectations Agent: [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations]]
+- Forward Expectations Agent: [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check)]]
 - Underwriter (Delta Check) Agent: [[03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check)]]
 - Portfolio Court (Delta Check) Agent: [[03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check)]]
 - Risk and Survivability (Delta Check) Agent: [[03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check)]]
@@ -325,3 +325,4 @@ Post-Open Delta Check is a **lightweight intraday validation** of Daily Anchor, 
 - Active Handoff Snapshot: [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]
 - Operator Manual: [[00_START_HERE/CAOS — OPERATOR MANUAL]]
 - Daily Anchor Runbook: [[06_PRODUCT_RUNBOOKS/Daily Anchor]]
+- Dry-Run Test Plan: [[04_FLIGHT_RECORDER/Post-Open Delta Check Dry-Run Test]]
