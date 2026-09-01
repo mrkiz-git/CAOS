@@ -19,7 +19,7 @@ Re-validate thesis integrity on flagged candidates when current prices or forwar
 
 ## Output contract
 - File: `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_DELTA_YYYY-MM-DD_HHmm.md`
-- Must open with "Inputs Consulted" section, wikilinks Daily Anchor output file and Verifier timestamp.
+- Must open with "Inputs Consulted" section, wikilinks Daily Anchor output file, Verifier timestamp, and Forward Expectations' Delta output.
 - One thesis re-check per flagged candidate, reporting:
   - Anchor baseline conviction and thesis-core assumptions
   - Current price and forward-expectations changes

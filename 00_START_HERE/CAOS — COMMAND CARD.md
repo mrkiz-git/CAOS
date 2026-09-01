@@ -3,7 +3,7 @@
 | Command | Status | Runbook |
 |---|---|---|
 | `Run CAOS Daily Anchor` | ACTIVE | [[06_PRODUCT_RUNBOOKS/Daily Anchor]] |
-| `Run CAOS Post-Open Delta Check` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]] |
+| `Run CAOS Post-Open Delta Check` | ACTIVE (ad hoc, intraday after Daily Anchor completes) | [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]] |
 | `Run CAOS Emergency Thesis Rerun: <ticker/event>` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Emergency Thesis Rerun]] |
 | `Prepare CAOS DCA Execution Card` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/DCA Execution Card]] |
 | `Run CAOS Monster Census` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Monster Census]] |
@@ -15,7 +15,7 @@
 | `Show active CAOS handoffs` | ACTIVE | Read [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] directly — no agent pipeline needed |
 | `Show CAOS task health` | N/A | No scheduled tasks configured in this build |
 
-Only **Run CAOS Daily Anchor** executes a full multi-agent pipeline in this build. "Show active CAOS handoffs" works today too, since it is just reading a file. Every other command either returns its stub's "not yet built" content or has no product to run yet.
+**Run CAOS Daily Anchor** executes the full 9-agent pipeline, and **Run CAOS Post-Open Delta Check** executes a 5-agent subset intraday, gated on a same-day Daily Anchor having already completed — see its runbook's Precondition Check. "Show active CAOS handoffs" works today too, since it is just reading a file. Every other command either returns its stub's "not yet built" content or has no product to run yet.
 
 ## Background Watches
 

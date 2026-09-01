@@ -203,10 +203,12 @@ Track all dry-run test executions in this table. Fill in details after each test
 
 | Scenario | Test Run # | Date | Verifier Status | Forward Exp Status | Underwriter Status | Portfolio Court Status | Risk Status | Orchestrator Status | Delta Grade | Master Ledger Event | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Happy Path | 1 | 2026-08-31 | PASS | PASS | PASS | PASS | PASS | PASS | COMPLETE | YES | 3 candidates detected, CEG -6.4%, AVGO +3.2%, ASML +1.2% |
+| Happy Path | 1 | TBD | | | | | | | | | |
 | Happy Path | 2 | TBD | | | | | | | | | |
 | Degraded (Forward Exp timeout) | 1 | TBD | | | | | | | | | |
 | No Material Deltas | 1 | TBD | | | | | | | | | |
+
+**No dry-run has been executed yet.** All rows above are placeholders pending an actual test run — do not fill in results without a verified, real execution. Per Operator Manual §13, inventing a test-execution record is prohibited.
 
 **Instructions for completing the checklist:**
 - Fill in Test Run # sequentially for each execution
@@ -314,7 +316,7 @@ A test run is considered **successful** when:
 - ✓ Handoff emissions include DEDUP_KEY (SOURCE|TICKER|DELTA_CHECK|DATE)
 - ✓ Master Ledger event emitted if conviction shifts, or `NO LOG REQUIRED` stated
 - ✓ All data quality checks pass
-- ✓ All 11 acceptance criteria from design spec §11 verified
+- ✓ All 12 acceptance criteria from design spec §11 verified
 
 ### 2. Degraded State test:
 - ✓ Orchestrator detects and documents missing/incomplete specialist input
@@ -338,7 +340,7 @@ A test run is considered **successful** when:
 
 ## Acceptance Criteria Coverage (Design Spec §11)
 
-This test suite verifies all 11 acceptance criteria from the Post-Open Delta Check design specification:
+This test suite verifies all 12 acceptance criteria from the Post-Open Delta Check design specification:
 
 1. **✓ Product can read Daily Anchor output from same session**
    - Scenario 1: Orchestrator successfully reads Daily Anchor file via "Inputs Consulted" wikilink
@@ -348,9 +350,9 @@ This test suite verifies all 11 acceptance criteria from the Post-Open Delta Che
    - Scenario 1 validation: Price snapshot created, denominator explicit (e.g., "14:30 CET")
    - Scenario 2: Verifier success in degraded state test
 
-3. **✓ Forward Expectations, Underwriter, Portfolio Court, Risk run in parallel post-Verifier**
-   - All scenarios: Five agents invoked after Verifier completes; Orchestrator waits for all five
-   - Test execution table tracks completion of all five agents
+3. **✓ Forward Expectations → Underwriter → Portfolio Court/Risk run the serial chain post-Verifier**
+   - All scenarios: Forward Expectations, then Underwriter, then Portfolio Court and Risk (parallel) invoked in that order after Verifier completes; each waits for its named predecessor's dated output file
+   - Test execution table tracks completion of all five agents in sequence
 
 4. **✓ Orchestrator consolidates findings and compares to Anchor baseline**
    - Scenario 1 validation: Changed Candidates table compares "Baseline Conviction" to "Updated Conviction"
@@ -388,6 +390,10 @@ This test suite verifies all 11 acceptance criteria from the Post-Open Delta Che
     - No buy/sell recommendation in output
     - No trade execution or sizing claims
 
+12. **✓ All evidence labeled and sourced**
+    - Data Quality Check "Evidence Labeling Integrity": every claim scanned for `VERIFIED FACT` | `CAOS INFERENCE` | `UNVERIFIED LEAD` | `DATA LIMITED` | `UNKNOWN`
+    - `VERIFIED FACT` claims checked for cited public sources; expected 100% compliant labeling across all candidates
+
 ---
 
 ## Sign-Off Section
@@ -403,7 +409,7 @@ After all three test scenarios are complete and all data quality checks pass, ma
 ### Readiness Confirmation
 
 - [ ] **Test file completeness:** This document contains 3 scenarios, 7 data quality checks, troubleshooting guide, tracking table, and all required checklists
-- [ ] **All 11 acceptance criteria from design spec §11 covered by test scenarios**
+- [ ] **All 12 acceptance criteria from design spec §11 covered by test scenarios**
 - [ ] **All failure states tested (BLOCKED, DEGRADED, FAILED)**
 - [ ] **Price-move threshold (±5%) test verified**
 - [ ] **Evidence labeling (VERIFIED FACT, DATA LIMITED, UNKNOWN) validated**
@@ -414,7 +420,7 @@ After all three test scenarios are complete and all data quality checks pass, ma
 
 ### Approval for Operational Deployment
 
-- [ ] **Product Design Spec (§11 acceptance criteria):** All 11 items verified ✓
+- [ ] **Product Design Spec (§11 acceptance criteria):** All 12 items verified ✓
 - [ ] **Failure Handling (§7):** BLOCKED, DEGRADED, FAILED states tested and labeled ✓
 - [ ] **Handoff Protocol (§8):** Emissions, DEDUP_KEY, evidence quality tested ✓
 - [ ] **Master Ledger Integration (§9):** LOG REQUIRED / NO LOG REQUIRED output validated ✓
@@ -431,7 +437,7 @@ After all three test scenarios are complete and all data quality checks pass, ma
 |---|---|---|---|
 | Test Plan Completion | ⏳ | TBD | All 3 scenarios executed and validated |
 | Data Quality Audit | ⏳ | TBD | All 7 categories verified |
-| Design Spec Coverage | ⏳ | TBD | All 11 acceptance criteria confirmed |
+| Design Spec Coverage | ⏳ | TBD | All 12 acceptance criteria confirmed |
 | Operational Readiness | ⏳ | TBD | Approved for deployment |
 
 ---

@@ -1,8 +1,8 @@
 # CAOS — Post-Open Delta Check
 
 **Command:** `Run CAOS Post-Open Delta Check`  
-**Status:** IMPLEMENTATION IN PROGRESS  
-**Schedule:** Ad hoc, intraday after market open (never scheduled independently)
+**Status:** ACTIVE  
+**Schedule:** Ad hoc, intraday after Daily Anchor completes (never scheduled independently)
 
 ---
 
@@ -18,7 +18,7 @@ If either precondition blocks the run, do not call any agent. State the blocking
 
 ---
 
-## The 7 Mandatory Work Items and Who Produces Them
+## The 8 Mandatory Work Items and Who Produces Them
 
 1. **Price denominator with timestamp and source** — produced by Verifier. Must state current time (HH:mm CET), source (Bloomberg, Yahoo Finance, broker feed, exchange API), and comparison basis ("Daily Anchor close 18:15 CET vs current intraday 14:30 CET").
 
@@ -32,7 +32,9 @@ If either precondition blocks the run, do not call any agent. State the blocking
 
 6. **Survival recalculation** — produced by Risk and Survivability. For each flagged candidate, recalculate survival percentage using current prices and new forward guidance. Compare to Daily Anchor baseline and flag breaches of hard thresholds (Seed ≥60%, Challenger ≥50%, Watch ≥40%).
 
-7. **Consolidated delta verdict with handoff emissions** — produced by Orchestrator. Compare each changed candidate's Daily Anchor conviction to Delta conviction. Emit handoffs for material conviction shifts. State whether escalation needed before next scheduled Anchor or immediate action required.
+7. **Handoff ACK Check** — produced by Orchestrator. Read [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] and output, per Operator Manual §9, `HANDOFF ACK CHECK: HANDOFF_ID | RECEIVED=YES | APPLIED=YES/NO | RESULTING_STATE | STILL_ACTIVE=YES/NO | RESOLVES_HANDOFF_ID` for every active handoff touching a changed candidate.
+
+8. **Consolidated delta verdict with handoff emissions** — produced by Orchestrator. Compare each changed candidate's Daily Anchor conviction to Delta conviction. Emit handoffs for material conviction shifts. State whether escalation needed before next scheduled Anchor or immediate action required.
 
 ---
 
@@ -46,31 +48,39 @@ Call the Agent tool once for the Verifier, using the invocation prompt template 
 
 **Output to verify:** Price denominator table with columns Ticker | Price Δ % | Price Denominator | Source | Timestamp. Must include exact HH:mm timestamp and state `DATA LIMITED` for any tickers where prices unavailable.
 
-### Step 2: Call Forward Expectations, Underwriter, Portfolio Court, Risk & Survivability (parallel)
+### Step 2: Call Forward Expectations
 
-Call the Agent tool four times **in the same turn** — one call each for:
-- Forward Expectations: [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check)]]
-- Underwriter (Delta Check): [[03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check)]]
+Call the Agent tool once for Forward Expectations, using the invocation prompt template from [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check)]]. Forward Expectations depends only on Verifier's output (the flagged-candidate list), so this call may issue as soon as Step 1 returns. Wait for it to return and confirm `03_AGENT_RUNS/03_FORWARD/FORWARD_DELTA_<date>_<time>.md` was written.
+
+**Output to verify:** forward-guidance table (binding contract / nonbinding target / management aspiration / CAOS inference) and next falsifiable proof point per company.
+
+### Step 3: Call Underwriter (Delta Check)
+
+Call the Agent tool once for the Underwriter, using the invocation prompt template from [[03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check)]]. The Underwriter's Required Inputs name Forward Expectations' latest output as a dependency, so this call must wait for Step 2 to return — it cannot run in parallel with it. Wait for it to return and confirm `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_DELTA_<date>_<time>.md` was written.
+
+**Output to verify:** thesis re-check per flagged candidate with conviction change verdict (THESIS INTACT | THESIS DEGRADED | THESIS CONFIRMED | THESIS FALSIFIED).
+
+### Step 4: Call Portfolio Court and Risk & Survivability (parallel)
+
+Call the Agent tool twice **in the same turn** — one call each for:
 - Portfolio Court (Delta Check): [[03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check)]]
 - Risk and Survivability (Delta Check): [[03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check)]]
 
-These are independent of each other (all depend only on Verifier output), so issuing all four tool calls in one response runs them concurrently. Wait for all four to return.
+Both agents' Required Inputs name the Underwriter's Delta output as a dependency, and neither reads the other's output, so both calls wait for Step 3 to return but may then run concurrently in the same turn. Wait for both to return.
 
 **Outputs to verify:**
-- Forward Expectations: forward-guidance table (binding contract / nonbinding target / management aspiration / CAOS inference) and next falsifiable proof point per company.
-- Underwriter Delta: thesis re-check per flagged candidate with conviction change verdict (THESIS INTACT | THESIS DEGRADED | THESIS CONFIRMED | THESIS FALSIFIED).
 - Portfolio Court Delta: Holdings Re-Validation Table with columns Ticker | Daily Anchor Conviction | Current Price Δ % | Thesis Verdict | Survival Score | Action. End verdict line states FUNDED HOLDINGS VALIDATED / HOLDINGS DEGRADED / ESCALATION REQUIRED.
 - Risk Delta: Survival Recalculation Table with columns Ticker | Baseline Survival | New Survival | Survival Shift | Threshold | Threshold Status | Evidence Quality. End verdict line states RISK DELTA REVIEW = COMPLETE / DATA LIMITED / ESCALATION REQUIRED.
 
-### Step 3: Perform the Orchestrator Role (primary session, not a subagent)
+### Step 5: Perform the Orchestrator Role (primary session, not a subagent)
 
-Do not spawn a subagent for this step. Read all 4 agent files from this run, read the Daily Anchor output file from `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*.md`, and write `03_AGENT_RUNS/09_ORCHESTRATOR/POST_OPEN_DELTA_YYYY-MM-DD_HHmm.md` with the structure specified in "Required Output Format" below. Present the final verdict in chat.
+Do not spawn a subagent for this step. Read all 5 specialist agent files from this run (Verifier, Forward Expectations, Underwriter, Portfolio Court, Risk & Survivability), read the Daily Anchor output file from `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*.md`, and write `03_AGENT_RUNS/09_ORCHESTRATOR/POST_OPEN_DELTA_YYYY-MM-DD_HHmm.md` with the structure specified in "Required Output Format" below. Present the final verdict in chat.
 
 ---
 
 ## Linking Rule Application
 
-Every file written in steps 1–3 above must open with an "Inputs Consulted" section per each agent's output contract. The Delta Check Orchestrator file (POST_OPEN_DELTA_YYYY-MM-DD_HHmm.md) additionally opens with a "Full Delta Map" section linking:
+Every file written in steps 1–4 above must open with an "Inputs Consulted" section per each agent's output contract. The Delta Check Orchestrator file (POST_OPEN_DELTA_YYYY-MM-DD_HHmm.md) additionally opens with a "Full Delta Map" section linking:
 - Daily Anchor output file (baseline)
 - Verifier Delta output (price denominator and flagged candidates)
 - Forward Expectations output (forward guidance on changed tickers)
@@ -129,20 +139,29 @@ Wikilink section listing all input files:
 ### 4. Changed Candidates Table
 Only candidates with ±5%+ price move or fundamental changes. Columns: Ticker | Price Δ % | Change Type | Baseline Conviction | Updated Conviction | Thesis Verdict | Action
 
+Every row must clear the ±5% price-move threshold or carry a fundamental change — a sub-threshold, price-only mover is noise and must never appear in this table.
+
 Example:
 ```
 | Ticker | Price Δ % | Change Type | Baseline Conviction | Updated Conviction | Thesis Verdict | Action |
 |--------|-----------|---|---|---|---|---|
-| AVGO | +3.2% | Price only | SEED | SEED | Thesis intact, survival 70% confirmed | Hold |
 | CEG | -6.5% | Price + earnings news | WATCH | WATCH | Survival dropped to 65%, trigger timeline extended | Review full Anchor before re-entry |
+| QUBT | +5.2% | Price only | WATCH WITH SPECIFIC TRIGGER | WATCH WITH SPECIFIC TRIGGER | Thesis intact, backlog-conversion trigger unchanged | Hold |
 ```
 
 ### 5. Orchestrator Verdict
 1–2 sentence summary: which positions remain valid, which need deep re-analysis, portfolio thesis impact.
 
-Example: "Three candidates moved intraday; all theses remain intact. CEG's survival assumption shifted but trigger remains valid. No escalation needed before next scheduled Anchor."
+Example: "Two candidates moved intraday; both theses remain intact. CEG's survival assumption shifted but trigger remains valid. No escalation needed before next scheduled Anchor."
 
-### 6. Handoff Emissions
+### 6. Handoff ACK Check
+Read [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]]. For every active handoff touching a candidate this run checked, output one line per Operator Manual §9:
+```
+HANDOFF ACK CHECK: HANDOFF_ID | RECEIVED=YES | APPLIED=YES/NO | RESULTING_STATE | STILL_ACTIVE=YES/NO | RESOLVES_HANDOFF_ID
+```
+If no active handoffs touch this run's candidates, state `NO ACTIVE HANDOFFS TO ACK`. If an expected handoff is unavailable, state `LINKAGE DEGRADED / HANDOFF UNAVAILABLE` — never hallucinate receipt or claim PASS.
+
+### 7. Handoff Emissions
 If material conviction shifts detected, emit handoff blocks per Operator Manual §9 format.
 
 Example:
@@ -168,7 +187,7 @@ REQUIRED_CONSUMERS = WEEKLY,CENSUS
 MANDATORY_DEEP_UNDERWRITING = NO
 ```
 
-### 7. Master Ledger Event (if required)
+### 8. Master Ledger Event (if required)
 State either `LOG REQUIRED` (followed by paste-ready event block) or `NO LOG REQUIRED`.
 
 If logging required, paste-ready block includes:
@@ -224,6 +243,14 @@ END CAOS EVENT
 ============================================================
 ```
 
+### 9. Mechanical Grades
+Per Operator Manual §13, every final product must grade its own integrity. Red Team is not part of this agent subset (§3 of the design spec), so the Orchestrator carries this responsibility directly, drawing on the five specialist outputs already read this run. State each grade as `PASS` / `DEGRADED` / `FAIL` with a one-line reason, then synthesize one overall verdict line:
+- **Source integrity:** every price, guidance, and news claim cited with source and timestamp (no hallucinated data)
+- **Linkage completeness:** all 5 specialist files plus Daily Anchor baseline present in the Full Delta Map, no broken wikilinks
+- **Execution discipline:** no trade, sizing, or fill assumed; no margin, leverage, or Kelly claim made
+
+Overall verdict line: `MECHANICAL GRADE = PASS / DEGRADED / FAIL` — matches the four Red Team grade lines convention from Daily Anchor.
+
 ---
 
 ## Failure Handling
@@ -235,12 +262,12 @@ END CAOS EVENT
 - Cannot establish baseline for comparison
 - Action: Do not call any agent. Stop and inform Mark.
 
-**`DELTA CHECK BLOCKED — STALE MASTER LEDGER`**
-- Master Ledger status is `UNINITIALIZED` or stale (per Operator Manual §4)
-- Portfolio state unknown; cannot re-validate thesis for funded holdings
-- Action: State `HOLDINGS UNKNOWN / EXECUTION BLOCKED` and stop. Research-only work cannot proceed without funded holdings baseline.
-
 ### Degraded Conditions (can continue with caveats)
+
+**`DATA LIMITED — portfolio state stale`**
+- Master Ledger status is `UNINITIALIZED` or stale (per Operator Manual §4)
+- Per the precondition check, this does not block the run: Operator Manual §4 states "Research may continue under degraded portfolio state." The run continues in RESEARCH-ONLY / DEGRADED mode.
+- Action: State `HOLDINGS UNKNOWN / EXECUTION BLOCKED` for funded-holding-specific items only (Portfolio Court's re-validation). Price verification (Verifier), forward-expectations re-check (Forward Expectations), and thesis re-validation (Underwriter) for SEED/CHALLENGER/WATCH candidates continue in full.
 
 **`DATA LIMITED — price source unavailable [TICKER1, TICKER2]`**
 - Verifier unable to fetch current prices for specific tickers
@@ -259,7 +286,7 @@ END CAOS EVENT
 
 ### Failure States
 
-If any agent call in step 1–2 fails or returns an unusable result, do not continue as if it succeeded. Report:
+If any agent call in step 1–4 fails or returns an unusable result, do not continue as if it succeeded. Report:
 - **`DELTA CHECK DEGRADED`** if enough of the pipeline completed to say something useful about some candidates
 - **`DELTA CHECK FAILED`** if not
 
@@ -270,16 +297,18 @@ State exactly what completed, what failed, and whether a manual rerun is needed.
 ## Acceptance Criteria Checklist
 
 - ✓ Daily Anchor output from same session exists and is readable
-- ✓ Master Ledger status is checked; run reports `HOLDINGS UNKNOWN / EXECUTION BLOCKED` if stale
+- ✓ Master Ledger status is checked; run reports `HOLDINGS UNKNOWN / EXECUTION BLOCKED` for funded-holding items only if stale, DEGRADED not BLOCKED overall
 - ✓ Verifier successfully fetches current prices and establishes new denominator with exact HH:mm timestamp
 - ✓ Changed candidates identified by Verifier (±5% price move or fundamental news)
-- ✓ Forward Expectations, Underwriter Delta, Portfolio Court Delta, and Risk Delta run in parallel post-Verifier
+- ✓ Forward Expectations → Underwriter → Portfolio Court/Risk Delta run in the serial chain (Portfolio Court and Risk Delta parallel post-Underwriter)
 - ✓ Orchestrator consolidates findings and compares each candidate's Daily Anchor conviction to Delta conviction
 - ✓ Changed candidates only in output (no unchanged holdings listed)
 - ✓ Price denominator explicitly stated with source (never impersonates full Anchor rerun)
+- ✓ Handoff ACK Check output for every active handoff touching a changed candidate
 - ✓ Handoff emissions emitted for material conviction shifts using DEDUP_KEY rule
 - ✓ Master Ledger event paste-ready or `NO LOG REQUIRED` stated
-- ✓ Full Delta Map wikilinks all 4 specialist files from this run (traversable in Obsidian)
+- ✓ Full Delta Map wikilinks all 5 specialist files from this run plus Daily Anchor baseline (traversable in Obsidian)
+- ✓ All evidence labeled and sourced
 
 ---
 
@@ -288,15 +317,15 @@ State exactly what completed, what failed, and whether a manual rerun is needed.
 This runbook implements the full design specification at [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check Design.md]]:
 
 - **§1 Mission:** Validates Daily Anchor convictions intraday, reports only material changes (±5% price or fundamental news)
-- **§3 Architecture:** Agent sequence matches spec (Verifier → 4 parallel → Orchestrator)
+- **§3 Architecture:** Agent sequence matches spec (Verifier → Forward → Underwriter → Portfolio Court/Risk parallel → Orchestrator)
 - **§4 Price-Move Threshold:** ±5% trigger implemented in Verifier and all downstream agents
 - **§5 Delta Detection Logic:** Included/excluded candidate logic implemented per design
 - **§6 Output Format:** File naming and structure match design spec exactly
 - **§7 Failure Handling:** BLOCKED, DEGRADED, FAILED states per design
-- **§8 Handoff Protocol Integration:** Handoff format and DEDUP_KEY rule per design
+- **§8 Handoff Protocol Integration:** Handoff format, DEDUP_KEY rule, and Handoff ACK Check per design
 - **§9 Master Ledger Integration:** Logging control and event template per design
 - **§10 Constraints:** Constitutional Laws (§3) and execution discipline rules per design
-- **§11 Acceptance Criteria:** All 11 criteria implemented in acceptance checklist above
+- **§11 Acceptance Criteria:** All 12 criteria implemented in acceptance checklist above
 
 ---
 

@@ -15,12 +15,13 @@ Recalculate survival scores for flagged candidates using current intraday prices
 - Daily Anchor Risk & Survivability baseline output from today (`03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_<runid>.md`)
 - Verifier's current price denominator and flagged candidate list (price ±5% move or fundamental news)
 - Underwriter's thesis re-check output for changed candidates (`03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_DELTA_YYYY-MM-DD_<runid>.md`)
-- Portfolio Court's re-validation of funded-holding thesis (`03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_DELTA_YYYY-MM-DD_<runid>.md`)
 - [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (for candidate current states and funded-holding positions)
+
+This role's only hard dependency is the Underwriter's Delta output — it runs in parallel with Portfolio Court (Delta Check), not after it. It does not read Portfolio Court's output.
 
 ## Output contract
 - **File naming:** `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_DELTA_YYYY-MM-DD_HHmm.md`
-- Must open with an "Inputs Consulted" section wikilinking Daily Anchor baseline, Verifier output, Underwriter delta, and Portfolio Court delta
+- Must open with an "Inputs Consulted" section wikilinking Daily Anchor baseline, Verifier output, and Underwriter delta
 - Must include a **Survival Recalculation Table** with columns:
   - Ticker / Candidate
   - Baseline Survival (from Daily Anchor)
@@ -49,4 +50,4 @@ Use only these four labels:
 - `UNKNOWN` — Candidate state or survival driver unknown; data needed before flag can be evaluated
 
 ## Invocation prompt template
-"You are the CAOS Risk and Survivability (Delta Check) agent. Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check).md` in this vault and follow it exactly. Read today's Daily Anchor Risk & Survivability baseline output from `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_<runid>.md`. Read the Verifier's current price denominator and flagged candidate list. Read the Underwriter's delta thesis re-check output for changed candidates. Read Portfolio Court's delta re-validation output for funded holdings. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_DELTA_YYYY-MM-DD_HHmm.md` per the output contract. Do not do any other agent's job. Do not attempt full regime testing or 10-risk re-certification. Focus only on survival score recalculation and financing/dilution risk flags for flagged candidates."
+"You are the CAOS Risk and Survivability (Delta Check) agent. Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check).md` in this vault and follow it exactly. Read today's Daily Anchor Risk & Survivability baseline output from `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_<runid>.md`. Read the Verifier's current price denominator and flagged candidate list. Read the Underwriter's delta thesis re-check output for changed candidates. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_DELTA_YYYY-MM-DD_HHmm.md` per the output contract. Do not do any other agent's job. Do not attempt full regime testing or 10-risk re-certification. Focus only on survival score recalculation and financing/dilution risk flags for flagged candidates."

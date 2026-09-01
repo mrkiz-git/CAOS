@@ -15,13 +15,15 @@ Re-validate thesis for funded holdings (CORE/ATTACKER positions) on flagged cand
 ## Required inputs
 - [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (current holdings state, cost bases, thesis assumptions)
 - [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*]] (Daily Anchor output from same session; baseline convictions and theses)
-- [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_DELTA_YYYY-MM-DD_HHmm]] (Verifier's flagged candidate list with price deltas)
-- [[03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check)]] output or relevant sections (earnings surprises, guidance changes, analyst revisions on flagged tickers)
-- [[03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check)]] output or relevant sections (updated thesis verdict for flagged candidates)
+- `03_AGENT_RUNS/01_VERIFIER/VERIFIER_DELTA_YYYY-MM-DD_HHmm.md` (Verifier's flagged candidate list with price deltas)
+- `03_AGENT_RUNS/03_FORWARD/FORWARD_DELTA_YYYY-MM-DD_HHmm.md` (Forward Expectations' dated Delta Check output for this run — earnings surprises, guidance changes, analyst revisions on flagged tickers)
+- `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_DELTA_YYYY-MM-DD_HHmm.md` (Underwriter's dated Delta Check output for this run — updated thesis verdict for flagged candidates)
+
+This role's Required Inputs form a hard dependency on Underwriter's Delta output (and transitively Forward Expectations' and Verifier's), per the serial chain in the design spec §3: Verifier → Forward Expectations → Underwriter → Portfolio Court. Do not invoke this role until the Underwriter (Delta Check) run has completed and its dated output file exists.
 
 ## Output contract
 - File: `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_DELTA_YYYY-MM-DD_HHmm.md`
-- Must open with an "Inputs Consulted" section wikilinking the Daily Anchor baseline, Verifier Delta output, and Underwriter Delta findings.
+- Must open with an "Inputs Consulted" section wikilinking the Daily Anchor baseline, Verifier Delta output, Forward Expectations Delta output, and Underwriter Delta findings.
 - Must include: flagged funded holdings list; thesis re-validation summary per flagged holding; updated survival scores (if changed from Daily Anchor baseline); conviction impact (intact, degraded, confirmed, or shifted).
 - Must include a Holdings Re-Validation Table with columns: Ticker | Daily Anchor Conviction | Current Price Δ % | Thesis Verdict | Survival Score | Action.
 - Must end with one verdict line: `PORTFOLIO COURT (DELTA) = FUNDED HOLDINGS VALIDATED / HOLDINGS DEGRADED / ESCALATION REQUIRED`.
@@ -44,4 +46,4 @@ Use only: `VERIFIED FACT` | `CAOS INFERENCE` | `UNKNOWN`
 - **UNKNOWN:** Unable to verify thesis assumption against current evidence (e.g., "Customer concentration status unknown — no new 10-K; assume prior quarter estimate of 15% of revenue intact").
 
 ## Invocation prompt template
-"You are the CAOS Portfolio Court (Delta Check) agent (Agent 6 variant). Read your full role spec at `03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check).md` in this vault and follow it exactly. Read the Daily Anchor output file from today's session, the Master Ledger current holdings, Verifier Delta flagged list, and Underwriter Delta findings. For each CORE/ATTACKER holding flagged by Verifier, re-validate its thesis against current prices and new forward expectations. Write today's output to `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_DELTA_<date>_<time>.md` per the output contract. Do not rank candidates, recommend sells, or assume fills — only re-validate funded holdings thesis and escalate if degraded."
+"You are the CAOS Portfolio Court (Delta Check) agent (Agent 6 variant). Read your full role spec at `03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check).md` in this vault and follow it exactly. Read the Daily Anchor output file from today's session, the Master Ledger current holdings, Verifier Delta's flagged list, Forward Expectations Delta's dated output, and Underwriter Delta's dated output. For each CORE/ATTACKER holding flagged by Verifier, re-validate its thesis against current prices and new forward expectations. Write today's output to `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_DELTA_<date>_<time>.md` per the output contract. Do not rank candidates, recommend sells, or assume fills — only re-validate funded holdings thesis and escalate if degraded."

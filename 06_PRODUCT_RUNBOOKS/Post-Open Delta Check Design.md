@@ -48,14 +48,16 @@ Post-Open Delta Check validates Daily Anchor convictions intraday. It runs only 
 ```
 Verifier (fetch current prices, establish new denominator)
    |
-Forward Expectations
-Underwriter
-Portfolio Court
-Risk & Survivability
-   (all parallel — depend only on Verifier output)
+Forward Expectations (depends on Verifier)
+   |
+Underwriter (depends on Forward Expectations)
+   |
+Portfolio Court -- Risk & Survivability   (parallel — both depend on Underwriter)
    |
 Orchestrator (main session — consolidate delta, compare to Anchor, emit verdict)
 ```
+
+This is a **serial chain**, not a parallel fan-out: each agent's Required Inputs section names the prior agent's dated output file, so each call must wait for the one before it to return. Only Portfolio Court and Risk & Survivability are true siblings — both read Underwriter's output but not each other's, so those two calls may be issued in the same turn. This mirrors the dependency order in Operator Manual §7 (Portfolio Court and Risk & Survivability run in parallel off Underwriter in the full Daily Anchor pipeline too).
 
 **Why this subset:**
 - **Verifier:** Establishes current price denominator (e.g., "14:30 CET intraday" vs "18:15 CET Anchor close")
@@ -84,7 +86,7 @@ Orchestrator (main session — consolidate delta, compare to Anchor, emit verdic
 
 **Prerequisites:**
 - Daily Anchor must have completed same-day (blocks if missing)
-- Master Ledger must be INITIALIZED and current (blocks if stale per Operator Manual §4)
+- Master Ledger status is checked; if `UNINITIALIZED` or stale, the run continues in RESEARCH-ONLY / DEGRADED mode (per Operator Manual §4 — "Research may continue under degraded portfolio state") rather than blocking. Only funded-holding-specific checklist items report `HOLDINGS UNKNOWN / EXECUTION BLOCKED`; price verification, forward-guidance, thesis re-check, and survival recalculation proceed in full.
 
 **Outputs consumed by:**
 - Active Handoff Snapshot (new handoffs if conviction shifts)
@@ -153,16 +155,17 @@ Price denominator: [specific source, e.g., "Bloomberg 14:30 CET European close"]
 **[No material changes detected]** or **[N] candidates with thesis changes**
 
 ### Changed Candidates
+Illustrative only — every row must clear the ±5% price-move threshold (§4) or carry a fundamental change; a sub-threshold, price-only mover is noise and must not appear here.
+
 | Ticker | Price Δ % | Change Type | Baseline Conviction | Updated Conviction | Thesis Verdict | Action |
 |--------|-----------|---|---|---|---|---|
-| AVGO | +3.2% | Price only | SEED | SEED | Thesis intact, survival 70% confirmed | Hold |
 | CEG | -6.5% | Price + earnings news | WATCH | WATCH | Survival dropped to 65%, PPA trigger timeline extended | Review full Anchor before re-entry |
-| ASML | +1.2% | Price only | CHALLENGER | CHALLENGER | Thesis intact, backlog confirmed solid | Hold |
+| QUBT | +5.2% | Price only | WATCH WITH SPECIFIC TRIGGER | WATCH WITH SPECIFIC TRIGGER | Thesis intact, backlog-conversion trigger unchanged | Hold |
 
 ## Orchestrator Verdict
 [1–2 sentence summary: which positions remain valid, which need deep re-analysis, portfolio thesis impact]
 
-Example: "Three candidates moved intraday; all theses remain intact. CEG's survival assumption shifted but trigger remains valid. No escalation needed before next scheduled Anchor."
+Example: "Two candidates moved intraday; both theses remain intact. CEG's survival assumption shifted but trigger remains valid. No escalation needed before next scheduled Anchor."
 
 ## Handoff Emissions
 [If material conviction shifts, emit handoff blocks per Operator Manual §9]
@@ -200,10 +203,10 @@ Or: **NO LOG REQUIRED** (if all theses intact and no conviction shifts)
 - **`DELTA CHECK BLOCKED — NO SAME-DAY ANCHOR`**  
   Daily Anchor output not found for today. Cannot establish baseline for comparison.
 
-- **`DELTA CHECK BLOCKED — STALE MASTER LEDGER`**  
-  Master Ledger status is UNINITIALIZED or stale (per Operator Manual §4). Portfolio state unknown; cannot re-validate thesis for funded holdings.
-
 **Degraded conditions (can continue with caveats):**
+
+- **`DATA LIMITED — portfolio state stale`**  
+  Master Ledger status is `UNINITIALIZED` or stale (per Operator Manual §4). Per the precondition, the run continues in RESEARCH-ONLY / DEGRADED mode: state `HOLDINGS UNKNOWN / EXECUTION BLOCKED` for funded-holding-specific items only. Price verification, forward-expectations, and thesis re-validation continue in full with `DEGRADED` status on any item that depends on funded-holdings state.
 
 - **`DATA LIMITED — price source unavailable [TICKER1, TICKER2]`**  
   Verifier unable to fetch current prices for specific tickers; state which ones. Resume with available data for other candidates.
@@ -244,6 +247,13 @@ ACTIVE_UNTIL = [expiration date if gated]
 
 **DEDUP rule:**  
 SOURCE|TICKER|DELTA_CHECK|DATE — avoids duplicate handoffs from same day's delta check on same ticker.
+
+**Handoff ACK Check (Operator Manual §9):**  
+Post-Open Delta Check is a consumer of any handoffs still active on the tickers it re-checks. The Orchestrator step must read [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] and, for every active handoff touching a changed candidate, output:
+```
+HANDOFF ACK CHECK: HANDOFF_ID | RECEIVED=YES | APPLIED=YES/NO | RESULTING_STATE | STILL_ACTIVE=YES/NO | RESOLVES_HANDOFF_ID
+```
+If an expected handoff is unavailable, state `LINKAGE DEGRADED / HANDOFF UNAVAILABLE` — never hallucinate receipt or claim PASS.
 
 ---
 
@@ -307,9 +317,11 @@ NEXT PROOF GATE
 
 ## 11. Acceptance Criteria
 
+12 criteria in total:
+
 - ✓ Product can read Daily Anchor output from same session
 - ✓ Verifier successfully fetches current prices and establishes new denominator
-- ✓ Forward Expectations, Underwriter, Portfolio Court, Risk run in parallel post-Verifier
+- ✓ Forward Expectations → Underwriter → Portfolio Court/Risk & Survivability run in the serial chain defined in §3, each waiting on its named predecessor's output (Portfolio Court and Risk may run in parallel with each other, both post-Underwriter)
 - ✓ Orchestrator consolidates findings and compares to Anchor baseline
 - ✓ Changed candidates only in output (no noise)
 - ✓ Price denominator explicitly stated (never impersonates full Anchor)
