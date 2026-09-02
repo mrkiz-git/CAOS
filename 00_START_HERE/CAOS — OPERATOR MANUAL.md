@@ -167,7 +167,13 @@ END CAOS EVENT
 ```
 
 ## 11. Products and Build Status
-See [[00_START_HERE/CAOS — COMMAND CARD]] for the full command list. **Daily Anchor** — see [[06_PRODUCT_RUNBOOKS/Daily Anchor]] — and **Post-Open Delta Check** — see [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]], a 5-agent intraday subset gated on a same-day Daily Anchor — are fully built this pass. The other 8 products are documented as stubs pointing to their source requirements in the archived master prompt, and are not yet runnable.
+See [[00_START_HERE/CAOS — COMMAND CARD]] for the full command list and per-product status. As of 2026-09-02, all 10 products have a written runbook — but "written" and "proven" are different things:
+
+- **Daily Anchor** is the only product with a real, verified end-to-end run behind it (2026-08-29).
+- **Post-Open Delta Check, Emergency Thesis Rerun, DCA Execution Card, Deep Audit, Learning Review, Event Gate Watch, and Multi-Bagger Hunter Watch** are built (full runbooks, reusing the 9-agent roster where applicable) but have never been executed for real.
+- **Weekly Ranking and Monster Census** are built, and the only prior "run" evidence for either was a set of fabricated narrative walkthroughs — never produced by the Agent tool — now quarantined in `04_FLIGHT_RECORDER/` with a `NON-CANONICAL` banner. Treat them as unproven until a real run happens.
+
+Do not treat a runbook's existence, or a file sitting in `03_AGENT_RUNS/`, as proof a product works — verify its "Inputs Consulted" links actually resolve to files that exist.
 
 ## 12. Execution Controls
 - No autonomous trades, ever.
@@ -188,7 +194,7 @@ Prohibited: inventing facts or sources; using stale prices without disclosure; c
 - `CLAUDE.md` correctly directs a fresh session to this manual.
 - Typing `Run CAOS Daily Anchor` produces, at minimum, a `LIMITED ANCHOR` or `FAILED ANCHOR` result stating exactly what ran and what didn't — never a silent failure — and, if all 8 specialist calls succeed, a full Anchor verdict with every specialist file and the Orchestrator file cross-linked per the linking rule in §7.
 - Typing `Run CAOS Post-Open Delta Check` follows its own runbook's precondition checks (same-day Daily Anchor required) and produces, at minimum, a `DELTA CHECK BLOCKED`, `DELTA CHECK DEGRADED`, or `DELTA CHECK FAILED` result stating exactly what ran and what didn't — never a silent failure — and, if all 5 specialist calls succeed, a full Delta Check verdict per [[06_PRODUCT_RUNBOOKS/Post-Open Delta Check]].
-- Typing any of the other 8 Command Card commands returns that product's `NOT YET BUILT` stub rather than an improvised run.
+- Typing any of the other 7 built-but-unproven Command Card commands (Emergency Thesis Rerun, DCA Execution Card, Monster Census, Weekly Ranking, Deep Audit, Learning Review, Event Gate Watch, Multi-Bagger Hunter Watch) follows that product's own runbook precondition checks and produces, at minimum, a stated `BLOCKED`/`DEGRADED`/`INCOMPLETE` result naming exactly what ran and what didn't — never a silent failure and never an improvised result that skips the runbook's agent call sequence.
 
 ## 15. Failure States and Human Duties
 If the controlling portfolio state is unavailable or stale, the system states `HOLDINGS UNKNOWN / EXECUTION BLOCKED` rather than guessing. If a scheduled dependency fails mid-run, the system returns a `LIMITED ANCHOR` or `FAILED ANCHOR` naming what completed, what failed, and whether a manual rerun is needed — it never finishes silently.
