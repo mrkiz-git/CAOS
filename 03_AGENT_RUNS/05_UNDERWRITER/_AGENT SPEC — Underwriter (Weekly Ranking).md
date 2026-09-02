@@ -50,12 +50,11 @@ Re-validate thesis validity for every candidate in the Weekly Ranking universe (
 - **Holdings and full universe:** Re-validate ALL candidates—holdings plus full Seeds, Challengers, serious, Watch-gated universe. No filtering by price move or news alert.
 
 ## Evidence labeling
-Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
+Use only: VERIFIED FACT | CAOS INFERENCE | DATA LIMITED | UNKNOWN
 
 **Definitions:**
 - **VERIFIED FACT:** Current price from Verifier (cited source), earnings guidance from Forward Expectations (company/analyst source), news from public news feed (dated source).
 - **CAOS INFERENCE:** Interpretation of kill condition status or survival change under new data (e.g., "survival now 62% vs 75%, crosses 60% threshold; flagged for material change").
-- **UNVERIFIED LEAD:** Rumor, analyst commentary not yet confirmed, forum speculation. Flag as such; do not use to shift conviction.
 - **DATA LIMITED:** Data source unavailable (e.g., "Verifier price unavailable for TICKER; used prior Monster Census price instead"). Resume with available data.
 - **UNKNOWN:** Assumption status unknown (e.g., "market structure change unknown; Monster Census assumed stable"). Do not use to shift conviction.
 
