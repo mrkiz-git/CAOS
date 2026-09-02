@@ -16,7 +16,7 @@ Re-validate thesis for every funded holding (CORE/ATTACKER positions) on a manda
 
 ## Required inputs
 - [[01_MASTER_LEDGER/CAOS Master Ledger — CANONICAL]] (current holdings state, cost bases, thesis assumptions, conviction baseline)
-- [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*]] (latest Daily Anchor output; baseline convictions and theses for all funded holdings)
+- `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*.md` (latest Daily Anchor output; baseline convictions and theses for all funded holdings)
 - `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_YYYY-MM-DD_HHmm.md` (Underwriter's weekly thesis re-validation output for this run — updated thesis verdicts for all funded candidates)
 - Latest week's pricing and market conditions (live price check for all funded tickers)
 - Latest forward expectations (earnings calendar, guidance, analyst revisions, upcoming catalysts)
