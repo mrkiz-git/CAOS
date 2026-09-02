@@ -95,17 +95,9 @@ Every candidate reviewed must reach exactly one terminal state. No vague limbo s
 
 - **REJECT** — Does not meet minimum asymmetry-to-evidence ratio, fails survivability floor, or kill conditions disqualify. Reason must be documented; re-review only if material new evidence emerges.
 
-## Evidence Labels (per Operator Manual §6)
+## Evidence Labels
 
-All evidence must be labeled as one of:
-
-- **VERIFIED FACT** — Published financial data, signed contracts, official company guidance, SEC filings, regulatory databases, earnings transcripts, disclosed partnerships.
-- **CAOS INFERENCE** — Derived reasoning from verified facts; reasoned judgment; pattern recognition.
-- **UNVERIFIED LEAD** — Promising signal not yet confirmed; credible but unconfirmed customer report, analyst note, industry signal.
-- **DATA LIMITED** — Critical information insufficient for high-confidence judgment.
-- **UNKNOWN** — Critical information unavailable; mark gaps explicitly.
-
-Never claim VERIFIED FACT without a cited public source.
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `CAOS INFERENCE` | `UNVERIFIED LEAD` | `DATA LIMITED` | `UNKNOWN`. Never claim VERIFIED FACT without a cited public source.
 
 ## Error Handling
 

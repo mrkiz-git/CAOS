@@ -1,8 +1,11 @@
 # CAOS — Build Task Tracker
 
 Tracks the design and build of the Obsidian + Claude Code multi-agent system
-described in `CAOS_Mark_Independent_Clone_Master_Prompt_v1.0 (2).md`. This
-file is project-status tracking, not part of the CAOS vault itself.
+described in [[05_ARCHIVE/CAOS_Mark_Independent_Clone_Master_Prompt_v1.0]]. This
+file is project-status tracking, not part of the CAOS vault itself. It documents
+the pre-build design phase and is now historical — the vault described in
+`## Not yet built` below has since been built; see the Operator Manual for
+current state.
 
 Last updated: 2026-08-28
 

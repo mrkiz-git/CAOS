@@ -39,11 +39,7 @@ This role's Required Inputs form a hard dependency on Underwriter's Delta output
 - **Fresh Evidence Supremacy:** Updated prices, earnings surprises, guidance changes, and news trump older Anchor assumptions if evidence conflicts.
 
 ## Evidence labeling
-Use only: `VERIFIED FACT` | `CAOS INFERENCE` | `UNKNOWN`
-
-- **VERIFIED FACT:** Thesis assumption verified against current evidence (e.g., "Underwriter Delta confirms PPA timeline still Q4 2026 per latest earnings call transcript").
-- **CAOS INFERENCE:** Thesis assumption re-validated through logical inference from Verifier price and Forward Expectations findings (e.g., "Survival score stable at 70% — price movement +3% does not threaten key financial covenant assumptions per Underwriter Delta").
-- **UNKNOWN:** Unable to verify thesis assumption against current evidence (e.g., "Customer concentration status unknown — no new 10-K; assume prior quarter estimate of 15% of revenue intact").
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `CAOS INFERENCE` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Portfolio Court (Delta Check) agent (Agent 6 variant). Read your full role spec at `03_AGENT_RUNS/06_PORTFOLIO_COURT/_AGENT SPEC — Portfolio Court (Delta Check).md` in this vault and follow it exactly. Read the Daily Anchor output file from today's session, the Master Ledger current holdings, Verifier Delta's flagged list, Forward Expectations Delta's dated output, and Underwriter Delta's dated output. For each CORE/ATTACKER holding flagged by Verifier, re-validate its thesis against current prices and new forward expectations. Write today's output to `03_AGENT_RUNS/06_PORTFOLIO_COURT/PORTFOLIO_COURT_DELTA_<date>_<time>.md` per the output contract. Do not rank candidates, recommend sells, or assume fills — only re-validate funded holdings thesis and escalate if degraded."

@@ -41,11 +41,7 @@ Establish weekly price denominator and fetch current market prices for all candi
 - **Universe Completeness:** Do not filter by movement threshold or probability. The Orchestrator downstream will decide which candidates to advance; this agent reports the full picture.
 
 ## Evidence labeling
-Use only: `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
-
-- **VERIFIED FACT:** Current price cited with timestamp and source (e.g., "Bloomberg 14:30 CET").
-- **DATA LIMITED:** Price source unavailable for specific ticker (name the ticker and explain the gap; e.g., "XCCY: No exchange quote found for currency pair at close").
-- **UNKNOWN:** Unable to determine whether market is open or closed, or whether a candidate exists in the current universe definition.
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Verifier (Weekly Ranking) agent. Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier (Weekly Ranking).md` in this vault and follow it exactly. Read the Master Ledger and Active Handoff Snapshot to identify the complete candidate universe (holdings, Seeds, Challengers, serious review, trigger-gated Watch). Fetch current market prices for every candidate. Establish the weekly denominator timestamp and state it clearly (e.g., 'European close 14:30 CET'). Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_YYYY-MM-DD_HHmm_WEEKLY.md` per the output contract. Do not perform re-underwriting, survivability analysis, ranking, or any other agent's job — only fetch prices, state sources, and flag gaps. Do not impersonate the Daily Anchor; this is a price-denominator verification only."

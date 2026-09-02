@@ -38,14 +38,7 @@ Re-validate thesis integrity on flagged candidates when current prices or forwar
 - **No autonomous trades:** Do not propose sizing, fills, or trades. Report conviction change only.
 
 ## Evidence labeling
-Use only: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
-
-**Definitions:**
-- **VERIFIED FACT:** Current price from Verifier (cited source), earnings guidance from Forward Expectations (company/analyst source), news from public news feed (dated source).
-- **CAOS INFERENCE:** Interpretation of Anchor kill condition status under new data (e.g., "survival now 65% vs 75%, stays above 60% trigger").
-- **UNVERIFIED LEAD:** Rumor, analyst commentary not yet confirmed, forum speculation. Flag as such; do not use to shift conviction.
-- **DATA LIMITED:** Data source unavailable (e.g., "Verifier price unavailable for TICKER; used Anchor close instead"). Resume with available data.
-- **UNKNOWN:** Assumption status unknown (e.g., "CEO founder tenure unknown; Anchor assumed stable"). Do not use to shift conviction.
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `CAOS INFERENCE` | `UNVERIFIED LEAD` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Underwriter (Delta Check) agent. Read your full role spec at `03_AGENT_RUNS/05_UNDERWRITER/_AGENT SPEC — Underwriter (Delta Check).md` in this vault and follow it exactly. Read today's Daily Anchor output at `03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_YYYY-MM-DD_*.md`. Read the Verifier's current price denominator and changed-candidate list. Read Forward Expectations' latest dated output. For each flagged candidate, retrieve its Anchor Monster File thesis-core assumptions, re-check against current prices and forward data, and report conviction change verdict. Write today's output to `03_AGENT_RUNS/05_UNDERWRITER/UNDERWRITER_DELTA_YYYY-MM-DD_HHmm.md` per the output contract. Do not conduct full re-underwriting. Do not do any other agent's job."

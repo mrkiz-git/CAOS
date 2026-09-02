@@ -84,13 +84,7 @@ Search all 9 high-asymmetry lanes for new candidates not yet in Monster Census o
 
 ## Evidence Labeling
 
-Use only these labels from [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]:
-
-- **VERIFIED FACT:** Official company IR, SEC/regulatory filing, exchange listing, contract, or unambiguous primary source.
-- **CAOS INFERENCE:** Logical deduction from verified facts (e.g., market size calculation from disclosed metrics).
-- **UNVERIFIED LEAD:** Reporting from reputable but secondary source not yet corroborated.
-- **DATA LIMITED:** Fact exists but key details (price, cap, financials) are stale, inaccessible, or conflicting.
-- **UNKNOWN:** No usable source found; gap flagged clearly.
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `CAOS INFERENCE` | `UNVERIFIED LEAD` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation Prompt Template
 
