@@ -7,7 +7,7 @@
 | `Run CAOS Emergency Thesis Rerun: <ticker/event>` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Emergency Thesis Rerun]] |
 | `Prepare CAOS DCA Execution Card` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/DCA Execution Card]] |
 | `Run CAOS Monster Census` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Monster Census]] |
-| `Run CAOS Weekly Ranking` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Weekly Ranking]] |
+| `Run CAOS Weekly Ranking` | IMPLEMENTATION IN PROGRESS | [[06_PRODUCT_RUNBOOKS/Weekly Ranking]] |
 | `Run CAOS Deep Audit` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Deep Audit]] |
 | `Run CAOS Learning Review` | NOT YET BUILT | [[06_PRODUCT_RUNBOOKS/Learning Review]] |
 | `Audit CAOS Master Ledger` | NOT YET BUILT | Covered by Deep Audit once built |
