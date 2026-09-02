@@ -1,4 +1,7 @@
 # ORCHESTRATOR — Weekly Ranking Detail Document
+
+> ⚠️ **NON-CANONICAL — NEVER EXECUTED.** Supporting detail file for `ORCHESTRATOR_2026-09-02_1530_WEEKLY` — same status: a narrative walkthrough, not a real pipeline run. See that file's banner for specifics. Moved here from `03_AGENT_RUNS/09_ORCHESTRATOR/` on 2026-09-02.
+
 **Supporting Detailed Fight Comparisons**
 
 **Date:** 2026-09-02  

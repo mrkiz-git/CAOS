@@ -1,4 +1,7 @@
 # ORCHESTRATOR — Weekly Ranking Consolidation (Scenario 2: Degraded Data)
+
+> ⚠️ **NON-CANONICAL — NEVER EXECUTED.** This file was written directly as a narrative walkthrough of a degraded-data scenario, not produced by a real Agent-tool run: none of the specialist files it cites in "Inputs Consulted" below exist anywhere in this vault. It also predates the real intake — it depicts the Master Ledger as stale/`UNINITIALIZED`, which was true in general terms before 2026-08-31 but was never the state on any date this file claims to run against. Moved here from `03_AGENT_RUNS/09_ORCHESTRATOR/` on 2026-09-02 so it can no longer be mistaken for a real production run. Kept for reference only — see [[04_FLIGHT_RECORDER/Weekly Ranking Dry-Run Test]] for the real test plan, which still needs to be executed for real.
+
 **Date:** 2026-09-02  
 **Run ID:** ORCHESTRATOR_2026-09-02_1540_WEEKLY_SCENARIO2  
 **Status:** EXECUTION BLOCKED (Degraded Data Test)

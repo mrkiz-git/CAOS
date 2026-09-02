@@ -1,4 +1,7 @@
 # ORCHESTRATOR — Weekly Ranking Consolidation
+
+> ⚠️ **NON-CANONICAL — NEVER EXECUTED.** This file was written directly as a narrative walkthrough, not produced by a real Agent-tool run: none of the 8 specialist files it cites in "Inputs Consulted" below (e.g. `VERIFIER_2026-09-02_1430_WEEKLY.md`) exist anywhere in this vault. It also contains at least one confirmed fabricated figure — "Total Portfolio NAV: ~$5.2M" — versus the real Master Ledger holdings on the same date, which compute to roughly $12,100. Moved here from `03_AGENT_RUNS/09_ORCHESTRATOR/` on 2026-09-02 so it can no longer be mistaken for a real production run. Kept for reference only — see [[04_FLIGHT_RECORDER/Weekly Ranking Dry-Run Test]] for the real test plan, which still needs to be executed for real.
+
 **Date:** 2026-09-02  
 **Run ID:** ORCHESTRATOR_2026-09-02_1530_WEEKLY  
 **Status:** EXECUTION READY (Happy Path Scenario 1 validation)
