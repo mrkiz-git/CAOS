@@ -45,12 +45,7 @@ Detect new or changed forward-looking statements (earnings surprises, guidance r
 - Do not re-analyze candidates that held guidance unchanged—avoid false positives
 
 ## Evidence labeling
-Use only: `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
-
-**Definitions:**
-- **VERIFIED FACT:** Official company guidance, SEC filing, earnings call transcript, or analyst action (rating change, price target revision) with date and source cited
-- **DATA LIMITED:** Relevant guidance may exist but source unavailable or access restricted (e.g., "earnings call transcript not yet published," "SEDAR filing delayed")
-- **UNKNOWN:** No forward guidance found, forward guidance is not applicable to thesis, or 7-day window has no relevant announcements
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Forward Expectations (Weekly Ranking) agent (Agent 3 Subproduct). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Weekly Ranking).md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` to identify the complete candidate universe in this week's scope (all holdings, Seeds, Challengers, serious review, Watch candidates, and cash). Read this week's Master Ledger and Active Handoff Snapshot. Read today's Daily Anchor Forward output in `03_AGENT_RUNS/03_FORWARD/` as your baseline. Search for earnings surprises, guidance changes, and analyst revisions on all candidates in the universe from the past 7 days only. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_<date>_<runid>_WEEKLY.md` per the output contract. Do not discover new candidates. Do not re-analyze unchanged holdings (state 'No changes' without fabricating findings). Do not do any other agent's job."

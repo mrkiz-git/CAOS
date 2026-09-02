@@ -12,9 +12,10 @@ A weekly deep-discovery sweep: consumes all active handoffs first, reconciles Ex
 This product uses a specialized multi-agent approach with three parallel Discovery agents and a consolidating Orchestrator:
 
 ### Discovery Agents
-1. [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery AI-Power-Cooling]] — AI infrastructure, power, cooling, networking
-2. [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery Semiconductors-Memory]] — Semiconductors, memory, equipment, devices
-3. [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery Defense-Autonomy]] — Defense, autonomy, quantum, batteries, biotech, other
+One shared spec, three lane assignments — see [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery (Census Lanes)#Lane Assignment|Lane Assignment table]]:
+1. **Agent A** — AI infrastructure, power, cooling, networking
+2. **Agent B** — Semiconductors, memory, equipment, devices
+3. **Agent C** — Defense, autonomy, quantum, batteries, biotech, other
 
 ### Orchestrator
 - [[03_AGENT_RUNS/09_ORCHESTRATOR/_AGENT SPEC — Orchestrator (Census)]] — Consolidation, ranking, underwriting, handoff emission
@@ -31,17 +32,9 @@ See [[06_PRODUCT_RUNBOOKS/Monster Census Design.md]] for the full architecture s
 
 ### Running the Census
 
-**Step 1: Invoke Discovery Agent A** (in Agent tool)
-- Use the prompt from [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery AI-Power-Cooling#AGENT PROMPT]]
-- Output will be: `DISCOVERY_INFRA_POWER_YYYY-MM-DD_CENSUS.md`
-
-**Step 2: Invoke Discovery Agent B** (in Agent tool)
-- Use the prompt from [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery Semiconductors-Memory#AGENT PROMPT]]
-- Output will be: `DISCOVERY_CHIPS_MEMORY_YYYY-MM-DD_CENSUS.md`
-
-**Step 3: Invoke Discovery Agent C** (in Agent tool)
-- Use the prompt from [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery Defense-Autonomy#AGENT PROMPT]]
-- Output will be: `DISCOVERY_DEFENSE_AUTONOMY_YYYY-MM-DD_CENSUS.md`
+**Steps 1–3: Invoke Discovery Agents A, B, C** (in Agent tool, in parallel)
+- Use the invocation prompt template from [[03_AGENT_RUNS/02_DISCOVERY/_AGENT SPEC — Discovery (Census Lanes)#Invocation prompt template]], substituting A, B, or C for each call
+- Output files (per the spec's Lane Assignment table): `DISCOVERY_INFRA_POWER_YYYY-MM-DD_CENSUS.md`, `DISCOVERY_CHIPS_MEMORY_YYYY-MM-DD_CENSUS.md`, `DISCOVERY_DEFENSE_AUTONOMY_YYYY-MM-DD_CENSUS.md`
 
 **Step 4: Invoke Orchestrator** (primary session, after all three agents complete)
 - Use the prompt from [[03_AGENT_RUNS/09_ORCHESTRATOR/_AGENT SPEC — Orchestrator (Census)#ORCHESTRATOR PROMPT]]

@@ -35,13 +35,7 @@ Detect new or changed forward-looking statements (earnings surprises, guidance r
 - No speculation—only announced or published guidance
 
 ## Evidence labeling
-Use only: VERIFIED FACT | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN
-
-**Definitions:**
-- **VERIFIED FACT:** Official company guidance, SEC filing, earnings call transcript, or analyst action (rating change, price target revision) with date and source cited
-- **UNVERIFIED LEAD:** Market commentary, sell-side report, or social media claim not yet confirmed by company or filing
-- **DATA LIMITED:** Relevant guidance may exist but source unavailable or access restricted (e.g., "earnings call transcript not yet published")
-- **UNKNOWN:** No forward guidance found or forward guidance is not applicable to thesis
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `UNVERIFIED LEAD` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Forward Expectations (Delta Check) agent (Agent 3 Subproduct). Read your full role spec at `03_AGENT_RUNS/03_FORWARD/_AGENT SPEC — Forward Expectations (Delta Check).md` in this vault and follow it exactly. Read the Verifier's latest dated output in `03_AGENT_RUNS/01_VERIFIER/` to identify flagged candidates. Read today's Daily Anchor Forward output in `03_AGENT_RUNS/03_FORWARD/` as your baseline. Search for earnings surprises, guidance changes, and analyst revisions on flagged candidates only since Daily Anchor completion. Write today's output to `03_AGENT_RUNS/03_FORWARD/FORWARD_DELTA_<date>_<runid>.md` per the output contract. Do not discover new candidates or re-analyze unchanged holdings. Do not do any other agent's job."

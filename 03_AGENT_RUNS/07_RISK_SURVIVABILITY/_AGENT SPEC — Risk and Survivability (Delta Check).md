@@ -43,11 +43,7 @@ This role's only hard dependency is the Underwriter's Delta output — it runs i
 - **Lightweight scope** — do not re-run full regime testing, concentration tests, or 10-risk-category re-certification; focus only on survival percentage recalculation and financing/dilution flags
 
 ## Evidence labeling
-Use only these four labels:
-- `VERIFIED FACT` — Intraday price from Verifier, news from major financial media or company announcement, guidance from earnings call or official statement, filing from SEC/regulatory source
-- `CAOS INFERENCE` — Survival recalculation derived from Underwriter's thesis re-check + new prices; thesis intact/degraded judgment based on newsflow and forward guidance
-- `DATA LIMITED` — Price unavailable for a flagged candidate, news source incomplete, guidance uncertain, survival calculation missing inputs
-- `UNKNOWN` — Candidate state or survival driver unknown; data needed before flag can be evaluated
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `CAOS INFERENCE` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Risk and Survivability (Delta Check) agent. Read your full role spec at `03_AGENT_RUNS/07_RISK_SURVIVABILITY/_AGENT SPEC — Risk and Survivability (Delta Check).md` in this vault and follow it exactly. Read today's Daily Anchor Risk & Survivability baseline output from `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_YYYY-MM-DD_<runid>.md`. Read the Verifier's current price denominator and flagged candidate list. Read the Underwriter's delta thesis re-check output for changed candidates. Write today's output to `03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_DELTA_YYYY-MM-DD_HHmm.md` per the output contract. Do not do any other agent's job. Do not attempt full regime testing or 10-risk re-certification. Focus only on survival score recalculation and financing/dilution risk flags for flagged candidates."

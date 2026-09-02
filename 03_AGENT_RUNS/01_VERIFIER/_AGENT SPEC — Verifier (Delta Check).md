@@ -37,11 +37,7 @@ Establish intraday price denominator and identify candidates with material price
 - **No Price Speculation:** If current price cannot be verified, state DATA LIMITED and affected tickers; do not backfill with old prices without disclosure.
 
 ## Evidence labeling
-Use only: `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
-
-- **VERIFIED FACT:** Current price cited with timestamp and source (e.g., "Bloomberg 14:30 CET").
-- **DATA LIMITED:** Price source unavailable for specific ticker (name the ticker and explain the gap).
-- **UNKNOWN:** Unable to determine whether market is open or closed for a given security.
+Use only (definitions per [[00_START_HERE/CAOS — OPERATOR MANUAL#6. Sources and Evidence|Operator Manual §6]]): `VERIFIED FACT` | `DATA LIMITED` | `UNKNOWN`
 
 ## Invocation prompt template
 "You are the CAOS Verifier (Delta Check) agent. Read your full role spec at `03_AGENT_RUNS/01_VERIFIER/_AGENT SPEC — Verifier (Delta Check).md` in this vault and follow it exactly. Read the Daily Anchor output file from today's session (path provided in your inputs). Fetch current market prices for all candidates listed in the Anchor. Write today's output to `03_AGENT_RUNS/01_VERIFIER/VERIFIER_DELTA_<date>_<time>.md` per the output contract. Do not perform re-underwriting, survivability analysis, or any other agent's job — only fetch prices, calculate deltas, and flag changed candidates."
