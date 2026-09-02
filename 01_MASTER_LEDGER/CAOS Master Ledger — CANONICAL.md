@@ -16,35 +16,38 @@ This is the sole controlling long-term portfolio and decision record for CAOS. I
 **Restrictions:** None (no sector, geographic, security-type, or liquidity exclusions)
 
 ## 2. Current Portfolio Snapshot
-STATUS: INITIALIZED
+STATUS: INITIALIZED — refreshed 2026-09-02
 SOURCE: Revolut broker export (user-provided screenshot)
-TIMESTAMP: 2026-08-31 (intake date; prices from screenshot, exact live fetch time unknown — refresh recommended before trading)
+TIMESTAMP: 2026-09-02 (prices from screenshot, exact live fetch time unknown — refresh recommended before trading)
 CURRENCY: Mixed (EUR for cash, USD for holdings; living portfolio — all future snapshots will use current live prices at update time)
+ACCOUNT TOTAL (per broker, mixed-currency, not independently recomputed): €9,333.67 (+128.91% since account inception, per broker)
 
 **Funded Holdings (8 securities):**
 | Ticker | Company | Type | Shares | Avg Cost | Current Price | Role Status |
 |--------|---------|------|--------|----------|----------------|-------------|
-| PLTR | Palantir | EQUITY | 21.688 | $29.44 | $183.74 | CORE/ATTACKER |
-| NVDA | NVIDIA | EQUITY | 14.884 | $98.59 | $218.90 | CORE/ATTACKER |
-| MSFT | Microsoft | EQUITY | 1.961 | $356.11 | $510.03 | CORE/ATTACKER |
-| KO | Coca-Cola | EQUITY | 11.071 | $68.13 | $89.60 | CORE/ATTACKER |
-| GOOGL | Alphabet Class A | EQUITY | 1.855 | $106.45 | $344.66 | CORE/ATTACKER |
-| TSLA | Tesla | EQUITY | 1.676 | $213.97 | $346.87 | CORE/ATTACKER |
-| IREN | Iris Energy | EQUITY | 8.110 | $37.61 | $35.64 | CORE/ATTACKER |
-| WULF | Terawulf Inc | EQUITY | 18.915 | $16.12 | $15.28 | CORE/ATTACKER |
+| PLTR | Palantir | EQUITY | 21.68808861 | $29.44 | $177.56 | CORE/ATTACKER |
+| NVDA | NVIDIA | EQUITY | 14.88458404 | $98.59 | $216.89 | CORE/ATTACKER |
+| MSFT | Microsoft | EQUITY | 1.96105021 | $356.11 | $497.14 | CORE/ATTACKER |
+| KO | Coca-Cola | EQUITY | 11.07061496 | $68.13 | $88.11 | CORE/ATTACKER |
+| GOOGL | Alphabet Class A | EQUITY | 1.85516511 | $106.45 | $336.75 | CORE/ATTACKER |
+| TSLA | Tesla | EQUITY | 1.67642235 | $213.97 | $356.00 | CORE/ATTACKER |
+| IREN | Iris Energy | EQUITY | 8.1098693 | $37.61 | $36.01 | CORE/ATTACKER |
+| WULF | Terawulf Inc | EQUITY | 18.91535598 | $16.12 | $14.46 | CORE/ATTACKER |
 
 **Cash:**
 | Currency | Amount | Type | Availability |
 |----------|--------|------|---------------|
-| EUR | €1,000.95 | Real unlevered cash | Full (including broker residual €0.95) |
+| EUR | €0.95 | Real unlevered cash | Full |
 | USD | $0.00 | Real unlevered cash | None |
 
-## 3. Real Cash vs. Buying Power
-STATUS: INITIALIZED (2026-08-31)
+CORRECTION (2026-09-02): the €1,000.95 cash figure recorded at 2026-08-31 intake was wrong — Mark confirmed real cash has always been €0.95, not €1,000.95. No transaction occurred; this is a data-entry fix, not a withdrawal. See Event 1 in §8.
 
-**Real unlevered cash:** €1,000.95 (in broker, no margin, no leverage)
+## 3. Real Cash vs. Buying Power
+STATUS: INITIALIZED (2026-08-31), cash figure corrected 2026-09-02
+
+**Real unlevered cash:** €0.95 (in broker, no margin, no leverage)
 **Broker buying power:** equal to real cash (no credit line, no margin account)
-**Committed to monthly contribution:** €300/month (available for reinvestment)
+**Committed to monthly contribution:** €300/month (future contribution, not yet in account)
 **Constraint:** Leverage explicitly prohibited; all positions unlevered
 
 ## 4. Funded-Security Roles
@@ -121,6 +124,55 @@ NEXT PROOF GATE
 
 SUPERSEDES / RESOLVES
 - None (inaugural event)
+============================================================
+END CAOS EVENT
+============================================================
+
+### Event 1: Cash Figure Correction + Price Refresh
+============================================================
+CAOS EVENT
+============================================================
+EVENT_ID = 2026-09-02-LEDGER-CASH-CORRECTION
+EVENT_TYPE = LEDGER_CORRECTION
+MODULE = MASTER_LEDGER
+TIMESTAMP_LOCAL = 2026-09-02 (Europe/Sofia)
+DECISION_AUTHORITY = Mark
+EXECUTION_AUTHORITY = Mark only
+TRANSACTION_RESULT = NO TRADE
+
+SOURCE_AND_PORTFOLIO_STATE
+- Revolut broker export (user-provided screenshot), 2026-09-02
+- Same 8 funded securities as Event 0, unchanged share counts (confirmed to 8 decimal places against the 8/31 intake)
+- Cash: €0.95 (screenshot "Cash balance", both Total and Available to invest)
+
+PREVIOUS_STATE
+- Master Ledger §2/§3 recorded real cash as €1,000.95 as of 2026-08-31 intake
+
+NEW_STATE
+- Real cash corrected to €0.95
+- All 8 holdings' Current Price refreshed to 2026-09-02 broker snapshot
+- No change to share counts, avg cost, or role status
+
+VERIFIED EVIDENCE
+- Mark directly confirmed (2026-09-02, in response to a direct question about the €1,000 discrepancy): the original €1,000.95 figure was wrong at intake — real cash has always been €0.95
+- No entry exists in §9 Confirmed Transactions/Fills between 2026-08-31 and 2026-09-02, and no holding's share count changed — ruling out an unlogged buy as the explanation
+
+CAOS INTERPRETATION
+- This is a correction of a bad intake data point, not a portfolio event (no cash left the account; it was never there in the recorded amount)
+- Per Radical Honesty and Fresh-Evidence Supremacy, the wrong figure is corrected here rather than silently edited — Event 0 above is left untouched as the historical record of what was recorded at the time
+
+SURVIVABILITY / FINANCING / DILUTION
+- Not applicable
+
+ACTIONABILITY
+- Real investable cash is €0.95, not €1,000.95 — do not size any near-term action assuming the larger figure
+- Monthly €300 contribution (§1) remains the actual source of future deployable cash
+
+NEXT PROOF GATE
+- Next broker screenshot/export reconciliation
+
+SUPERSEDES / RESOLVES
+- Corrects the cash figure stated in Event 0 (2026-08-31-SYSTEM-INIT); Event 0 itself is not superseded, only its cash figure
 ============================================================
 END CAOS EVENT
 ============================================================
