@@ -66,7 +66,7 @@ If survival score changes >10 percentage points or conviction changes materially
 - SECURITY/TICKER = affected ticker
 - PREVIOUS_STATE = prior conviction and survival score
 - NEW_STATE = updated conviction and survival score
-- EVIDENCE_QUALITY = VERIFIED FACT / CAOS INFERENCE / DATA LIMITED
+- EVIDENCE_QUALITY = VERIFIED FACT / CAOS INFERENCE / DATA LIMITED / UNKNOWN
 - THESIS_OR_ASYMMETRY_CHANGE = explicit description of thesis change
 - SURVIVABILITY_OR_FINANCING_CHANGE = numeric survival-score change (e.g., "75% → 62%, −13 points")
 - NEXT_GATE = date, metric, filing, or event for next re-check
