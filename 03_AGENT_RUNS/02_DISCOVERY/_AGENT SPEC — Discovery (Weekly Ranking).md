@@ -117,7 +117,7 @@ Search Task:
 - Label all evidence: VERIFIED FACT | CAOS INFERENCE | UNVERIFIED LEAD | DATA LIMITED | UNKNOWN.
 
 Output:
-- Write to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_<date>_<runid>_WEEKLY.md` per the output contract.
+- Write to `03_AGENT_RUNS/02_DISCOVERY/DISCOVERY_YYYY-MM-DD_HHmm_WEEKLY.md` per the output contract.
 - Include: Inputs Consulted, Search Strategy, Lane-by-Lane Results, Candidate Summary Table, 
   Deduplication & Exclusion Log, Evidence Labeling, Verdict.
 - End with: `DISCOVERY_WEEKLY = SEARCH COMPLETE / SEARCH INCOMPLETE`.
