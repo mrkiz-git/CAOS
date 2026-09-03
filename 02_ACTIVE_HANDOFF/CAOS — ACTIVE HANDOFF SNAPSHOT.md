@@ -12,12 +12,14 @@ None. (Hunter Watch product has no real run yet.)
 
 ## Challengers
 - ONDS (Ondas Holdings) — see [[#HANDOFF_ID = 20260902-DAILY-ONDS-NEW_CHALLENGER]]
+- AMKR (Amkor Technology) — see [[#HANDOFF_ID = 20260903-CENSUS-AMKR-NEW_CHALLENGER]]
+- MP (MP Materials) — see [[#HANDOFF_ID = 20260903-CENSUS-MP-NEW_CHALLENGER]]
 
 ## Seeds
 None.
 
 ## Trigger Watches
-None.
+- SNDK (SanDisk) — see [[#HANDOFF_ID = 20260903-CENSUS-SNDK-WATCH_GATE]]
 
 ## Event Gates
 - WULF/IREN Anthropic-credit evidence gate — see [[#HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE]]
@@ -32,7 +34,7 @@ Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-02_001]]: Master Ledger READY (
 None yet — these are new handoffs from today's run, not yet consumed by a downstream product.
 
 ## Last Writer
-Orchestrator, Weekly Ranking run 2026-09-03_0740 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_0740_WEEKLY]] (no new handoffs emitted this run; all 3 open items re-ACK'd and left open)
+Orchestrator, Monster Census run 2026-09-03 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_CENSUS]] (emitted 3 new handoffs: AMKR + MP promoted to CHALLENGER, SNDK to WATCH WITH SPECIFIC TRIGGER)
 
 ---
 
@@ -103,4 +105,73 @@ RESOLVES_HANDOFF_ID = NONE
 ACTIVE_UNTIL = Next Verifier/Underwriter cycle that closes the Anthropic-credit gap
 REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = YES
+```
+
+## HANDOFF_ID = 20260903-CENSUS-AMKR-NEW_CHALLENGER
+```
+HANDOFF_ID = 20260903-CENSUS-AMKR-NEW_CHALLENGER
+ORIGIN_MODULE = CENSUS
+ORIGIN_DATE = 2026-09-03
+SECURITY/TICKER = AMKR
+HANDOFF_TYPE = CANDIDATE_STATE
+SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03)
+SOURCE_SIGNAL_DATE = 2026-09-03
+DEDUP_KEY = CENSUS|AMKR|NEW_CHALLENGER|2026-09-03
+PREVIOUS_STATE = Not tracked
+NEW_STATE = CHALLENGER
+EVIDENCE_QUALITY = HIGH (SEC 8-K sourced record quarter)
+THESIS_OR_ASYMMETRY_CHANGE = Direct CoWoS/advanced-packaging bottleneck beneficiary, largest US-headquartered OSAT, Arizona onshoring hedge ramping H2 2026
+SURVIVABILITY_OR_FINANCING_CHANGE = None — profitable incumbent, no dilution signal
+NEXT_GATE = Q3 2026 report confirming AI advanced-packaging revenue trajectory and Arizona ramp progress
+SUPERSEDES = NONE
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Next Underwriter cycle sizing decision
+REQUIRED_CONSUMERS = WEEKLY, DAILY
+MANDATORY_DEEP_UNDERWRITING = NO
+```
+
+## HANDOFF_ID = 20260903-CENSUS-MP-NEW_CHALLENGER
+```
+HANDOFF_ID = 20260903-CENSUS-MP-NEW_CHALLENGER
+ORIGIN_MODULE = CENSUS
+ORIGIN_DATE = 2026-09-03
+SECURITY/TICKER = MP
+HANDOFF_TYPE = CANDIDATE_STATE
+SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03)
+SOURCE_SIGNAL_DATE = 2026-09-03
+DEDUP_KEY = CENSUS|MP|NEW_CHALLENGER|2026-09-03
+PREVIOUS_STATE = Not tracked
+NEW_STATE = CHALLENGER
+EVIDENCE_QUALITY = MEDIUM (DoD partnership primary-sourced; revenue/market-cap figures UNVERIFIED; a $400M vs $550M+ DoD-support figure discrepancy is unresolved)
+THESIS_OR_ASYMMETRY_CHANGE = Rare-earth producer converted to a DoD-backed national-champion play via government equity stake and NdPr price floor
+SURVIVABILITY_OR_FINANCING_CHANGE = DoD $400M equity investment already dilutive event, priced in; no further signal
+NEXT_GATE = Reconcile the $400M vs $550M+ DoD-support figures against a primary filing before any further step
+SUPERSEDES = NONE
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Next Underwriter cycle
+REQUIRED_CONSUMERS = WEEKLY, DAILY
+MANDATORY_DEEP_UNDERWRITING = YES
+```
+
+## HANDOFF_ID = 20260903-CENSUS-SNDK-WATCH_GATE
+```
+HANDOFF_ID = 20260903-CENSUS-SNDK-WATCH_GATE
+ORIGIN_MODULE = CENSUS
+ORIGIN_DATE = 2026-09-03
+SECURITY/TICKER = SNDK
+HANDOFF_TYPE = EVIDENCE_GATE
+SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03)
+SOURCE_SIGNAL_DATE = 2026-09-03
+DEDUP_KEY = CENSUS|SNDK|WATCH_GATE|2026-09-03
+PREVIOUS_STATE = Not tracked
+NEW_STATE = WATCH WITH SPECIFIC TRIGGER
+EVIDENCE_QUALITY = MEDIUM (datacenter revenue growth VERIFIED FACT/IR-sourced; price-performance claims UNVERIFIED and extreme — ~1,350% trailing 12mo, unconfirmed)
+THESIS_OR_ASYMMETRY_CHANGE = First NAND-specific pure-play surfaced in any CAOS run; real growth story but entry-price asymmetry unassessable given unreliable equity-quote data this cycle
+SURVIVABILITY_OR_FINANCING_CHANGE = None identified
+NEXT_GATE = Independent (non-WebSearch-aggregator) price/valuation confirmation
+SUPERSEDES = NONE
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Next Verifier cycle with a reliable price source, or Mark's own broker-side check
+REQUIRED_CONSUMERS = WEEKLY, DAILY
+MANDATORY_DEEP_UNDERWRITING = NO
 ```
