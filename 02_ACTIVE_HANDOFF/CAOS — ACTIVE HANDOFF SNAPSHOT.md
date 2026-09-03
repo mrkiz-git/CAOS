@@ -32,7 +32,7 @@ Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-02_001]]: Master Ledger READY (
 None yet — these are new handoffs from today's run, not yet consumed by a downstream product.
 
 ## Last Writer
-Orchestrator, Daily Anchor run 2026-09-02_001 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-02_001]]
+Orchestrator, Weekly Ranking run 2026-09-03_0740 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_0740_WEEKLY]] (no new handoffs emitted this run; all 3 open items re-ACK'd and left open)
 
 ---
 
