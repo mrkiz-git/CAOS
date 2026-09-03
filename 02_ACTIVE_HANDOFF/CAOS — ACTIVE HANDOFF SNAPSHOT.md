@@ -35,7 +35,7 @@ Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-03_DEEPAUDIT]]: Master Ledger R
 None yet — these are new/updated handoffs from today's Deep Audit run, not yet consumed by a downstream product.
 
 ## Last Writer
-Orchestrator, Deep Audit run 2026-09-03 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_DEEPAUDIT]] (first post-intake Deep Audit; confirmed PLTR/NVDA sizing overage; identified TSLA/WULF as a paired Burden-of-Proof watch; withdrew Portfolio Court's WULF-first exit-priority ranking per Red Team's INCUMBENCY BIAS CHECK = FAIL finding; LOG REQUIRED, pending Mark's "logged" reply)
+Orchestrator, DCA Execution Card run 2026-09-03 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_DCA]] (first real DCA card; resolved HOLD CASH — no confirmed contribution, count-overage sequencing unresolved; closed MP's $400M/$550M+ DoD evidence gate; corrected AMKR's Arizona-timeline framing from "H2 2026" to 2027-2028; NO LOG REQUIRED)
 
 ---
 
@@ -138,15 +138,15 @@ ORIGIN_MODULE = CENSUS
 ORIGIN_DATE = 2026-09-03
 SECURITY/TICKER = AMKR
 HANDOFF_TYPE = CANDIDATE_STATE
-SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03)
-SOURCE_SIGNAL_DATE = 2026-09-03
+SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03); TIMELINE CORRECTED by DCA Execution Card Underwriter, 2026-09-03
+SOURCE_SIGNAL_DATE = 2026-09-03 (correction)
 DEDUP_KEY = CENSUS|AMKR|NEW_CHALLENGER|2026-09-03
 PREVIOUS_STATE = Not tracked
-NEW_STATE = CHALLENGER
-EVIDENCE_QUALITY = HIGH (SEC 8-K sourced record quarter)
-THESIS_OR_ASYMMETRY_CHANGE = Direct CoWoS/advanced-packaging bottleneck beneficiary, largest US-headquartered OSAT, Arizona onshoring hedge ramping H2 2026
-SURVIVABILITY_OR_FINANCING_CHANGE = None — profitable incumbent, no dilution signal
-NEXT_GATE = Q3 2026 report confirming AI advanced-packaging revenue trajectory and Arizona ramp progress
+NEW_STATE = CHALLENGER, now with a full-depth Monster File (DCA Underwriter, 2026-09-03) — target role Core/Attacker, adjusted attractiveness MODERATE. Best-fit replacement target identified as WULF specifically.
+EVIDENCE_QUALITY = HIGH (Q2 2026 press release + 10-Q figures, multiply corroborated: net income $174M, near-zero net debt, +26% YoY revenue)
+THESIS_OR_ASYMMETRY_CHANGE = Direct CoWoS/advanced-packaging bottleneck beneficiary, largest US-headquartered OSAT. **CORRECTION**: prior framing of "Arizona onshoring hedge ramping H2 2026" is not supported by primary sourcing — Amkor's own site materials show construction began Sept 2025, facility completion mid-2027, production start early 2028. The bottleneck thesis is intact; the near-term-ramp framing was wrong and is corrected here.
+SURVIVABILITY_OR_FINANCING_CHANGE = None — profitable incumbent, no dilution signal, near-zero net debt. H1 2026 FCF was negative ($(269.9)M) but fully explained by active Arizona capex, not operating weakness.
+NEXT_GATE = Q3 2026 report, October 26, 2026 after market close — confirming AI advanced-packaging revenue trajectory and whether the corrected 2027-2028 Arizona timeline stays on track
 SUPERSEDES = NONE
 RESOLVES_HANDOFF_ID = NONE
 ACTIVE_UNTIL = Next Underwriter cycle sizing decision
@@ -161,20 +161,20 @@ ORIGIN_MODULE = CENSUS
 ORIGIN_DATE = 2026-09-03
 SECURITY/TICKER = MP
 HANDOFF_TYPE = CANDIDATE_STATE
-SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03)
-SOURCE_SIGNAL_DATE = 2026-09-03
+SOURCE = Monster Census Deep Underwriting (Orchestrator, 2026-09-03); GATE CLOSED by DCA Execution Card Underwriter, 2026-09-03
+SOURCE_SIGNAL_DATE = 2026-09-03 (gate closure)
 DEDUP_KEY = CENSUS|MP|NEW_CHALLENGER|2026-09-03
 PREVIOUS_STATE = Not tracked
-NEW_STATE = CHALLENGER
-EVIDENCE_QUALITY = MEDIUM (DoD partnership primary-sourced; revenue/market-cap figures UNVERIFIED; a $400M vs $550M+ DoD-support figure discrepancy is unresolved)
-THESIS_OR_ASYMMETRY_CHANGE = Rare-earth producer converted to a DoD-backed national-champion play via government equity stake and NdPr price floor
-SURVIVABILITY_OR_FINANCING_CHANGE = DoD $400M equity investment already dilutive event, priced in; no further signal
-NEXT_GATE = Reconcile the $400M vs $550M+ DoD-support figures against a primary filing before any further step
+NEW_STATE = CHALLENGER, now with a full-depth Monster File (DCA Underwriter, 2026-09-03) — target role Seed/Catalyst with an explicit evidence gate (not Core/Attacker), adjusted attractiveness MODERATE (below AMKR on profitability, above WULF on counterparty clarity)
+EVIDENCE_QUALITY = HIGH on the DoD deal mechanics (multiply corroborated primary-adjacent sources); MEDIUM on current financials; DATA LIMITED on the 10X Facility production date (not disclosed anywhere found)
+THESIS_OR_ASYMMETRY_CHANGE = Rare-earth producer converted to a DoD-backed national-champion play via government equity stake and a $110/kg NdPr price floor with a 10-year 100%-offtake commitment — a genuinely differentiated survivability mechanism nothing else in the portfolio has
+SURVIVABILITY_OR_FINANCING_CHANGE = **$400M vs $550M+ DoD-figure discrepancy CLOSED**: both figures were correct and additive, not contradictory — $400M convertible-preferred equity + $150M separate 12-year DoD loan = $550M total direct DoD support. A separate $1.0B JPMorgan/Goldman commitment is private bank debt, not DoD money, and should not be summed into the DoD figure. Company is currently unprofitable (Q2 2026 net loss $(20.3)M), ~8.71% YoY share dilution, mid-ramp on two simultaneous facility builds.
+NEXT_GATE = Q3 2026 earnings (~October 29, 2026, date UNVERIFIED LEAD) — test whether a 10X Facility production date is finally disclosed and whether the Independence Facility's "sold out" claim converts to dollar-denominated contracted revenue
 SUPERSEDES = NONE
 RESOLVES_HANDOFF_ID = NONE
 ACTIVE_UNTIL = Next Underwriter cycle
 REQUIRED_CONSUMERS = WEEKLY, DAILY
-MANDATORY_DEEP_UNDERWRITING = YES
+MANDATORY_DEEP_UNDERWRITING = NO
 ```
 
 ## HANDOFF_ID = 20260903-CENSUS-SNDK-WATCH_GATE
