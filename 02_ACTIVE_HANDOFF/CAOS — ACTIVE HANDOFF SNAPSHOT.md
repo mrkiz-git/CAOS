@@ -22,19 +22,20 @@ None.
 - SNDK (SanDisk) — see [[#HANDOFF_ID = 20260903-CENSUS-SNDK-WATCH_GATE]]
 
 ## Event Gates
-- WULF/IREN Anthropic-credit evidence gate — see [[#HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE]]
+- WULF/IREN Anthropic-credit evidence gate (updated, still open) — see [[#HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE]]
+- TSLA Optimus production-verification gate (new, paired Burden-of-Proof watch with WULF) — see [[#HANDOFF_ID = 20260903-DEEPAUDIT-TSLA-EVIDENCE_GATE]]
 
 ## Tribunals
-- Portfolio-count / concentration overage — see [[#HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE]]
+- Portfolio-count / concentration overage (updated — sizing overage confirmed, exit-priority ranking explicitly withdrawn pending next cycle) — see [[#HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE]]
 
 ## Source Status
-Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-02_001]]: Master Ledger READY (self-consistent), Active Handoff Snapshot READY, market-status WebSearch READY, equity-quote WebSearch DEGRADED (no dedicated financial-data API; TSLA/IREN/WULF prices internally conflicting across sources), dedicated financial-data API UNAVAILABLE. `DATA QUALITY = DEGRADED` as of 2026-09-02.
+Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-03_DEEPAUDIT]]: Master Ledger READY (self-consistent, no drift from broker state), Active Handoff Snapshot READY, market-status WebSearch READY (day-level), equity-quote WebSearch DEGRADED (no dedicated financial-data API; IREN/WULF prices internally conflicting ~9-10% within the same search, unresolved for a second cycle), dedicated financial-data API UNAVAILABLE. `DATA QUALITY = DEGRADED` as of 2026-09-03 (reconfirmed, not improved, from 2026-09-02).
 
 ## Acknowledgements
-None yet — these are new handoffs from today's run, not yet consumed by a downstream product.
+None yet — these are new/updated handoffs from today's Deep Audit run, not yet consumed by a downstream product.
 
 ## Last Writer
-Orchestrator, Monster Census run 2026-09-03 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_CENSUS]] (emitted 3 new handoffs: AMKR + MP promoted to CHALLENGER, SNDK to WATCH WITH SPECIFIC TRIGGER)
+Orchestrator, Deep Audit run 2026-09-03 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_DEEPAUDIT]] (first post-intake Deep Audit; confirmed PLTR/NVDA sizing overage; identified TSLA/WULF as a paired Burden-of-Proof watch; withdrew Portfolio Court's WULF-first exit-priority ranking per Red Team's INCUMBENCY BIAS CHECK = FAIL finding; LOG REQUIRED, pending Mark's "logged" reply)
 
 ---
 
@@ -68,18 +69,18 @@ ORIGIN_MODULE = DAILY
 ORIGIN_DATE = 2026-09-02
 SECURITY/TICKER = PORTFOLIO (all 8 holdings)
 HANDOFF_TYPE = SYSTEM_STATE
-SOURCE = Daily Anchor Portfolio Court + Risk and Survivability, 2026-09-02 run
-SOURCE_SIGNAL_DATE = 2026-09-02
+SOURCE = Daily Anchor Portfolio Court + Risk and Survivability, 2026-09-02 run; UPDATED by Deep Audit 2026-09-03
+SOURCE_SIGNAL_DATE = 2026-09-03 (updated)
 DEDUP_KEY = DAILY|PORTFOLIO|COUNT_OVERAGE|2026-09-02
-PREVIOUS_STATE = Not previously flagged (first Portfolio Court run against an INITIALIZED Ledger)
-NEW_STATE = Portfolio holds 8 funded securities against Master Ledger §11's DRAFT cap of 7 — already over before any new candidate is considered. Paired finding: PLTR (~35.6%) and NVDA (~29.8%) are both multiples over the equally-DRAFT ~5% Core/Attacker sizing norm — Red Team flagged that this run was treating the count breach as more decisional than the (larger, in dollar terms) sizing breach, despite both rules carrying identical DRAFT/unconfirmed status
-EVIDENCE_QUALITY = HIGH (arithmetic on Ledger's own recorded share counts and prices) for the count and position-size math; MEDIUM for the underlying prices themselves (Verifier's DATA QUALITY = DEGRADED this run)
+PREVIOUS_STATE = Flagged 2026-09-02, routed to this Deep Audit as NEXT_GATE
+NEW_STATE = ADJUDICATED IN PART by Deep Audit 2026-09-03. Count breach (8 vs draft 7) and sizing breach (PLTR ~35.6%, NVDA ~29.8% vs ~5% draft norm) CONFIRMED by 3 independent agents (Underwriter, Portfolio Court, Risk), undisputed by Red Team — RESIZE is the standing recommendation for both, exact target deferred to Mark. Portfolio Court's original WULF-first exit-priority ranking (to fix the count breach specifically) is WITHDRAWN — Red Team returned INCUMBENCY BIAS CHECK = FAIL, finding the ranking apparatus favored already-small/already-familiar incumbents (WULF ranked partly on "cheapest to unwind," a circular argument; GOOGL/MSFT cleared for new capital using a lighter test than KO/WULF faced; TSLA's structurally identical Burden-of-Proof failure got no equivalent scrutiny). No exit-priority order is currently in force. KO flagged REPLACE-WATCH (mandate-fit strain, confirmed independently by 3 agents) pending a genuine swap-comparison against AMKR/MP next cycle — not run this cycle.
+EVIDENCE_QUALITY = HIGH for the count/sizing arithmetic; MEDIUM for underlying prices (DEGRADED, reconfirmed 2026-09-03)
 THESIS_OR_ASYMMETRY_CHANGE = Not a single-security thesis change — a structural/rule-conformance finding
 SURVIVABILITY_OR_FINANCING_CHANGE = Not applicable
-NEXT_GATE = Deep Audit — resolve the count and sizing overage together, not separately; also requires Mark to confirm, amend, or reject the §11 draft rules themselves before either finding can become a binding block
+NEXT_GATE = Next Deep Audit cycle: a genuine joint-reconstruction test (GOOGL/MSFT explicitly tested as displacement candidates against KO/WULF, not just against idle cash), AMKR/MP underwritten to Monster File depth before being ranked against incumbents. Also requires Mark to confirm, amend, or reject the §11 draft rules themselves.
 SUPERSEDES = NONE
 RESOLVES_HANDOFF_ID = NONE
-ACTIVE_UNTIL = First Deep Audit
+ACTIVE_UNTIL = Next Deep Audit cycle
 REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = YES
 ```
@@ -91,20 +92,43 @@ ORIGIN_MODULE = DAILY
 ORIGIN_DATE = 2026-09-02
 SECURITY/TICKER = WULF, IREN
 HANDOFF_TYPE = EVIDENCE_GATE
-SOURCE = Daily Anchor Underwriter + Risk and Survivability + Red Team, 2026-09-02 run
-SOURCE_SIGNAL_DATE = 2026-09-02
+SOURCE = Daily Anchor Underwriter + Risk and Survivability + Red Team, 2026-09-02 run; UPDATED by Deep Audit Industry Read-through 2026-09-03
+SOURCE_SIGNAL_DATE = 2026-09-03 (updated)
 DEDUP_KEY = DAILY|WULF_IREN|EVIDENCE_GATE|2026-09-02
-PREVIOUS_STATE = Not previously flagged (first Daily Anchor run since intake with both names funded)
-NEW_STATE = Both names' bitcoin-mining-to-AI/HPC pivot is real and underway. IREN's is financed via an investment-grade-rated Microsoft-backed facility but only 18% of trailing FY26 revenue is AI Cloud (82% still mining) and ~$8B of FY27 capex remains unfinanced. WULF's largest contract ($19B, Anthropic) rests on an unrated, privately-financed, pre-IPO counterparty with no revenue until H2 2027, on materially higher leverage — but WULF's trailing revenue mix (71% HPC-derived, VERIFIED FACT) is already further along its pivot than IREN's. Red Team found the WULF-riskier-than-IREN framing was restated three times across the report chain without independent re-verification at each stage — directionally correct, magnitude overstated.
-EVIDENCE_QUALITY = MEDIUM — the pivot and revenue-mix figures are VERIFIED FACT; Anthropic's own credit standing and IREN's private-placement pricing terms remain UNVERIFIED LEAD / DATA LIMITED, sourced only via WebSearch snippets, not primary filings
-THESIS_OR_ASYMMETRY_CHANGE = Both names' investment case has partially shifted from bitcoin-mining-economics-exposed toward AI-hosting/power-exposed; treat as in-progress for both, not settled for either
-SURVIVABILITY_OR_FINANCING_CHANGE = WULF: $5.8B total debt (~63% of a naive debt+equity cap), refinancing/conversion risk on $2.5B convertible notes ahead of H2 2027 revenue start. IREN: ~$8B FY27 financing gap still a management aspiration, not secured.
-NEXT_GATE = Next Verifier/Underwriter cycle: independently verify Anthropic's credit standing (IPO timing, debt covenants, revenue durability) via primary sources, not WebSearch snippets — this is the single most consequential open gap in this run. Also close IREN's private-placement pricing terms. Dated break/warning gates for both names are defined in [[03_AGENT_RUNS/07_RISK_SURVIVABILITY/RISK_SURVIVABILITY_2026-09-02_001]].
+PREVIOUS_STATE = Flagged 2026-09-02, routed to this Deep Audit as NEXT_GATE
+NEW_STATE = STILL OPEN after a dedicated resolution attempt. Real progress: IREN's $3.0B convertible senior notes (1.00%, due 2033, Rule 144A, net proceeds ~$2.96B) confirmed VERIFIED FACT; no source found ties Microsoft specifically to this offering — the "Microsoft-backed facility" framing appears to actually reference a separate ~$9.7B GB300 GPU deal, still unconfirmed. For WULF: identified that a related-but-separate Anthropic financing structure (~$35-36B TPU SPV) achieves investment-grade quality via Broadcom's third-party residual-value guarantee, NOT Anthropic's own credit (Anthropic is confirmed private, no S&P/Moody's rating found). Whether an equivalent guarantee backs the WULF/Anthropic lease specifically could NOT be determined — the two documents that would answer this (TeraWulf's press release, its SEC 8-K exhibit) were both EGRESS_BLOCKED this session. This is a disclosed tooling limitation, not a resolved absence of evidence.
+EVIDENCE_QUALITY = MEDIUM — pivot/revenue-mix figures and IREN's notes terms are VERIFIED FACT; Anthropic's own credit standing and whether it (or an equivalent guarantor) backs the WULF lease specifically remain UNVERIFIED LEAD / DATA LIMITED
+THESIS_OR_ASYMMETRY_CHANGE = Unchanged — both names' investment case remains in-progress, not settled for either
+SURVIVABILITY_OR_FINANCING_CHANGE = WULF: ~$5.8B total debt (~63% naive debt+equity cap), refinancing/conversion risk on $2.5B convertible notes ahead of H2 2027 revenue start. IREN: $11B-$16B FY2027 financing gap (recomputed directly from disclosed $14B funding vs $25B-$30B guided capex), still a management aspiration, not secured.
+NEXT_GATE = Retry the two blocked primary documents (SEC 8-K exhibit, TeraWulf IR press release) from a session/tool with sec.gov and investors.terawulf.com egress access, or have them fetched and pasted in directly — this is now the single most concrete, actionable next step for this gate. Also close IREN's Q1 FY2027 financing-gap checkpoint.
 SUPERSEDES = NONE
 RESOLVES_HANDOFF_ID = NONE
-ACTIVE_UNTIL = Next Verifier/Underwriter cycle that closes the Anthropic-credit gap
+ACTIVE_UNTIL = Next cycle that either gets egress access or receives the documents directly
 REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = YES
+```
+
+## HANDOFF_ID = 20260903-DEEPAUDIT-TSLA-EVIDENCE_GATE
+```
+HANDOFF_ID = 20260903-DEEPAUDIT-TSLA-EVIDENCE_GATE
+ORIGIN_MODULE = DEEPAUDIT
+ORIGIN_DATE = 2026-09-03
+SECURITY/TICKER = TSLA
+HANDOFF_TYPE = EVIDENCE_GATE
+SOURCE = Deep Audit Underwriter + Risk and Survivability + Red Team, 2026-09-03 run
+SOURCE_SIGNAL_DATE = 2026-09-03
+DEDUP_KEY = DEEPAUDIT|TSLA|EVIDENCE_GATE|2026-09-03
+PREVIOUS_STATE = Not previously flagged as a distinct evidence gate
+NEW_STATE = TSLA's convexity thesis rests substantially on the Optimus humanoid-robot production claim (guided to begin late July/August 2026 at Fremont) — no independent confirmation this cycle that it happened on schedule. Underwriter rates raw convexity UNKNOWN (not credible) pending verification, per Burden of Proof. Red Team identified this as evidentially identical in kind to the WULF/Anthropic evidence gate, yet the prior report chain gave TSLA no equivalent scrutiny or capital-freeze treatment. This handoff corrects that asymmetry: TSLA and WULF are now paired Burden-of-Proof watch items.
+EVIDENCE_QUALITY = MEDIUM — Q2 2026 delivery recovery (+25% YoY) is VERIFIED FACT; the Optimus production-start claim is UNVERIFIED LEAD, no primary or secondary confirmation found this cycle
+THESIS_OR_ASYMMETRY_CHANGE = The verified EV-delivery-recovery thesis alone supports TSLA's current in-line (~5.5%) weight. The unverified Optimus claim is the only element that would justify convexity beyond that; until verified, no additional weight should be attributed to it.
+SURVIVABILITY_OR_FINANCING_CHANGE = FY2026 capex guided >$25B "with further increases in H2 2026," tied partly to the Optimus buildout — a funding-strain risk specifically on the unverified part of the thesis
+NEXT_GATE = Direct search/confirmation of whether Optimus production actually began at Fremont in the guided window; Tesla's Q3 2026 delivery report (~early October 2026) for the EV-delivery leg
+SUPERSEDES = NONE
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Next cycle that finds a company-issued Optimus production-status update
+REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
+MANDATORY_DEEP_UNDERWRITING = NO
 ```
 
 ## HANDOFF_ID = 20260903-CENSUS-AMKR-NEW_CHALLENGER
