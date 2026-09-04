@@ -1,7 +1,7 @@
 # CAOS — DCA Execution Card
 
 **Command:** `Prepare CAOS DCA Execution Card`
-**Status:** IMPLEMENTATION IN PROGRESS — runbook written, never yet executed for real
+**Status:** VALIDATED — executed for real 2026-09-03, resolved HOLD CASH (see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_DCA]])
 **Default schedule (inactive):** shortly after Mark's confirmed monthly contribution date, once task capacity permits; otherwise manual whenever Mark says new cash is available
 
 ## What this does

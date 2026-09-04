@@ -1,7 +1,7 @@
 # CAOS — Deep Audit
 
 **Command:** `Run CAOS Deep Audit`
-**Status:** IMPLEMENTATION IN PROGRESS — runbook written, never yet executed for real
+**Status:** VALIDATED — executed for real 2026-09-03, first post-intake review (see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_DEEPAUDIT]])
 **Default schedule (inactive):** manual only, recommended monthly
 
 ## What this does

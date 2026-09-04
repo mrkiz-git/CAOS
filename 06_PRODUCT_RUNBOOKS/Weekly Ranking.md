@@ -1,7 +1,7 @@
 # CAOS — Weekly Ranking
 
 **Command:** `Run CAOS Weekly Ranking`  
-**Status:** IMPLEMENTATION IN PROGRESS  
+**Status:** VALIDATED — executed for real 2026-09-03 (see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_0740_WEEKLY]]); numeric ranking mechanism found structurally blocked, qualitative ordering substituted  
 **Default schedule:** Sunday 10:00, Mark's confirmed timezone (manual or scheduled trigger)
 
 ---

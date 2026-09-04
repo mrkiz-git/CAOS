@@ -1,7 +1,7 @@
 # CAOS — Emergency Thesis Rerun
 
 **Command:** `Run CAOS Emergency Thesis Rerun: <ticker/event>`
-**Status:** IMPLEMENTATION IN PROGRESS — runbook written, never yet executed for real
+**Status:** VALIDATED — executed for real 2026-09-03 on TSLA (Cybercab launch trigger), verdict DEGRADED (see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_TSLA_EMERGENCY]])
 **Default schedule (inactive):** ad hoc, triggered by Mark after material news
 
 ## What this does
