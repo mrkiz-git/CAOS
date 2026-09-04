@@ -1,7 +1,7 @@
 # CAOS — Monster Census
 
 **Command:** `Run CAOS Monster Census`
-**Status:** IMPLEMENTATION IN PROGRESS (Agent specs complete; scheduling and integration pending)
+**Status:** VALIDATED — executed for real 2026-09-03, first-ever run (see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-03_CENSUS]])
 **Default schedule (inactive):** Saturday 09:00, Mark's confirmed timezone
 
 ## What this product will do

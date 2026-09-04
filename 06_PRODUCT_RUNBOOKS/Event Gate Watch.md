@@ -1,7 +1,7 @@
 # CAOS — Event Gate Watch
 
 **Command:** (automated watch — no manual trigger phrase in the source doc; invoke by typing `Run CAOS Event Gate Watch`)
-**Status:** IMPLEMENTATION IN PROGRESS — runbook written, never yet executed for real
+**Status:** VALIDATED — executed for real 2026-09-03, 2 gates checked and advanced (see [[03_AGENT_RUNS/09_ORCHESTRATOR/EVENT_GATE_WATCH_2026-09-03]])
 **Default schedule (inactive):** daily at 02:00, Mark's confirmed timezone — not configured; run manually
 
 ## What this does

@@ -1,7 +1,7 @@
 # CAOS — Multi-Bagger Hunter Watch
 
 **Command:** `Run CAOS Multi-Bagger Hunter Watch` (background watch — no scheduler configured this pass; invoke manually by typing the command)
-**Status:** IMPLEMENTATION IN PROGRESS — runbook written, never yet executed for real
+**Status:** VALIDATED — executed for real 2026-09-03, NO NEW SIGNALS (see [[03_AGENT_RUNS/02_DISCOVERY/HUNTER_2026-09-03_1500]])
 **Default schedule (inactive):** daily condition watch, at most hourly, Mark's confirmed timezone
 
 ## What this does
