@@ -72,6 +72,66 @@ See [[02_ACTIVE_HANDOFF/CAOS — ACTIVE HANDOFF SNAPSHOT]] for the live unresolv
 ## 8. Material CAOS EVENT History
 STATUS: INITIALIZED
 
+### Event 1: Portfolio Rebalance for Count Constraint
+============================================================
+CAOS EVENT
+============================================================
+EVENT_ID = 2026-09-09-PORTFOLIO-REBALANCE
+EVENT_TYPE = PORTFOLIO_EXECUTION
+MODULE = USER_DIRECTED
+TIMESTAMP_LOCAL = 2026-09-09 (order execution confirmed via Revolut screenshot)
+DECISION_AUTHORITY = Mark
+EXECUTION_AUTHORITY = Mark only
+TRANSACTION_RESULT = CONFIRMED FILLS (3 orders completed)
+
+SOURCE_AND_PORTFOLIO_STATE
+- Revolut broker account, Sofia, Bulgaria
+- Portfolio screenshot 2026-09-09: €9,405.50 total, €5,465.84 cash
+- Rebalance rationale: portfolio count (8 holdings) exceeded draft cap (7); user chose balanced reduction strategy
+
+PREVIOUS_STATE
+- 8 funded holdings: PLTR (21.69 sh), NVDA (14.88 sh), MSFT (1.96 sh), KO (11.07 sh), GOOGL (1.86 sh), TSLA (1.68 sh), IREN (8.11 sh), WULF (18.92 sh)
+- €0.95 cash
+
+NEW_STATE
+- 6 funded holdings: NVDA (7.44 sh at 50% reduction), MSFT, GOOGL, TSLA, IREN, WULF
+- PLTR: fully exited (21.69 sh → 0)
+- KO: fully exited (11.07 sh → 0)
+- €5,465.84 cash (freed via rebalance)
+
+VERIFIED EVIDENCE
+- Revolut screenshot dated 2026-09-09, account total €9,405.50 (+22.25% from 2026-09-02 baseline)
+- Order fills confirmed: PLTR full exit, NVDA 50% reduction, KO full exit
+- Holdings list matches rebalance plan exactly
+
+CAOS INTERPRETATION
+- Rebalance resolved portfolio-count blocker (8 → 6 holdings, within draft 7-cap)
+- PLTR (35.6% concentrated single position, AI momentum play) exited entirely per user decision
+- NVDA concentration reduced from 29.8% to 14.9%, preserving core thesis while reducing correlated-AI-capex risk
+- KO orphan status (1.0%, no clear thesis) exited per user decision
+- Result: portfolio now has 6 holdings, €5,465.84 cash buffer, reduced correlation risk
+
+SURVIVABILITY / FINANCING / DILUTION
+- No financing or dilution events
+- Cash position now supports €2,500 balanced deployment (€1,000 RCAT + €1,500 AVGO) with €3,000+ buffer remaining
+- Hedged against concentrated single-position loss vectors
+
+ACTIONABILITY
+- Portfolio-count constraint resolved: can now deploy capital to new positions without hitting cap
+- Rebalance completed; next action: run Daily Anchor with new baseline, then execute balanced investment plan
+
+NEXT PROOF GATE
+- Daily Anchor 2026-09-09: fresh discovery, forward guidance review, re-ranking with new cash baseline
+- Investment deployment proof gates: RCAT SWAP contract award by Q4 2026; AVGO $115B FY2027 guidance execution
+
+SUPERSEDES / RESOLVES
+- Supersedes: all prior portfolio snapshots dated 2026-09-02 and earlier
+- Resolves: portfolio-count blocker that prevented 2026-09-09 Daily Anchor completion
+
+============================================================
+END CAOS EVENT
+============================================================
+
 ### Event 0: CAOS System Initialization
 ============================================================
 CAOS EVENT
