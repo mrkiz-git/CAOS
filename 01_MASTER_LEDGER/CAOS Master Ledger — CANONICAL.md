@@ -16,44 +16,56 @@ This is the sole controlling long-term portfolio and decision record for CAOS. I
 **Restrictions:** None (no sector, geographic, security-type, or liquidity exclusions)
 
 ## 2. Current Portfolio Snapshot
-STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit Verdict)
-SOURCE: Revolut broker state (2026-09-09 Event 1 rebalance), live prices verified 2026-09-10 (Verifier audit)
-TIMESTAMP: 2026-09-10 (prices from WebSearch intraday quotes; verified by Verifier agent)
+STATUS: UPDATED — 2026-09-11 (per Event 3: Deep Audit Reconciliation)
+SOURCE: Mark's Revolut broker screenshot, received 2026-09-11; Deep Audit Verifier
+TIMESTAMP: 2026-09-11 (visible screenshot time approximately 07:44 local; exact broker capture time UNKNOWN)
 CURRENCY: Mixed (EUR for cash, USD for holdings; living portfolio — all future snapshots will use current live prices at update time)
-ACCOUNT TOTAL (per Verifier 2026-09-10): €9,682.33 (current live prices; +2.94% from Event 1 baseline 2026-09-09 €9,405.50)
+ACCOUNT TOTAL (per broker screenshot): €9,327.53
 
 **Funded Holdings (6 securities — post-Event 1 rebalance; post-Event 2 role reassignment pending rebalancing execution):**
-| Ticker | Company | Type | Shares | Avg Cost | Current Price (2026-09-10) | Current Value (EUR) | % of Portfolio | Role Status (Event 2) |
-|--------|---------|------|--------|----------|------------|-----------------|-------------|---------|
-| NVDA | NVIDIA | EQUITY | 7.44 | $98.59 | $225.73 | €1,443.14 | 14.88% | CORE/ATTACKER (TRIM pending to 10%) |
-| MSFT | Microsoft | EQUITY | 1.96 | $356.11 | $510.65 | €859.89 | 8.88% | CORE/ATTACKER (HOLD) |
-| GOOGL | Alphabet Class A | EQUITY | 1.86 | $106.45 | $338.04 | €540.14 | 5.58% | CORE/ATTACKER (HOLD; can ADD to 7% post-Jan 2027) |
-| TSLA | Tesla | EQUITY | 1.68 | $213.97 | $365.88 | €528.19 | 5.45% | **SEED/CATALYST** (reclassified from CORE; TRIM pending to 2-3%) |
-| IREN | Iris Energy | EQUITY | 8.11 | $37.61 | $37.93 | €264.41 | 2.73% | **SEED** (reclassified from CORE; HOLD+VERIFY pending; may EXIT) |
-| WULF | TeraWulf Inc | EQUITY | 18.92 | $16.12 | $15.25 | €248.11 | 2.56% | **WATCH** (reclassified from CORE; HOLD+VERIFY pending; TECHNICAL BREACH 55%<60%; may EXIT) |
+| Ticker | Company | Type | Shares | Avg Cost | Current Price (2026-09-11 screenshot) | Current Value / Weight |
+|--------|---------|------|--------|----------|-------------------------------|------------------------|
+| NVDA | NVIDIA | EQUITY | 7.44229202 | $134.35 screenshot display; prior basis differs | $217.79 | DATA LIMITED — same-time EUR/USD unavailable |
+| MSFT | Microsoft | EQUITY | 1.96105021 | $356.11 | $490.10 | DATA LIMITED — same-time EUR/USD unavailable |
+| GOOGL | Alphabet Class A | EQUITY | 1.85516511 | $106.45 | $331.20 | DATA LIMITED — same-time EUR/USD unavailable |
+| TSLA | Tesla | EQUITY | 1.67642235 | $213.97 | $363.46 | DATA LIMITED — same-time EUR/USD unavailable |
+| IREN | Iris Energy | EQUITY | 8.1098693 | $37.61 | $43.35 | DATA LIMITED — same-time EUR/USD unavailable |
+| WULF | TeraWulf Inc | EQUITY | 18.91535598 | $16.12 | $16.12 | DATA LIMITED — same-time EUR/USD unavailable |
 
 **Cash:**
 | Currency | Amount | Type | Availability |
 |----------|--------|------|---------------|
-| EUR | €5,465.84 | Real unlevered cash | Full (freed via Event 1 rebalance) |
+| EUR | €5,487.36 | Broker-displayed cash; treated as real unlevered cash pending account-settings confirmation | Full (equals broker-displayed available-to-invest) |
 | USD | $0.00 | Real unlevered cash | None |
 
-**Holdings Total:** €4,216.49 (40.07% of portfolio)  
-**Cash Total:** €5,465.84 (59.93% of portfolio)  
-**Portfolio NAV:** €9,682.33
+**Holdings Total:** DATA LIMITED — holdings are displayed in USD and no same-time EUR/USD conversion was supplied.
+**Cash Total:** €5,487.36 (58.8% of displayed portfolio NAV)
+**Portfolio NAV:** €9,327.53
 
-**Note:** Role assignments reflect Event 2 (Deep Audit Verdict) recommendations. Execution (Tier 1 NVDA/TSLA trims, Tier 2 IREN/WULF verification, Tier 3 new Seed deployments) is pending Mark approval via Event 2 logging (confirmed 2026-09-10).
+**Note:** Event 3 supersedes unsupported execution-ready wording in Event 2. No trim, sale, purchase, or fill is recorded from the 2026-09-11 audit. Exact weights require live regular-session prices and verified EUR/USD.
 
 ## 3. Real Cash vs. Buying Power
-STATUS: INITIALIZED (2026-08-31), cash figure corrected 2026-09-02
+STATUS: UPDATED — 2026-09-11 (per Event 3 broker reconciliation)
 
-**Real unlevered cash:** €0.95 (in broker, no margin, no leverage)
-**Broker buying power:** equal to real cash (no credit line, no margin account)
+**Broker-displayed cash:** €5,487.36
+**Real unlevered cash:** €5,487.36 — CAOS INFERENCE, supported by equal cash and available-to-invest figures plus the no-leverage mandate; account-settings proof remains unavailable.
+**Broker buying power:** broker-displayed available-to-invest €5,487.36; direct account-settings confirmation remains DATA LIMITED.
 **Committed to monthly contribution:** €300/month (future contribution, not yet in account)
 **Constraint:** Leverage explicitly prohibited; all positions unlevered
 
 ## 4. Funded-Security Roles
 STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit formal role review complete)
+
+### Current role interpretation — Event 3, 2026-09-11
+
+This interpretation supersedes Event 2's execution-ready role and sizing claims. It records research states only; it does not record a trade or alter broker quantities.
+
+- **MSFT, GOOGL, NVDA:** CORE/ATTACKER. NVDA remains an INCLUDE but at lower concentration in the fresh-cash frame; exact target requires a live execution card.
+- **TSLA:** SEED/CATALYST. Fresh-cash range 0%-2%; current size is not protected by ownership.
+- **IREN:** SEED. Fresh-cash range 0%-2%, conditional on Horizon acceptance, delivery, financing, and retained-cash gates.
+- **WULF:** WATCH. Survival judgment 58% passes the Watch threshold of 40%; it does not qualify for Seed status. Fresh-cash range 0%-1%, conditional on CB-4/CB-5 and project-economics gates.
+
+The historical Event 2 description remains below as an append-only record; statements there claiming completed or ready execution are corrected by Event 3.
 
 **Funded Holdings Post-Event 2 Reassignment:**
 
@@ -84,6 +96,23 @@ All role reassignments above are formalized under Event 2 (Deep Audit formal rev
 ## 5. Candidate / Status Registry
 STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit candidate evaluation complete)
 
+### Current candidate registry — Event 3, 2026-09-11
+
+| Ticker | Status | Current evidence state | Next gate |
+|---|---|---|---|
+| CRDO | CHALLENGER | Strongest fresh operating evidence; concentration, cash conversion, dilution, and architecture gaps remain | Q2 FY2027 revenue ≥$525m, GAAP margin ≥62.9%, positive operating cash flow, diluted shares <5% YoY |
+| AXON | CHALLENGER | Recurring platform and diversification; valuation, stock compensation, and cash conversion open | Two filings with revenue/ARR ≥30%, NRR ≥120%, SBC <15% of revenue, positive trailing OCF |
+| ISRG | SEED CANDIDATE | High-quality medical-robotics diversifier | Procedure growth ≥13.5%, margin ≥68%, recurring growth near procedures |
+| CEG | SEED CANDIDATE | Investment-grade power exposure; Calpine accretion/debt gate | EPS guide ≥$11.50, investment grade retained, debt controlled, per-share accretion |
+| MOD | SERIOUS REVIEW / GATED SEED | Cooling growth, but margin, free cash flow, debt, and separation gates open | Data Center margin >22% for two quarters, positive cumulative FCF, clean separation |
+| IREN | FUNDED SEED | Delivery and retained-economics gate open | Horizon acceptance, Q4 delivery, recognized AI revenue, financing unchanged |
+| WULF | FUNDED WATCH | Construction, tenant, leverage, and retained-economics gate open | CB-4 rent, cost/MW, credit support, CB-5 on track, post-debt cash disclosure |
+| ONDS | WATCH WITH SPECIFIC TRIGGER | Replaces contradictory REJECT and HIGH-PRIORITY CHALLENGER records | Organic growth ≥30%, task-order growth, burn ≤$100m/half, shares ≤5% QoQ |
+| KTOS | WATCH / DATA LIMITED | Current issuer economics not decision-grade | Q3 guidance, funded backlog/book-to-bill, cash flow, Valkyrie delivery evidence |
+| NVT, TEM | WATCH / DATA LIMITED | Not fundable until issuer economics and per-share evidence are closed | Current filings, cash conversion, leverage, dilution, valuation, and named proof gates |
+
+The Event 2 registry below remains historical. It is superseded where it conflicts with this table.
+
 **Active Candidates (SEED tier, ready for deployment post-Event 2 approval):**
 
 | Ticker | Company | Status | Conviction | Survival | Price (2026-09-10) | Target % | Allocation | Proof Gate | Notes |
@@ -108,6 +137,14 @@ STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit candidate evaluation com
 
 ## 6. Active Evidence Gates and Tribunals
 STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit proof gates logged)
+
+### Current priority gates — Event 3, 2026-09-11
+
+- **IREN:** Verify Horizon 2 acceptance, Horizons 3-4 Q4 delivery, recognized AI revenue, financing/covenant capacity, and retained cash after debt service. Price moves are not evidence of deterioration.
+- **WULF:** Verify CB-4 rent commencement, cost within $8m-$10m per critical IT MW, unchanged lease/credit support, CB-5 schedule, and cash retained after financing. Price moves are not evidence of deterioration.
+- **Portfolio execution:** No action until regular-session broker prices, EUR/USD, fill history, cash reconciliation, and the NVDA average-cost anomaly are resolved.
+
+The Event 2 gate text below is historical and is superseded where it frames price declines as evidence of structural breakage or treats stale financing/revenue claims as current fact.
 
 **URGENT GATE (Within 5 Days, Due 2026-09-15):**
 
@@ -166,6 +203,14 @@ STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit proof gates logged)
 
 ## 7. Standardized Handoff Index
 STATUS: UPDATED — 2026-09-10 (per Event 2: Deep Audit handoff emissions logged)
+
+### Current handoff status — Event 3, 2026-09-11
+
+- `20260902-DAILY-PORTFOLIO-COUNT_OVERAGE`: RESOLVED by fresh broker display of six funded securities; §11 rule status remains separate and unresolved.
+- `20260902-DAILY-WULF_IREN-EVIDENCE_GATE`: SUPERSEDED by `20260911-DEEPAUDIT-IREN_WULF-UPDATED_GATE`.
+- `20260902-DAILY-ONDS-NEW_CHALLENGER`: SUPERSEDED by `20260911-DEEPAUDIT-ONDS-STATE`.
+- `20260910-DEEPAUDIT-TSLA_RECLASSIFICATION`, `20260910-DEEPAUDIT-CAPITAL_RECYCLING`, and `20260910-DEEPAUDIT-ROLE_REASSIGNMENTS`: NOT EXECUTION-READY; superseded by `20260911-DEEPAUDIT-PORTFOLIO-REBALANCE-REVIEW` pending a live execution card.
+- The Active Handoff Snapshot is the controlling live queue and was synchronized in Event 3.
 
 **Active Handoff Emissions (from Event 2: Deep Audit Verdict + Rebalancing Recommendation):**
 
@@ -505,14 +550,84 @@ SUPERSEDES / RESOLVES
 END CAOS EVENT
 ============================================================
 
+### Event 3: Deep Audit Reconciliation and Rebalancing Review
+============================================================
+CAOS EVENT
+============================================================
+EVENT_ID = 2026-09-11-DEEPAUDIT-REBALANCE-REVIEW
+EVENT_TYPE = DEEP_AUDIT_VERDICT
+MODULE = DEEP_AUDIT
+TIMESTAMP_LOCAL = 2026-09-11, Europe/Sofia; market closed
+DECISION_AUTHORITY = Mark
+EXECUTION_AUTHORITY = Mark only
+TRANSACTION_RESULT = NO TRADE
+
+SOURCE_AND_PORTFOLIO_STATE
+- Revolut screenshot: €9,327.53 NAV; €5,487.36 cash/available; six displayed holdings
+- Prices captured outside regular US trading hours; no execution price or same-time EUR/USD is recorded
+- NVDA average-price display changed with unchanged quantity; cause UNKNOWN
+
+PREVIOUS_STATE
+- Event 2 described execution-ready trims, deployments, and stale candidate/evidence states
+- Ledger §2/§3 cash figures conflicted; §9 had no fill records; Active Handoff Snapshot lacked September 10 handoffs
+
+NEW_STATE
+- DEEP AUDIT DEGRADED / NEEDS REBALANCING
+- MSFT, GOOGL, and NVDA remain quality inclusions; NVDA concentration should be lower in a fresh-cash map
+- TSLA, IREN, and WULF do not justify their current weights in the fresh-cash frame; recommended research ranges are respectively 0%-2%, 0%-2%, and 0%-1%
+- CRDO and AXON are Challengers; ISRG and CEG are Seed candidates; MOD is a gated serious review; ONDS is Watch with Specific Trigger
+- No transaction, fill, target weight, or exact allocation is approved by this event
+
+VERIFIED EVIDENCE
+- Full Deep Audit completed with eight linked specialist outputs
+- 52-company discovery; every funded holding and five fresh priorities underwritten
+- No assigned-role survival threshold breach; Red Team supports rebalancing direction but rejects exact-weight precision
+
+CAOS INTERPRETATION
+- Current portfolio is survivable but not the preferred fresh-cash portfolio
+- Incumbency bias risk is material in TSLA, IREN, and WULF; price action alone is not treated as thesis evidence
+- Exact allocation needs live market data, verified FX, a cash hurdle, direct comparator coverage, and a formal execution card
+
+SURVIVABILITY / FINANCING / DILUTION
+- Cash is 58.8% of displayed NAV
+- IREN financing evidence is stronger than stale framing but delivery and retained-economics gates remain
+- WULF has current HPC lease revenue but construction, tenant, leverage, and retained-economics gates remain
+
+ACTIONABILITY
+- No immediate trade
+- Reconcile broker/ledger fills, cash, FX, and NVDA cost basis
+- Complete IREN/WULF gate by 2026-09-15
+- Use a live execution card before any trade
+
+NEXT PROOF GATE
+- IREN Horizon acceptance/Q4 delivery and WULF CB-4 rent/project-economics evidence
+- CRDO Q2 FY2027 revenue, margin, cash conversion, concentration, and dilution tests
+- Mark's review of live execution card and system-rule status
+
+SUPERSEDES / RESOLVES
+- Supersedes unsupported execution-ready and stale evidence wording in Event 2; Event 2 remains preserved as history
+- Resolves 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE
+- Does not resolve IREN/WULF, ONDS, or execution-review handoffs
+============================================================
+END CAOS EVENT
+============================================================
+
 ## 9. Confirmed Transactions / Fills
-STATUS: EMPTY
+STATUS: RECONCILIATION REQUIRED — Event 3
+
+The current broker display verifies resulting quantities but does not verify trade dates, fill prices, fees, FX, transaction sequence, or realized results. Do not populate this section until Mark provides a broker transaction export or explicit fill confirmation.
 
 ## 10. Supersession and Resolution Map
-STATUS: EMPTY
+STATUS: UPDATED — 2026-09-11
+
+- `20260902-DAILY-PORTFOLIO-COUNT_OVERAGE` → RESOLVED by Event 3 fresh broker state.
+- `20260902-DAILY-WULF_IREN-EVIDENCE_GATE` → SUPERSEDED by `20260911-DEEPAUDIT-IREN_WULF-UPDATED_GATE`.
+- `20260902-DAILY-ONDS-NEW_CHALLENGER` → SUPERSEDED by `20260911-DEEPAUDIT-ONDS-STATE`.
+- `20260910-DEEPAUDIT-CAPITAL_RECYCLING` → SUPERSEDED by `20260911-DEEPAUDIT-PORTFOLIO-REBALANCE-REVIEW` as a live execution proposal; no trade executed.
+- Event 2 role and candidate claims → SUPERSEDED only where Event 3 directly identifies stale evidence, incorrect threshold use, contradictory status, or unsupported execution-ready language.
 
 ## 11. System Rules and Amendments
-**STATUS:** DRAFT (pending Mark formal confirmation; Event 2 provides validation and clarification)
+**STATUS:** DRAFT (Mark has not explicitly confirmed or amended these rules; Event 3 records this status.)
 
 **Confirmed Operating Rules (per Event 2 Deep Audit validation):**
 
@@ -554,7 +669,7 @@ STATUS: EMPTY
 - **Mark:** Sole decision authority for all portfolio actions (buys, sells, role reassignments, approval of execution plans)
 - **Agents:** Research and recommendation only; produce evidence, analysis, and proposed verdicts; do not execute trades without explicit Mark approval
 
-**These rules are CONFIRMED per Event 2 Deep Audit validation.** Mark's formal approval to log Event 2 constitutes acceptance of these operating rules for all future portfolio decisions. Future amendments require explicit Mark instruction and Event logging.
+**Event 3 correction:** these rules remain DRAFT until Mark explicitly confirms or amends them. Logging an audit preserves findings; it does not itself convert draft rules into binding rules.
 
 ## 12. Historical Archive
 STATUS: EMPTY

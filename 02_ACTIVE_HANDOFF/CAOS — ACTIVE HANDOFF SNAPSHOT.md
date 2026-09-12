@@ -11,32 +11,36 @@ This is the live, unresolved cross-module queue — not the holdings ledger. It 
 None. (Hunter Watch product has no real run yet.)
 
 ## Challengers
-- ONDS (Ondas Holdings) — see [[#HANDOFF_ID = 20260902-DAILY-ONDS-NEW_CHALLENGER]]
+- CRDO (Credo Technology) — Challenger; next gate is Q2 FY2027 revenue, margin, cash conversion, concentration, and dilution.
+- AXON (Axon Enterprise) — Challenger; next gate is growth, retention, stock compensation, and cash conversion.
 
 ## Seeds
-None.
+- ISRG (Intuitive Surgical) — Seed candidate; proof-gated.
+- CEG (Constellation Energy) — Seed candidate; proof-gated.
 
 ## Trigger Watches
-None.
+- ONDS (Ondas Holdings) — see [[#HANDOFF_ID = 20260911-DEEPAUDIT-ONDS-STATE]]
+- MOD (Modine Manufacturing), KTOS (Kratos Defense), NVT (nVent), TEM (Tempus AI) — evidence-gated, not funded.
 
 ## Event Gates
-- WULF/IREN Anthropic-credit evidence gate — see [[#HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE]]
+- IREN/WULF updated delivery and project-economics gate — see [[#HANDOFF_ID = 20260911-DEEPAUDIT-IREN_WULF-UPDATED_GATE]]
 
 ## Tribunals
-- Portfolio-count / concentration overage — see [[#HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE]]
+- Portfolio rebalancing review — see [[#HANDOFF_ID = 20260911-DEEPAUDIT-PORTFOLIO-REBALANCE-REVIEW]]
 
 ## Source Status
-Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-02_001]]: Master Ledger READY (self-consistent), Active Handoff Snapshot READY, market-status WebSearch READY, equity-quote WebSearch DEGRADED (no dedicated financial-data API; TSLA/IREN/WULF prices internally conflicting across sources), dedicated financial-data API UNAVAILABLE. `DATA QUALITY = DEGRADED` as of 2026-09-02.
+Per [[03_AGENT_RUNS/01_VERIFIER/VERIFIER_2026-09-11_DEEPAUDIT]]: broker quantities and cash are current; regular US market was closed; quote provenance, transaction history, exact FX, and NVDA average-cost history are DATA LIMITED. Master Ledger contained cash, fill-history, candidate-status, and rule-status contradictions. `DATA QUALITY = DEGRADED` as of 2026-09-11.
 
 ## Acknowledgements
-None yet — these are new handoffs from today's run, not yet consumed by a downstream product.
+- Deep Audit 2026-09-11 consumed all three September 2 blocks; see supersession/resolution fields below.
+- September 10 Ledger-only handoffs were not valid live handoffs because they were absent here; their execution-ready wording is superseded by the September 11 rebalancing-review block.
 
 ## Last Writer
-Orchestrator, Daily Anchor run 2026-09-02_001 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-02_001]]
+Orchestrator, Full Deep Audit run 2026-09-11 — see [[03_AGENT_RUNS/09_ORCHESTRATOR/ORCHESTRATOR_2026-09-11_DEEPAUDIT]]
 
 ---
 
-## HANDOFF_ID = 20260902-DAILY-ONDS-NEW_CHALLENGER
+## SUPERSEDED HANDOFF_ID = 20260902-DAILY-ONDS-NEW_CHALLENGER
 ```
 HANDOFF_ID = 20260902-DAILY-ONDS-NEW_CHALLENGER
 ORIGIN_MODULE = DAILY
@@ -59,7 +63,7 @@ REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = NO
 ```
 
-## HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE
+## RESOLVED HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE
 ```
 HANDOFF_ID = 20260902-DAILY-PORTFOLIO-COUNT_OVERAGE
 ORIGIN_MODULE = DAILY
@@ -82,7 +86,7 @@ REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = YES
 ```
 
-## HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE
+## SUPERSEDED HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE
 ```
 HANDOFF_ID = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE
 ORIGIN_MODULE = DAILY
@@ -103,4 +107,77 @@ RESOLVES_HANDOFF_ID = NONE
 ACTIVE_UNTIL = Next Verifier/Underwriter cycle that closes the Anthropic-credit gap
 REQUIRED_CONSUMERS = DAILY, WEEKLY, CENSUS
 MANDATORY_DEEP_UNDERWRITING = YES
+```
+
+---
+
+## Active Handoff Blocks — Event 3, 2026-09-11
+
+## HANDOFF_ID = 20260911-DEEPAUDIT-PORTFOLIO-REBALANCE-REVIEW
+```
+HANDOFF_ID = 20260911-DEEPAUDIT-PORTFOLIO-REBALANCE-REVIEW
+ORIGIN_MODULE = MANUAL
+ORIGIN_DATE = 2026-09-11
+SECURITY/TICKER = PORTFOLIO
+HANDOFF_TYPE = PORTFOLIO_TRIBUNAL
+SOURCE = Full Deep Audit 2026-09-11
+SOURCE_SIGNAL_DATE = 2026-09-11
+DEDUP_KEY = DEEPAUDIT|PORTFOLIO|REBALANCE_REVIEW|2026-09-11
+PREVIOUS_STATE = September 10 execution-ready rebalance plan
+NEW_STATE = Rebalancing direction supported; exact weights and execution blocked pending live reconciliation and comparison gaps
+EVIDENCE_QUALITY = MEDIUM
+THESIS_OR_ASYMMETRY_CHANGE = MSFT/GOOGL/NVDA survive; TSLA/IREN/WULF fail current-size fresh-cash test; CRDO/ISRG/AXON/CEG lead replacements
+SURVIVABILITY_OR_FINANCING_CHANGE = No assigned-role survival breach; project-finance and optionality risk remain concentrated
+NEXT_GATE = Live execution card after broker/FX/fill reconciliation and IREN/WULF gates
+SUPERSEDES = 20260910-DEEPAUDIT-CAPITAL_RECYCLING
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Mark approves, rejects, or amends execution plan
+REQUIRED_CONSUMERS = DAILY,WEEKLY,EVENT_GATE
+MANDATORY_DEEP_UNDERWRITING = NO
+```
+
+## HANDOFF_ID = 20260911-DEEPAUDIT-IREN_WULF-UPDATED_GATE
+```
+HANDOFF_ID = 20260911-DEEPAUDIT-IREN_WULF-UPDATED_GATE
+ORIGIN_MODULE = MANUAL
+ORIGIN_DATE = 2026-09-11
+SECURITY/TICKER = IREN,WULF
+HANDOFF_TYPE = EVIDENCE_GATE
+SOURCE = Full Deep Audit Forward + Underwriter + Risk
+SOURCE_SIGNAL_DATE = 2026-09-11
+DEDUP_KEY = DEEPAUDIT|IREN_WULF|UPDATED_GATE|2026-09-11
+PREVIOUS_STATE = Stale financing/revenue framing tied partly to price decline
+NEW_STATE = IREN financing improved but delivery-gated; WULF has HPC revenue but rent/project-economics gated
+EVIDENCE_QUALITY = HIGH for disclosed contracts/financing; DATA LIMITED for retained economics
+THESIS_OR_ASYMMETRY_CHANGE = Both remain credible optionality, not current-size fresh-cash inclusions
+SURVIVABILITY_OR_FINANCING_CHANGE = IREN 68% Seed; WULF 58% Watch
+NEXT_GATE = IREN Horizon acceptance/Q4 delivery; WULF CB-4 rent/cost/credit support by 2026-09-15 review
+SUPERSEDES = 20260902-DAILY-WULF_IREN-EVIDENCE_GATE
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Gate adjudication
+REQUIRED_CONSUMERS = DAILY,WEEKLY,EVENT_GATE
+MANDATORY_DEEP_UNDERWRITING = NO
+```
+
+## HANDOFF_ID = 20260911-DEEPAUDIT-ONDS-STATE
+```
+HANDOFF_ID = 20260911-DEEPAUDIT-ONDS-STATE
+ORIGIN_MODULE = MANUAL
+ORIGIN_DATE = 2026-09-11
+SECURITY/TICKER = ONDS
+HANDOFF_TYPE = CANDIDATE_STATE
+SOURCE = Full Deep Audit Underwriter + Risk + Red Team
+SOURCE_SIGNAL_DATE = 2026-09-11
+DEDUP_KEY = DEEPAUDIT|ONDS|WATCH|2026-09-11
+PREVIOUS_STATE = Conflicting HIGH-PRIORITY CHALLENGER and REJECT
+NEW_STATE = WATCH WITH SPECIFIC TRIGGER; 0% funding ceiling
+EVIDENCE_QUALITY = MEDIUM
+THESIS_OR_ASYMMETRY_CHANGE = Raw upside survives; dilution, burn, organic growth, and acquisitions block funding
+SURVIVABILITY_OR_FINANCING_CHANGE = Survival 55%; above Watch floor, below robust Challenger quality
+NEXT_GATE = Organic growth >=30%, funded task-order growth, half-year burn <=$100m, quarterly share growth <=5%
+SUPERSEDES = 20260902-DAILY-ONDS-NEW_CHALLENGER
+RESOLVES_HANDOFF_ID = NONE
+ACTIVE_UNTIL = Next filing closes gates
+REQUIRED_CONSUMERS = DAILY,WEEKLY,CENSUS
+MANDATORY_DEEP_UNDERWRITING = NO
 ```

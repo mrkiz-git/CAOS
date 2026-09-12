@@ -14,7 +14,19 @@
       "Bash(git merge *)",
       "Bash(grep -E \"\\\\.json$|total\")",
       "Bash(grep -c \"MARK CAOS\" /Users/markelman/Projects/CAOS --include=\"*.md\" -r ! -path \"*05_ARCHIVE*\")",
-      "Bash(grep -v \":0$\")"
+      "Bash(grep -v \":0$\")",
+      "WebSearch",
+      "Bash(mkdir -p /private/tmp/claude-501/-Users-markelman-Projects-CAOS/46456988-7294-42d7-9599-2e46c8b32ecd/scratchpad 2>/dev/null || mkdir -p /tmp/caos_discovery_scratch && echo \"Directory created\")",
+      "Bash(curl -s \"https://investor.nvidia.com/news-and-events/news\")",
+      "Bash(curl -s \"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-Q&dateb=&owner=exclude&count=10\")",
+      "WebFetch(domain:www.sec.gov)",
+      "Bash(curl -s \"https://query2.finance.yahoo.com/v10/finance/quoteSummary/CEG?modules=price,financialData,defaultKeyStatistics\")",
+      "WebFetch(domain:finance.yahoo.com)",
+      "Bash(chmod +x /private/tmp/claude-501/-Users-markelman-Projects-CAOS/46456988-7294-42d7-9599-2e46c8b32ecd/scratchpad/fetch_prices.sh)",
+      "Bash(bash /private/tmp/claude-501/-Users-markelman-Projects-CAOS/46456988-7294-42d7-9599-2e46c8b32ecd/scratchpad/fetch_prices.sh)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }
