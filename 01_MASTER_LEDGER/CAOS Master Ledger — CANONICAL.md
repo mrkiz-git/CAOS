@@ -612,6 +612,58 @@ SUPERSEDES / RESOLVES
 END CAOS EVENT
 ============================================================
 
+### Event 4: Daily Anchor Monitoring
+============================================================
+CAOS EVENT
+============================================================
+EVENT_ID = 2026-09-12-DAILY-ANCHOR-MONITORING
+EVENT_TYPE = DAILY_ANCHOR_MONITORING
+MODULE = ORCHESTRATOR
+TIMESTAMP_LOCAL = 2026-09-12, Europe/Sofia; US regular market closed
+DECISION_AUTHORITY = Mark
+EXECUTION_AUTHORITY = Mark only
+TRANSACTION_RESULT = NO TRADE
+
+SOURCE_AND_PORTFOLIO_STATE
+- Latest broker state is 2026-09-11 screenshot: six holdings, €5,487.36 displayed cash; stale on 2026-09-12.
+- No usable fresh quote, same-time EUR/USD, broker transaction export, or NVDA cost-basis explanation.
+
+PREVIOUS_STATE
+- Event 3 Deep Audit rebalancing review open; IREN/WULF gates open; ONDS Watch open.
+
+NEW_STATE
+- Daily Anchor completed in degraded mode. No portfolio action.
+- FIX and POWL added as Serious Review referrals; CLS added as Serious Review, dilution-gated.
+- FN, MRCY, PRCT, and INSP added as Watch with Specific Trigger referrals.
+- No candidate receives funding status. No current ranking is economic-decision-grade.
+
+VERIFIED EVIDENCE
+- Eight specialist outputs completed and linked.
+- Discovery screened 14 fresh names across four lanes.
+- Red Team accepts execution block but rejects economic cash-first and inherited-incumbent ranking without common denominator.
+
+CAOS INTERPRETATION
+- Preserve fresh candidates and research gates. Do not alter holdings, allocation, or Active Handoff Snapshot until separately authorized.
+
+SURVIVABILITY / FINANCING / DILUTION
+- IREN/WULF gates remain open.
+- CLS equity offering requires dilution reconciliation.
+- Candidate valuation, leverage, per-share free cash flow, and concentration gaps remain.
+
+ACTIONABILITY
+- No trade.
+- Obtain fresh broker state next regular session, then run common-denominator comparison.
+
+NEXT PROOF GATE
+- Fresh broker screenshot/export with prices, cash, available-to-invest, and transactions.
+- Live valuation and per-share comparison for holdings, tracked candidates, and FIX/POWL/FN/MRCY/PRCT/INSP/CLS.
+
+SUPERSEDES / RESOLVES
+- Supersedes nothing. Resolves nothing. Event 3 and active gates remain open.
+============================================================
+END CAOS EVENT
+============================================================
+
 ## 9. Confirmed Transactions / Fills
 STATUS: RECONCILIATION REQUIRED — Event 3
 
